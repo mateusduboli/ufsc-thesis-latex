@@ -7,7 +7,7 @@
 %\ProcessOptions
 
 % Carrega como base a classe 'abntex2'
-\LoadClass[a5paper, 10.5pt, twoside]{abntex2}
+\LoadClass[a5paper, twoside]{abntex2}
 
 % Tamanho das fontes
 \RequirePackage{anyfontsize}
@@ -16,7 +16,7 @@
 \RequirePackage{times}
 
 % Padrão das referências
-\RequirePackage[alf]{abntex2cite}
+\RequirePackage[num]{abntex2cite}
 
 % Codificação padrão
 \RequirePackage[utf8]{inputenc}
@@ -66,6 +66,7 @@
 % Parágrafos
 \setlength{\parindent}{1.0cm}
 \setlength{\parskip}{0.0cm}
+\setlength{\afterchapskip}{1cm}
 
 % Comandos auxiliares
 \newcommand{\showfont}{encoding: \f@encoding{},
