@@ -7,7 +7,10 @@
 %\ProcessOptions
 
 % Carrega como base a classe 'abntex2'
-\LoadClass[a5paper, 10pt, twoside]{abntex2}
+\LoadClass[a5paper, 10.5pt, twoside]{abntex2}
+
+% Tamanho das fontes
+\RequirePackage{anyfontsize}
 
 % Fonte 'Times New Roman'
 \RequirePackage{times}
@@ -22,7 +25,7 @@
 \RequirePackage{indentfirst}
 
 % Tamanho da fonte padrão do 'ABNTEX'
-\renewcommand{\normalsize}{\ABNTEXchapterfont}
+\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}\sffamily}
 
 % Margens
 \setlrmarginsandblock{2.5cm}{1.5cm}{*}
@@ -30,12 +33,10 @@
 \checkandfixthelayout
 
 % Rodapé
-\setlength{\parindent}{1.0cm}
-\renewcommand{\footnotesize}{\fontsize{8pt}{9pt}\fontfamily{phv}}
-
+\renewcommand{\footnotesize}{\fontsize{9.5pt}{11.5pt}\fontfamily{phv}}
 
 % Citação
-\newcommand{\citacaosize}{\fontsize{8pt}{10pt}\selectfont}
+\newcommand{\citacaosize}{\fontsize{9.5pt}{11.5pt}\selectfont}
 \renewcommand{\ABNTEXcitacaorecuo}{4.0cm}
 \renewenvironment*{citacao}{%
    \list{}%
@@ -57,6 +58,21 @@
 	\renewcommand{\printchaptername}{ }
 	\renewcommand{\afterchapternum}{. }
 }
-
 \chapterstyle{a5-ufsc}
+\renewcommand{\ABNTEXsubsectionfontsize}{\ABNTEXsubsubsectionfontsize}
+\renewcommand{\ABNTEXsectionfontsize}{\ABNTEXsubsectionfontsize}
+\renewcommand{\ABNTEXchapterfontsize}{\ABNTEXsectionfontsize}
+
+% Parágrafos
+\setlength{\parindent}{1.0cm}
+\setlength{\parskip}{0.0cm}
+
+% Comandos auxiliares
+\newcommand{\showfont}{encoding: \f@encoding{},
+  family: \f@family{},
+  series: \f@series{},
+  shape: \f@shape{},
+  size: \f@size{}
+}
+
 \endinput
