@@ -12,4 +12,5 @@ Padrão para o formato de teses na UFSC, utilizando o pacote abntex2 como base.
 https://code.google.com/p/abntex2/
 
 #### Mudanças
+  * v0.2 Formatação dos títulos dos capítulos e seções
   * v0.1 Documento Inicial
