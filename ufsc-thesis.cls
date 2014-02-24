@@ -1,74 +1,57 @@
+% vim:et:sw=2
+%% ufsc-thesis.cls, v0.1 mateusduboli
 % Define versão necessária do LaTeX
 \NeedsTeXFormat{LaTeX2e}
 
-% Carrega como base a classe 'abntex2'
-\LoadClass[a5paper, twoside]{abntex2}
-
 % Prove acesso a classe 'ufsc-thesis'
-\ProvidesClass{ufsc-thesis}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{abntex2}}
-\ProcessOptions\
+\ProvidesClass{ufsc-thesis}[2014/02/24 v0.1 ufsc-thesis]
+
+\DeclareOption*{%
+ \PassOptionsToClass{\CurrentOption}{abntex2}%
+}
+\ProcessOptions\relax
+
+% Carrega como base a classe 'abntex2'
+\LoadClass[a5paper, twoside, chapter=TITLE, section=TITLE]{abntex2}
 
 % Tamanho das fontes
 \RequirePackage{anyfontsize}
 
 % Fonte 'Times New Roman'
-\RequirePackage{times}
+\RequirePackage{pslatex}
 
 % Padrão das referências
 \RequirePackage[num]{abntex2cite}
-
-% Codificação padrão
-\RequirePackage[utf8]{inputenc}
 
 % Identação do primeiro paragráfo
 \RequirePackage{indentfirst}
 
 % Tamanho da fonte padrão do 'ABNTEX'
-\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}\sffamily}
+\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}}
 
 % Margens
 \setlrmarginsandblock{2.5cm}{1.5cm}{*}
 \setulmarginsandblock{2cm}{1.5cm}{*}
-\checkandfixthelayout\
-
-% Rodapé
-\renewcommand{\footnotesize}{\fontsize{9.5pt}{11.5pt}\fontfamily{phv}}
-
-% Citação
-\newcommand{\citacaosize}{\fontsize{9.5pt}{11.5pt}\selectfont}
-\renewcommand{\ABNTEXcitacaorecuo}{4.0cm}
-<<<<<<< Updated upstream
-% \renewenvironment*{citacao}{%
-%    \list{}%
-%    \citacaosize%
-%    \addtolength{\leftskip}{\ABNTEXcitacaorecuo}%
-%    \item[]%
-%    \begin{SingleSpace}%
-%  }{%
-%    \end{SingleSpace}%
-%    \endlist}
+\checkandfixthelayout%
 
 % Fontes dos títulos e seções
-% \makechapterstyle{a5-ufsc}{%
-% 	\renewcommand{\chapnamefont}{\normalsize}
-% 	\renewcommand{\chapnumfont}{\normalsize}
-% 	\renewcommand{\chaptitlefont}{\normalsize}
-% 	\renewcommand{\printchapternum}{\chapnumfont\thechapter}
-% 	\renewcommand{\chapternamenum}{ }
-% 	\renewcommand{\printchaptername}{ }
-% 	\renewcommand{\afterchapternum}{. }
-% }
-% \chapterstyle{a5-ufsc}
-% \renewcommand{\ABNTEXsubsectionfontsize}{\ABNTEXsubsubsectionfontsize}
-% \renewcommand{\ABNTEXsectionfontsize}{\ABNTEXsubsectionfontsize}
-% \renewcommand{\ABNTEXchapterfontsize}{\ABNTEXsectionfontsize}
-%
-% % Parágrafos
-% \setlength{\parindent}{1.0cm}
-% \setlength{\parskip}{0.0cm}
-% \setlength{\afterchapskip}{1cm}
-%
+\renewcommand{\ABNTEXchapterfont}{\bfseries}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+\renewcommand{\ABNTEXsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsectionfont}{\bfseries}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+\renewcommand*{\printchapternum}{%
+  % O abnTeX utiliza essa variável indicar se deve ou não expor o número do titulo.
+  \setboolean{abntex@innonumchapter}{false}
+}
+% Espaçamento depois do título
+\setlength{\afterchapskip}{0.38cm}
+% Espaçamento depois dos paragráfos
+\setlength{\parskip}{0.0cm}
+% Espaçamento da primeira linha do parágrafo
+\setlength{\parindent}{1.0cm}
+
 \endinput
 
 % Comandos auxiliares

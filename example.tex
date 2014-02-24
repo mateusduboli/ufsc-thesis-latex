@@ -1,17 +1,27 @@
 \documentclass{ufsc-thesis}
 
 % Gerador de texto
-\usepackage{blindtext} \usepackage{lipsum}
+\usepackage{blindtext}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
 % Retirar o warning de referência dupla
 \hypersetup{pageanchor=false}
 
-\begin{document} \titulo{Exemplo do uso da class \textit{ufsc-thesis}}
-\autor{Mateus Dubiela Oliveira} \data{\today} \instituicao{Universidade Federal
-de Santa Catarina} \local{Florianópolis, SC-Brasil} \tipotrabalho{Exemplo para
-referência futura} \orientador{Pedro Henrique de Souza} \coorientador{José da
-Silva Sauro} \preambulo{Modelo can\^{o}nico de trabalho de conclusão de curso
-para acadêmicos da UFSC e usuários da plataforma \LaTeX.}
+\begin{document}
+\titulo{Exemplo do uso da class \abnTeX}
+\autor{Mateus Dubiela Oliveira}
+\data{\today}
+\instituicao{Universidade Federal
+de Santa Catarina}
+\local{Florianópolis, SC-Brasil}
+\tipotrabalho{Exemplo para
+referência futura}
+\orientador{Pedro Henrique de Souza}
+\coorientador{José da Silva Sauro}
+\preambulo{Modelo can\^{o}nico de trabalho de conclusão de curso
+para acadêmicos da UFSC e usuários da plataforma \abnTeX.}
 
 % \makeatletter \hypersetup{% pdftitle={\title\ }, pdfauthor={\author\ },
 % pdfsubject={\imprimirpreambulo\ },
@@ -21,20 +31,11 @@ para acadêmicos da UFSC e usuários da plataforma \LaTeX.}
 
 % Inicia parte pré-textual do documento capa, folha de rosto, folha de
 % aprovação, aprovação, resumo, lista de tabelas, lista de figuras, etc.
-\pretextual\ \chapter{Capitulo}
+\tableofcontents%
+\pretextual%
+\textual%
+\chapter{Jequitinhonha}
+\blinddocument%
 
-\Blindtext\
 
-% \section{Seção}
-%
-% \Blindtext\
-%
-% \subsection{Subeção}
-%
-% \blindtext\
-%
-% \subsubsection{Subsubeção}
-%
-% \blindtext\
-%
 \end{document}
