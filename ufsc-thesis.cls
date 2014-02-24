@@ -1,13 +1,13 @@
 % Define versão necessária do LaTeX
 \NeedsTeXFormat{LaTeX2e}
 
+% Carrega como base a classe 'abntex2'
+\LoadClass[a5paper, twoside]{abntex2}
+
 % Prove acesso a classe 'ufsc-thesis'
 \ProvidesClass{ufsc-thesis}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{abntex2}}
 \ProcessOptions\
-
-% Carrega como base a classe 'abntex2'
-\LoadClass[a5paper, twoside]{abntex2}
 
 % Tamanho das fontes
 \RequirePackage{anyfontsize}
@@ -38,6 +38,7 @@
 % Citação
 \newcommand{\citacaosize}{\fontsize{9.5pt}{11.5pt}\selectfont}
 \renewcommand{\ABNTEXcitacaorecuo}{4.0cm}
+<<<<<<< Updated upstream
 % \renewenvironment*{citacao}{%
 %    \list{}%
 %    \citacaosize%
