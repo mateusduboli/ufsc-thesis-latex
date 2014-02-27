@@ -23,10 +23,10 @@ encontradas no link abaixo.
 
 [abnTeX2 Instalação](https://code.google.com/p/abntex2/wiki/Instalacao)
 
-Depois no diretório do seu projeto faça um pull dos arquivos do repositório.
+Depois no diretório do seu projeto faça um clone dos arquivos do repositório.
 
 ```bash
-git pull http://github.com/mateusduboli/ufsc-thesis-latex
+git clone http://github.com/mateusduboli/ufsc-thesis-latex .
 ```
 
 Em seguida use a classe fornecida pelo pacote, a ufsc-thesis, no arquivo a ser
