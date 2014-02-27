@@ -1,0 +1,299 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Universidade Federal de Santa Catarina             
+% Biblioteca Universitária                     
+%---------------------------------------------------------------------------
+% Definicao do arquivo de estilo BUUFSCThesis - Modelo de Tese da BU-UFSC
+%---------------------------------------------------------------------------
+% Versão 20100531 - Baseada na classe ABNTex versão 0.8-2
+%                                                           
+% (c)2010 Roberto Simoni (roberto.emc@gmail.com)
+%         Carlos R Rocha (cticarlo@gmail.com)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+% This file may be distributed and/or modified              
+%
+% 1. under the LaTeX Project Public License and/or          
+% 2. under the GNU Public License.                          
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+% Pacotes essenciais para o estilo funcionar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+
+\usepackage[brazil]{babel}	% coloca as coisas em portugues no sumário.
+\usepackage[ansinew]{inputenc}	% tipo de caracteres usados no documento
+\usepackage[normalem]{ulem}	% provê sublinhados para textos (\ul)
+
+\usepackage{subfigure}		% permite ter subfiguras
+\usepackage{indentfirst}	% indenta a primeira linha dos paragrafos
+\usepackage{remreset}		% reinicia contadores
+\usepackage{url}
+
+%---------------------------------------------------------------------------
+% Pacote de bibliografia no padrão ABNT
+\usepackage[alf,abnt-and-type=e,abnt-year-extra-label=yes,abnt-emphasize=bf,abnt-url-package=html]{abntcite} % 
+
+%originalmente era este
+%\usepackage[alf,abnt-and-type=e, abnt-etal-cite=1, abnt-etal-list=0, abnt-year-extra-label=yes,abnt-url-package=url]{abntcite} % 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+% Variáveis identificadoras do trabalho
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+% 
+%---------------------------------------------------------------------------
+% Instituicao
+\renewcommand{\ABNTinstituicaodata}{Universidade Federal de Santa Catarina}
+\providecommand{\UFSCinstituicaogenerodata}{a}
+\renewcommand{\instituicao}[2][a]%
+    {\renewcommand{\ABNTinstituicaodata}{#2}\renewcommand{\UFSCinstituicaogenerodata}{#1}}
+
+\renewcommand{\instituicaoformat}[1]{\bfseries\MakeUppercase{#1}}
+
+%---------------------------------------------------------------------------
+% Departamento
+\providecommand{\UFSCdepartamentodata}{Departamento de Engenharia Mec\^anica}
+\providecommand{\UFSCdepartamentogenerodata}{o}
+\newcommand{\departamento}[2][o]%
+    {\renewcommand{\UFSCdepartamentodata}{#2}\renewcommand{\UFSCdepartamentogenerodata}{#1}}
+
+\newcommand{\departamentoformat}[1]{\bfseries\MakeUppercase{#1}}
+
+%---------------------------------------------------------------------------
+% Curso
+\providecommand{\UFSCcursodata}{Programa de P\'os-Gradua\c{c}\~ao em Engenharia Mec\^anica}
+\providecommand{\UFSCcursogenerodata}{o}
+\newcommand{\curso}[2][o]%
+    {\renewcommand{\UFSCcursodata}{#2}\renewcommand{\UFSCcursogenerodata}{#1}}
+
+%---------------------------------------------------------------------------
+% Tipo do documento
+\providecommand{\UFSCdocumentodata}{Tese}
+\providecommand{\UFSCdocumentogenerodata}{a}
+\newcommand{\documento}[2][a]%
+    {\renewcommand{\UFSCdocumentodata}{#2} \renewcommand{\UFSCdocumentogenerodata}{#1} \detgenerodoc{#2}}
+
+%---------------------------------------------------------------------------
+% Titulo e subtítulo
+\renewcommand{\tituloformat}[1]{\bfseries\MakeUppercase{#1}}
+
+\providecommand{\subtitulodata}{}
+\newcommand{\subtitulo}[1]{\renewcommand{\subtitulodata}{#1}}
+
+%---------------------------------------------------------------------------
+% Autor
+\renewcommand{\ABNTautordata}{Roberto Simoni, Carlos R. Rocha}
+\renewcommand{\autorformat}{\mdseries}
+
+%---------------------------------------------------------------------------
+% Grau pretendido
+\providecommand{\graudata}{Doutor em Engenharia Mec\^anica}
+\newcommand{\grau}[1]{\renewcommand{\graudata}{#1}}
+
+%---------------------------------------------------------------------------
+% Local
+\renewcommand{\ABNTlocaldata}{Florian\'opolis}
+\renewcommand{\localformat}{\mdseries}
+
+%---------------------------------------------------------------------------
+% Data
+\providecommand{\diadata}{}
+\providecommand{\mesdata}{}
+\providecommand{\anodata}{}
+\renewcommand{\data}[3]{\renewcommand{\diadata}{#1}\renewcommand{\mesdata}{#2}\renewcommand{\anodata}{#3}}
+
+%---------------------------------------------------------------------------
+% Orientador e co-orientador
+\renewcommand{\orientador}[2][Orientador]%
+    {
+    \renewcommand{\ABNTorientadorname}{#2}%
+    \renewcommand{\ABNTorientadordata}{#1}
+    }
+\renewcommand{\orientadorformat}{}
+
+\renewcommand{\coorientador}[2][Coorientador]%
+    {
+    \renewcommand{\ABNTcoorientadorname}{#2}%
+    \renewcommand{\ABNTcoorientadordata}{#1}
+    }
+\renewcommand{\coorientadorformat}{}
+
+%---------------------------------------------------------------------------
+% Coordenador do curso
+\providecommand{\coordenadorname}{}
+\providecommand{\coordenadortitulo}{}
+\newcommand{\coordenador}[2][Coordenador do Curso]
+    {
+    \renewcommand{\coordenadorname}{#2}%
+    \renewcommand{\coordenadortitulo}{#1}
+    }
+\newcommand{\coordenadorformat}{}
+
+%-!
+% Banca - Ate 7 membros, fora orientador e coorientador.
+% Se o nro de membros passar de 4, será criada uma folha adicional
+\newcommand{\bancaformat}{}
+
+\providecommand\orientadorbancadata{nao}
+\providecommand\coorientadorbancadata{nao}
+\providecommand\nrobanca{4}
+
+\newcommand\numerodemembrosnabanca[1]{\renewcommand\nrobanca{#1}}
+\newcommand\orientadornabanca[1]{\renewcommand\orientadorbancadata{#1}}
+\newcommand\coorientadornabanca[1]{\renewcommand\coorientadorbancadata{#1}}
+
+\providecommand{\bancanameA}{}
+\providecommand{\bancadataA}{}
+\newcommand{\bancaMembroA}[2][]% se for incluir Presidente colocar [aqui]
+    {\renewcommand{\bancanameA}{#2}%
+     \renewcommand{\bancadataA}{#1}}
+
+\providecommand{\bancanameB}{}
+\providecommand{\bancadataB}{}
+\newcommand{\bancaMembroB}[2][]%
+    {\renewcommand{\bancanameB}{#2}%
+     \renewcommand{\bancadataB}{#1}}
+
+\providecommand{\bancanameC}{}
+\providecommand{\bancadataC}{}
+\newcommand{\bancaMembroC}[2][]%
+    {\renewcommand{\bancanameC}{#2}%
+     \renewcommand{\bancadataC}{#1}}
+
+\providecommand{\bancanameD}{}
+\providecommand{\bancadataD}{}
+\newcommand{\bancaMembroD}[2][]%
+    {\renewcommand{\bancanameD}{#2}%
+     \renewcommand{\bancadataD}{#1}}
+
+\providecommand{\bancanameE}{}
+\providecommand{\bancadataE}{}
+\newcommand{\bancaMembroE}[2][]%
+    {\renewcommand{\bancanameE}{#2}%
+     \renewcommand{\bancadataE}{#1}}
+
+\providecommand{\bancanameF}{}
+\providecommand{\bancadataF}{}
+\newcommand{\bancaMembroF}[2][]%
+    {\renewcommand{\bancanameF}{#2}%
+     \renewcommand{\bancadataF}{#1}}
+
+\providecommand{\bancanameG}{}
+\providecommand{\bancadataG}{}
+\newcommand{\bancaMembroG}[2][]%
+    {\renewcommand{\bancanameG}{#2}%
+     \renewcommand{\bancadataG}{#1}}
+
+%---------------------------------------------------------------------------
+% Texto da folha de rosto
+\newcommand{\UFSCcomentariodata}{\UFSCdocumentodata\ submetid\UFSCdocumentogenerodata\ 
+ \aoa{\UFSCcursogenerodata}\ \UFSCcursodata\ para a obtenção do Grau de \graudata.}
+
+\renewcommand{\comentarioformat}{\small}
+
+%---------------------------------------------------------------------------
+% Texto da folha de aprovacao
+\newcommand{\textoAprovacaodata}{\esteEsta{\UFSCdocumentogenerodata} \UFSCdocumentodata\ 
+    foi julgad\UFSCdocumentogenerodata\ aprovad\UFSCdocumentogenerodata\ para a 
+    obten\c{c}\~ao do T\'itulo de ``\graudata'',  e aprovad\UFSCdocumentogenerodata\ 
+    em sua forma final \peloPela{\UFSCcursogenerodata} \UFSCcursodata.} 
+
+% Resumo e abstract
+\providecommand{\textoResumodata}{}
+\newcommand{\textoResumo}[1]{\renewcommand{\textoResumodata}{#1}}
+
+\providecommand{\textAbstractdata}{}
+\newcommand{\textAbstract}[1]{\renewcommand{\textAbstractdata}{#1}}
+
+% Palavras-chave e keywords
+\providecommand{\palavrasChavedata}{}
+\newcommand{\palavrasChave}[1]{\renewcommand{\palavrasChavedata}{#1}}
+
+\providecommand{\keywordsdata}{}
+\newcommand{\keywords}[1]{\renewcommand{\keywordsdata}{#1}}
+
+% Dedicatoria
+\providecommand{\dedicatoriadata}{}
+\newcommand{\dedicatoria}[1]{\renewcommand{\dedicatoriadata}{#1}}
+\newcommand{\dedicatoriaformat}{}
+
+% Agradecimentos
+\providecommand{\agradecimentodata}{}
+\newcommand{\agradecimento}[1]{\renewcommand{\agradecimentodata}{#1}}
+\newcommand{\agradecimentoname}{Agradecimentos}
+
+% Epigrafe
+\providecommand{\epigrafedata}{}
+\providecommand{\epigrafeautordata}{}
+\newcommand{\epigrafe}[2]{\renewcommand{\epigrafedata}{#1}\renewcommand{\epigrafeautordata}{#2}}
+\newcommand{\epigrafeformat}{}%{\itshape}
+\newcommand{\epigrafeautorformat}{\hfill}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+% Comandos e formatos customizáveis 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+
+%---------------------------------------------------------------------------
+% Funções de ajustes aos textos de acordo com o genero
+\newcommand{\esteEsta}[1]{\ifthenelse{\equal{#1}{a}}{Esta}{Este}}
+\newcommand{\aoa}[1]{{\ifthenelse{\equal{#1}{a}}{\`a}{ao}}}
+\newcommand{\peloPela}[1]{\ifthenelse{\equal{#1}{o}}{pelo}{pela}}
+
+%---------------------------------------------------------------------------
+% Determina o genero do documento pré-definido
+\newcommand{\detgenerodoc}[1] % Me dei por vencido - Verificar no futuro sobre expansao de commands
+    {\ifthenelse{\equal{#1}{Relatório}\or\equal{#1}{Trabalho}\or
+                 \equal{#1}{Trabalho de Conclusão de Curso}\or
+		 \equal{#1}{Relatório de Pós-Doutorado}}
+	{\renewcommand{\UFSCdocumentogenerodata}{o}}
+    }
+
+%-------------------------------------------------------------------------------
+% Ficha catalografica
+\newcommand{\conteudofichacatalografica}{
+\begin{center}
+Ficha de identificação da obra elaborada pelo autor
+através do \\Programa de Geração Automática da Biblioteca Universitária da UFSC.
+\end{center}
+\frame{
+    \begin{minipage}{\textwidth}
+	\begin{espacosimples}
+	    {\small
+	    \vspace{5em}
+	    \parindent1.5cm
+	    A ficha de identificação é elaborada pelo próprio autor\\
+	    
+                                      
+                      
+	    
+	      
+	    Maiores informações em:
+
+	    http://portalbu.ufsc.br/ficha
+	    \vspace{4em}}
+	\end{espacosimples}
+    \end{minipage}
+}
+\vspace{1cm}
+}
+
+%-------------------------------------------------------------------------------
+% Faz a impressão de todos os elementos pré textuais menos o sumário
+\newcommand{\pretextuais}{
+%\capa  
+\folhaderosto
+\folhaaprovacao
+\paginadedicatoria
+\paginaagradecimento
+\paginaepigrafe
+\paginaresumo
+\paginaabstract
+} %end of pretextuais
+
+%-------------------------------------------------------------------------------
+% Para listagens de algoritmos e de código, recomenda-se consultar os
+% pacotes algorithms e lstlistings, que são usados para definir esses
+% dois tipos de elementos de texto e possuem os comandos
+% \listofalgorithms e \lstlistoflistings, respectivamente.
+%-------------------------------------------------------------------------------
