@@ -1,5 +1,8 @@
 % vim:et:sw=2
-%% ufsc-thesis.cls, v0.1 mateusduboli
+%% ufsc-thesis.cls, v0.2 mateusduboli
+%%
+%% v0.1 Documento Inicial. - mateusduboli
+%% v0.2 Formatação dos títulos dos capítulos e seções. - mateuduboli
 % Define versão necessária do LaTeX
 \NeedsTeXFormat{LaTeX2e}
 
@@ -18,7 +21,7 @@
 \RequirePackage{anyfontsize}
 
 % Fonte 'Times New Roman'
-\RequirePackage{pslatex}
+\RequirePackage{mathptmx}
 
 % Padrão das referências
 \RequirePackage[num]{abntex2cite}
