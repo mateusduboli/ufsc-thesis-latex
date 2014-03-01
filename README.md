@@ -29,8 +29,8 @@ Depois no diretório do seu projeto faça um clone dos arquivos do repositório.
 git clone http://github.com/mateusduboli/ufsc-thesis-latex .
 ```
 
-Em seguida use a classe fornecida pelo pacote, a ufsc-thesis, no arquivo a ser
-compilado pelo LaTeX.
+Em seguida use a classe fornecida pelo pacote, a ufsc-thesis, como classe do
+documento do seu projeto.
 
 ```latex
 \documentclass{ufsc-thesis}
@@ -62,7 +62,7 @@ faltando ou mesmo que você ache necessário para o uso da classe, esse projeto
 não está vinculado a nenhum orgão da UFSC, eu estou fazendo isso porque
 precisei para a minha tese e sei que mais pessoas podem estar precisando também.
 
-Também temos lista de email para quaisquer dúvidas:
+Também há uma lista de email para quaisquer dúvidas:
 [latexufsc@googlegroups.com](mailto:latexufsc@googlegroups.com)
 
 #### Mudanças
