@@ -62,6 +62,8 @@ faltando ou mesmo que você ache necessário para o uso da classe, esse projeto
 não está vinculado a nenhum orgão da UFSC, eu estou fazendo isso porque
 precisei para a minha tese e sei que mais pessoas podem estar precisando também.
 
+Também temos lista de email para quaisquer dúvidas:
+[latexufsc@googlegroups.com](mailto:latexufsc@googlegroups.com)
 
 #### Mudanças
   * v0.2 Formatação dos títulos dos capítulos e seções
