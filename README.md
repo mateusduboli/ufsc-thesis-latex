@@ -42,8 +42,8 @@ normalmente.
 #### Uso
 
 A ideia desse projeto é fazer com que você utilize a classe abnTeX2, mas
-com costumizações voltadas para as teses da UFSC, fazendo com que o seu uso, em
-geral seja idêntico ao uso direto da classe abnTeX2.
+com costumizações voltadas para as teses da UFSC, fazendo com que o seu uso
+seja idêntico ao uso direto da classe abnTeX2.
 
 A documentação dessa classe pode ser encontrada aqui:
 
