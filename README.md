@@ -66,5 +66,6 @@ Também há uma lista de email para quaisquer dúvidas:
 [latexufsc@googlegroups.com](mailto:latexufsc@googlegroups.com)
 
 #### Mudanças
+  * v0.3 Adicionado comando para ficha catalográfica
   * v0.2 Formatação dos títulos dos capítulos e seções
   * v0.1 Documento Inicial
