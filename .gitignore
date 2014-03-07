@@ -30,6 +30,8 @@
 *.vrb
 *.xdy
 *.tdo
+*.fls
+.DS_Store
 /.settings
 /.project
 /.texlipse
