@@ -79,10 +79,13 @@
 \renewcommand{\ABNTEXsectionfontsize}{\normalsize}
 \renewcommand{\ABNTEXsubsectionfont}{\bfseries}
 \renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
-\renewcommand*{\printchapternum}{%
-  % O abnTeX utiliza essa variável indicar se deve ou não expor o número do titulo.
-  \setboolean{abntex@innonumchapter}{false}
-}
+
+% FIX: comentado abaixo para mostrar numeração nos títulos
+%\renewcommand*{\printchapternum}{%
+%  % O abnTeX utiliza essa variável indicar se deve ou não expor o número do titulo.
+%  \setboolean{abntex@innonumchapter}{false}
+%}
+
 % Espaçamento depois do título
 \setlength{\afterchapskip}{0.38cm}
 % Espaçamento depois dos paragráfos
