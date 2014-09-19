@@ -34,7 +34,7 @@
 \RequirePackage{mathptmx}
 
 % Padrão das referências
-\RequirePackage[num]{abntex2cite}
+%\RequirePackage[num]{abntex2cite}  % FIX: adicione você mesmo, assim pode escolher quais pacotes usar
 
 % Identação do primeiro paragráfo
 \RequirePackage{indentfirst}
