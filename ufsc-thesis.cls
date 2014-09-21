@@ -4,6 +4,7 @@
 %% v0.1 Documento Inicial. - mateusduboli
 %% v0.2 Formatação dos títulos dos capítulos e seções. - mateuduboli
 %% v0.3 Adicionado comando para ficha catalográfica. - mateusduboli
+%% v0.4 Corrigido o erro de uso de \data. - dudektria
 % Define versão necessária do LaTeX
 \NeedsTeXFormat{LaTeX2e}
 
@@ -32,9 +33,6 @@
 % TODO Colocar times caso o usuário queira, fonte matemática zuada
 % Fonte 'Times New Roman'
 \RequirePackage{mathptmx}
-
-% Padrão das referências
-%\RequirePackage[num]{abntex2cite}  % FIX: adicione você mesmo, assim pode escolher quais pacotes usar
 
 % Identação do primeiro paragráfo
 \RequirePackage{indentfirst}
@@ -79,12 +77,6 @@
 \renewcommand{\ABNTEXsectionfontsize}{\normalsize}
 \renewcommand{\ABNTEXsubsectionfont}{\bfseries}
 \renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
-
-% FIX: comentado abaixo para mostrar numeração nos títulos
-%\renewcommand*{\printchapternum}{%
-%  % O abnTeX utiliza essa variável indicar se deve ou não expor o número do titulo.
-%  \setboolean{abntex@innonumchapter}{false}
-%}
 
 % Espaçamento depois do título
 \setlength{\afterchapskip}{0.38cm}
