@@ -18,7 +18,6 @@
 
 % Carrega como base a classe 'abntex2'
 \LoadClass[%
-  a5paper, % Tamanho do papel
   twoside, % Impressão nos dois lados da folha
   chapter=TITLE, % Título de capítulos em caixa alta
   section=TITLE  % Título de seções em caixa alta
