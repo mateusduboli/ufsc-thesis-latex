@@ -43,7 +43,7 @@
 \newcommand{\ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
 
 % Tamanho da fonte padrão do 'ABNTEX'
-\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}}
+%\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}}
 
 % Comandos de dados - programa
 \providecommand{\imprimirprograma}{}
