@@ -5,6 +5,7 @@
 %% v0.2 Formatação dos títulos dos capítulos e seções. - mateuduboli
 %% v0.3 Adicionado comando para ficha catalográfica. - mateusduboli
 %% v0.4 Corrigido o erro de uso de \data. - dudektria
+
 % Define versão necessária do LaTeX
 \NeedsTeXFormat{LaTeX2e}
 
@@ -33,7 +34,7 @@
 
 % TODO Colocar times caso o usuário queira, fonte matemática zuada
 % Fonte 'Times New Roman'
-\RequirePackage{mathptmx}
+%\RequirePackage{mathptmx}
 
 % Identação do primeiro paragráfo
 \RequirePackage{indentfirst}
@@ -85,11 +86,15 @@
 \setlength{\parskip}{0.0cm}
 % Espaçamento da primeira linha do parágrafo
 \setlength{\parindent}{1.0cm}
+
 % Comando para inverter sobrenome e nome
 \newcommand{\ufscthesis@inverter}[1]{%
   \StrBehind{#1}{{}},
   \StrBefore{#1}{{}}
 }
+
+
+
 %% Ficha catalográfica
 %\newcounter{ufscthesis@indiceficha}
 %
@@ -125,4 +130,105 @@
 %   size: \f@size{}
 % }
 
-\endinput
+
+	
+
+%\endinput
+
+
+
+
+
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% IMPRESSOES PADROES DE CAPA E FOLHA DE ROSTO
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+
+
+% ---
+% Impressão da Capa
+\renewcommand{\imprimircapa}{%
+	\begin{capa}%
+		\center
+		
+		\ABNTEXchapterfont\bfseries\large{UNIVERSIDADE FEDERAL DE SANTA CATARINA\\PROGRAMA DE P\'OS--GRADUA\c C\~AO EM ENGENHARIA EL\'ETRICA}
+		
+		\vfill
+		
+		\ABNTEXchapterfont\large\imprimirautor
+		
+		\vfill
+		\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+		\vfill
+		
+		\large\imprimirlocal
+		
+		\large\imprimirdata
+		
+		\vspace*{1cm}
+	\end{capa}
+}
+% ---
+
+
+
+
+% ---
+% Folha de rosto
+%   usar \imprimirfolhaderosto* casodeseje imprimir algo no verso da
+%   página no caso de estar no modo twoside. Util para imprimir a Ficha
+%   Bibliografica. Porem, se estiver no modo oneside, a versao sem estrela
+%   é identica.
+%\renewenvironment{folhaderosto}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\cleardoublepage}
+%\renewenvironment{folhaderosto*}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\newpage}%
+
+% ---
+% Conteudo padrao da Folha de Rosto
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+	\begin{center}
+		
+		%\vspace*{1cm}
+		{\ABNTEXchapterfont\large\imprimirautor}
+		
+		\vspace*{\fill}\vspace*{\fill}
+		\begin{center}
+			\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+		\end{center}
+		\vspace*{\fill}
+		
+		\abntex@ifnotempty{\imprimirpreambulo}{%
+			\hspace{.3\textwidth}
+			\begin{minipage}{.6\textwidth}
+				\SingleSpacing
+				\imprimirpreambulo\\	
+							
+				{\textbf{\imprimirorientadorRotulo}~\imprimirorientador\par}
+				\abntex@ifnotempty{\imprimircoorientador}{%
+					{\textbf{\imprimircoorientadorRotulo}~\imprimircoorientador}%
+				}%				
+			\end{minipage}%
+			\vspace*{\fill}
+		}%
+		
+%		{\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+		
+%		{\large\imprimirorientadorRotulo~\imprimirorientador\par}
+%		\abntex@ifnotempty{\imprimircoorientador}{%
+%			{\large\imprimircoorientadorRotulo~\imprimircoorientador}%
+%		}%
+		\vspace*{\fill}
+		
+		{\large\imprimirlocal}
+		\par
+		{\large\imprimirdata}
+		\vspace*{1cm}
+		
+	\end{center}
+}
+\makeatother
+
+

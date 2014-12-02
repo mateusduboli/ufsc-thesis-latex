@@ -28,7 +28,10 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
+%\documentclass[notimes,english]{ufsc-inep-thesis}
 \documentclass[english]{ufsc-inep-thesis}
+
+%\usepackage{memhfixc}
 
 % ---
 % Pacotes básicos 
@@ -36,13 +39,12 @@
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 % ---
-\usepackage{cite}
+
 \usepackage{pdfpages}
 \usepackage{fancyvrb}
 \usepackage{rotating}
@@ -55,7 +57,6 @@
 \usepackage{multirow}
 \usepackage{listings}
 \usepackage{url} % Para incluir links
-\usepackage[brazil]{babel}
 \usepackage{nomencl} % Pacote necessário para a lista de siglas.
 \usepackage{mathcomp}
 \usepackage{booktabs} % Para Tabelas
@@ -63,8 +64,7 @@
 \usepackage{float}
 
 \usepackage{siunitx} % A comprehensive (SI) units package
-\usepackage{datetime}
-		
+
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
@@ -101,9 +101,10 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Modelo Canônico de\\ Trabalho Acadêmico com \abnTeX}
+\titulo{Modelo Canônico de Tese, Dissertação ou TCC	 do INEP com \abnTeX}
 \autor{Nome do Autor}
 \local{Florianópolis, Santa Catarina -- Brasil}
+%\local{Florianópolis}
 \data{\today}
 \orientador{Prof. Nome do Orientador, Dr.}
 \coorientador{Prof. Nome do Coorientador, Dr.}
@@ -112,7 +113,7 @@
   \par
   Departamento de Engenharia Elétrica -- EEL
   \par
- Programa de Pós-Graduação em Engenharia Elétrica -- PGEEL}
+ Programa de Pós--Graduação em Engenharia Elétrica -- PGEEL}
 \tipotrabalho{Tese (Doutorado)}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
@@ -134,7 +135,7 @@
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{tese}, 
+		pdfkeywords={abnt}{latex}{UFSC}{abntex2}{tese}{INEP}, 
 		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=black,          	% color of internal links
     	citecolor=black,        		% color of links to bibliography
@@ -198,11 +199,11 @@
 % com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
 % o conteúdo de implementação deste arquivo pelo comando abaixo:
 %
- \begin{fichacatalografica}
-     \includepdf{PreTexto/ficha_catalografica.pdf}
- \end{fichacatalografica}
+% \begin{fichacatalografica}
+%     \includepdf{PreTexto/ficha_catalografica.pdf}     
+% \end{fichacatalografica}
 
-
+\input{PreTexto/fichacatalografica.tex}
 % ---
 % Inserir errata
 % ---
@@ -240,7 +241,7 @@
    Florianópolis, \imprimirdata.
 \end{center}
    
-\assinatura{\textbf{Prof. Carlos Galup Montoro, Dr.} \\ Coordenador do Programa de Pós--Graduação em Engenharia Elétrica}
+   \assinatura{\textbf{Prof. Carlos Galup Montoro, Dr.} \\ Coordenador do Programa de Pós--Graduação em Engenharia Elétrica}
    \assinatura{\textbf{\imprimirorientador} \\ Orientador \\ Universidade Federal de Santa Catarina -- UFSC} 
    \assinatura{\textbf{\imprimircoorientador} \\ Coorientador \\ Universidade Federal de Santa Catarina -- UFSC} 
    \assinatura{\textbf{Prof. Enio Valmor Kassik, Dr.} \\ Membro externo \\ Instituto Federal de Santa Catarina -- IFSC}
@@ -278,36 +279,27 @@
 % ---
 % Epígrafe
 % ---
+
 \begin{epigrafe}
-    \vspace*{\fill}
+	\vspace*{\fill}
 	\begin{flushright}
-		\textit{``Não vos amoldeis às estruturas deste mundo, \\
-		mas transformai-vos pela renovação da mente, \\
-		a fim de distinguir qual é a vontade de Deus: \\
-		o que é bom, o que Lhe é agradável, o que é perfeito.\\
-		(Bíblia Sagrada, Romanos 12, 2)}
+		\textit{``Only two things are infinite: the universe and human stupidity and I'm not sure about the former''}\\Albert Einstein
 	\end{flushright}
-		\begin{flushright}
-			\textit{``Não vos amoldeis às estruturas deste mundo, \\
-				mas transformai-vos pela renovação da mente, \\
-				a fim de distinguir qual é a vontade de Deus: \\
-				o que é bom, o que Lhe é agradável, o que é perfeito.\\
-				(Bíblia Sagrada, Romanos 12, 2)}
-		\end{flushright}
-			\begin{flushright}
-				\textit{``Não vos amoldeis às estruturas deste mundo, \\
-					mas transformai-vos pela renovação da mente, \\
-					a fim de distinguir qual é a vontade de Deus: \\
-					o que é bom, o que Lhe é agradável, o que é perfeito.\\
-					(Bíblia Sagrada, Romanos 12, 2)}
-			\end{flushright}
-				\begin{flushright}
-					\textit{``Não vos amoldeis às estruturas deste mundo, \\
-						mas transformai-vos pela renovação da mente, \\
-						a fim de distinguir qual é a vontade de Deus: \\
-						o que é bom, o que Lhe é agradável, o que é perfeito.\\
-						(Bíblia Sagrada, Romanos 12, 2)}
-				\end{flushright}
+	\begin{flushright}
+		\textit{``É fácil ser humilde para aquele que nunca\\ fez nada do que possa se orgulhar''}\\Jackson Lago
+	\end{flushright}
+	\begin{flushright}
+		\textit{``Two possibilities exist: either we are alone in the Universe or we are not. Both are equally terrifying''}\\
+		Arthur C. Clarke
+	\end{flushright}
+	\begin{flushright}
+		\textit{``Extraordinary claims require extraordinary evidence''}\\
+		Carl Sagan
+	\end{flushright}
+	\begin{flushright}
+		\textit{``Sou tetra!''}\\
+		Nilton Francisco Oliveira da Silva
+	\end{flushright}
 \end{epigrafe}
 % ---
 
@@ -354,7 +346,6 @@
 \tableofcontents*
 \cleardoublepage
 % ---
-
 
 
 % ----------------------------------------------------------
