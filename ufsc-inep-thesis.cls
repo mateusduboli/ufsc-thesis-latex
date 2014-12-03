@@ -94,50 +94,17 @@
 }
 
 
-
-%% Ficha catalográfica
-%\newcounter{ufscthesis@indiceficha}
-%
-%\newcommand{\imprimirfichacatalografica}{%
-%  \setcounter{ufscthesis@indiceficha}{1}
-%  \begin{fichacatalografica}
-%  \vspace*{\fill}
-%  \fbox{%
-%    \ttfamily%
-%    \begin{minipage}[b][][t]{\textwidth}
-%      \indent\ufscthesis@inverter{\imprimirautor} \newline%
-%      \indent~\imprimirtitulo~:~/ \imprimirautor ; orientador, \imprimirorientador%
-%      \ifnotempty{\imprimircoorientador}{~; co-orientador, \imprimircoorientador}.~-~\imprimirlocal~\the\year. \newline%
-%      \indent~\pageref{LastPage} p. \newline \newline%
-%      \indent- \imprimirinstituicao, \imprimircentro. \imprimirprograma. \newline \newline%
-%      \indent Inclui Refer\^{e}ncias \newline \newline%
-%      \indent \imprimirassuntos
-%      \Roman{ufscthesis@indiceficha}. \ufscthesis@inverter{\imprimirorientador}. \stepcounter{ufscthesis@indiceficha}
-%      \ifnotempty{\imprimircoorientador}{\Roman{ufscthesis@indiceficha}. \ufscthesis@inverter{\imprimircoorientador}.\stepcounter{ufscthesis@indiceficha}}
-%      \Roman{ufscthesis@indiceficha}. \imprimirinstituicao. \imprimirprograma.
-%      \Roman{ufscthesis@indiceficha}. \imprimirtitulo.
-%    \end{minipage}
-%  }
-%  \end{fichacatalografica}
-%}
-
 % Comandos auxiliares
-% \newcommand{\showfont}{%
-%   encoding: \f@encoding{},
-%   family: \f@family{},
-%   series: \f@series{},
-%   shape: \f@shape{},
-%   size: \f@size{}
-% }
+ \newcommand{\showfont}{%
+   encoding: \f@encoding{},
+   family: \f@family{},
+   series: \f@series{},
+   shape: \f@shape{},
+   size: \f@size{}
+ }
 
 
 	
-
-%\endinput
-
-
-
-
 
 
 % ------------------------------------------------------------------------

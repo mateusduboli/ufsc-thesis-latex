@@ -1,0 +1,152 @@
+\documentclass[14pt]{article}
+% load the necessary packages
+
+%X= largura da lombada em mm
+%N = é o número de páginas
+%150 = é o valor da espessura do papel off set de 75g/m2
+%capaLombada = 0,0075*Npages
+%capaLargura= 39,2+capaLombada
+%\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+
+\newcommand{\capaAltura}{21cm}
+\newcommand{\capaLombada}{1.8cm}
+\newcommand{\capaLargura}{41cm} % 39,2+capaLombada
+
+
+\usepackage[paperheight=\capaAltura,paperwidth=\capaLargura,margin=0cm]{geometry}
+
+\usepackage[dvipsnames,prologue,table]{pstricks}
+\usepackage{pst-text}
+\usepackage{color}
+\usepackage{pst-grad}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{datetime}
+
+% alterando o aspecto da cor azul
+\definecolor{red}{RGB}{255,0,0} % TCC
+\definecolor{yellow}{RGB}{254,227,0} % Monografia
+\definecolor{green}{RGB}{0,146,6} % Dissertação
+\definecolor{blue}{RGB}{0,56,147} % Tese
+\definecolor{gray}{RGB}{114,112,111} % PosDoutorado
+%\definecolor{black}{RGB}{0,0,0} % PosDoutorado
+
+% begin the document and suppress page numbers
+\begin{document}
+	\pagestyle{empty}
+	
+	% create the box with the front cover picture
+	\newsavebox\IBox
+	\sbox\IBox{\includegraphics[height=1.5cm]{brasaoUFSC.eps}}
+	% set up the picture environment
+%	\psset{unit=1cm}	
+	
+	\begin{pspicture}(\capaLargura,\capaAltura)
+	
+	% Informação sobre o nível do trabalho: Tese, Dissertação, 	TCC, Monografia, Relatório, 	etc.
+	\DeclareFixedFont{\ArialDezesete}{T1}{ptm}{m}{n}{17pt} % TEX extended text - ptm - Adobe Times
+		\DeclareFixedFont{\ArialCatorze}{T1}{ptm}{m}{n}{14pt} % TEX extended text - ptm - Adobe Times	
+	\DeclareFixedFont{\ArialTreze}{T1}{ptm}{m}{n}{13pt} % TEX extended text - ptm - Adobe Times	
+	\DeclareFixedFont{\ArialNove}{T1}{ptm}{m}{n}{9pt} % TEX extended text - ptm - Adobe Times	
+	
+		
+	\DeclareFixedFont{\PTsmall}{T1}{ppl}{b}{it}{0.4in}
+	\DeclareFixedFont{\PTsmallest}{T1}{ppl}{b}{it}{0.3in}
+	\DeclareFixedFont{\PTtext}{T1}{ppl}{b}{it}{11pt}
+	\DeclareFixedFont{\Logo}{T1}{pbk}{m}{n}{0.3in}
+	
+	% create the background
+	\psframe[fillstyle=solid,fillcolor=black](0,19.5)(\capaLargura,21)
+	\psframe[fillstyle=solid,fillcolor=blue](0,2.5)(\capaLargura,19.5) % Altere aqui a cor de fundo
+	\psframe[fillstyle=solid,fillcolor=black](0,0)(\capaLargura,2.5)
+%	
+	
+	% Linhas que delimitam as dobras na capa
+	\psline[linecolor=white](4.5,0)(4.5,\capaAltura)
+	\psline[linecolor=white](19.3,0)(19.3,\capaAltura)	
+	\psline[linecolor=white](21.1,0)(21.1,\capaAltura)	
+	\psline[linecolor=white](36.1,0)(36.1,\capaAltura)	
+	
+	% place the front cover picture
+	\rput[lb](22,0.5){\usebox\IBox} % 41 - 19 = 22
+%	\rput[bl]{90}(-1,0){Here is a marginal note.}
+	
+	
+	% put the text on the front cover
+%	\rput[lb](7.74,7){\PT \color{white}{Secrets of the Stamen}}
+	
+	
+	
+	
+	\rput[lb]{0}(31,20){\ArialDezesete \color{white}{Tese de Doutorado}}
+	\rput[lb]{0}(28,1.7){\ArialTreze \color{white}{Universidade Federal de Santa Catarina}}	
+	\rput[lb]{0}(29.3,1){\ArialTreze \color{white}{Programa de Pós--Graduação em}}
+    \rput[lb]{0}(31.7,0.4){\ArialTreze\color{white}{Engenharia Elétrica}}
+	
+	
+%	\rput[l]{0}(16,13){\ArialCatorze \color{white}{Nome do Autor}}
+%	\rput[l]{0}(25,18){\ArialTreze \color{white}{Modelo Canônico de Tese, Dissertação ou TCC do INEP com ABNTEX2}}		
+				
+		
+		
+		
+	
+	\rput[lb](19.6,20){\ArialDezesete \color{white}{2014}}	
+
+	% put the text on the spine (note the rotation over 270 degrees)
+	\rput[l]{270}(20.5,18){\ArialTreze \color{white}{Modelo Canônico de Tese, Dissertação ou TCC do INEP com ABNTEX2}}
+	\rput[l]{270}(19.9,13){\ArialCatorze \color{white}{Nome do Autor}}
+	
+	
+	
+	% Create a Box containing the text for the back cover
+%	\begin{minipage}[pos][height][contentpos]{width} text \end{minipage} 
+
+%		
+%		\newsavebox\BoxCapa
+%		\sbox\BoxCapa{\begin{minipage}{15cm}
+%			\ArialCatorze\textcolor{white}{{Modelo Canônico de Tese, Dissertação ou TCC do INEP com ABNTEX2 				
+%					Nome do Autor}
+%				\end{minipage}}	
+%			% And position the box
+%			\rput[tl](16,13){\usebox\BoxCapa}
+%			
+%
+%	\newsavebox\ABAcapa2
+%	\sbox\ABAcapa2{\begin{minipage}{3.5cm}
+%		\ArialNove\textcolor{white}{\textbf{Aba da Capa:} Deve ter informações básicas sobre a proposta do trabalho, seguido
+%			da identificação do orientador e co-orientador (se houver).	\\
+%			Caixa de texto com 	largura de 3,5 cm, posicionada na parte superior da aba, abaixo da barra superior padrão
+%		}
+%		\end{minipage}}	
+%	% And position the box
+%	\rput[tl](15,19){\usebox\ABAcapa2}
+%	
+	
+			
+	
+	\newsavebox\ABAcapa
+	\sbox\ABAcapa{\begin{minipage}{3.5cm}
+		\ArialNove\textcolor{white}{\textbf{Aba da Capa:} Deve ter informações básicas sobre a proposta do trabalho, seguido
+			da identificação do orientador e co-orientador (se houver).	\\
+			Caixa de texto com 	largura de 3,5 cm, posicionada na parte superior da aba, abaixo da barra superior padrão
+		}
+		\end{minipage}}	
+	% And position the box
+	\rput[tl](36.5,19){\usebox\ABAcapa}
+	
+	\newsavebox\ABAcontracapa
+	\sbox\ABAcontracapa{\begin{minipage}{3.5cm}
+		\ArialNove\textcolor{white}{\textbf{Aba da Contra--Capa:} Aba da contra-capa: deve ter a identificação da instituição (UFSC), do programa de pósgraduação, do departamento, curso, etc, cidade e estado onde o trabalho foi
+			desenvolvido.	\\
+			Caixa de texto com 	largura de 3,5 cm, posicionada na parte superior da aba, abaixo da barra superior padrão
+		}
+		\end{minipage}}	
+	% And position the box
+	\rput[tl](0.5,19){\usebox\ABAcontracapa}
+		
+	
+	% Then we close all open environments
+	\end{pspicture}
+\end{document}
