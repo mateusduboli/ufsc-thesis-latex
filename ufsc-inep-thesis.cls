@@ -80,6 +80,9 @@
 \renewcommand{\ABNTEXsubsectionfont}{\bfseries}
 \renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
 
+
+
+
 % Espaçamento depois do título
 \setlength{\afterchapskip}{0.38cm}
 % Espaçamento depois dos paragráfos
@@ -168,12 +171,12 @@
 		\vspace*{\fill}
 		
 		\abntex@ifnotempty{\imprimirpreambulo}{%
-			\hspace{.3\textwidth}
-			\begin{minipage}{.6\textwidth}
+			\hspace{.45\textwidth}
+			\begin{minipage}{5,5cm}				
 				\SingleSpacing
-				\imprimirpreambulo\\	
-							
-				{\textbf{\imprimirorientadorRotulo}~\imprimirorientador\par}
+			\fontsize{9.5}{10.5} \selectfont	\imprimirpreambulo\\
+										
+			\fontsize{9.5}{10.5} \selectfont{\textbf{\imprimirorientadorRotulo}~\imprimirorientador\par}
 				\abntex@ifnotempty{\imprimircoorientador}{%
 					{\textbf{\imprimircoorientadorRotulo}~\imprimircoorientador}%
 				}%				
