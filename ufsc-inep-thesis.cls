@@ -131,7 +131,7 @@
 		\ABNTEXchapterfont\large\imprimirautor
 		
 		\vfill
-		\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+		\ABNTEXchapterfont\bfseries\Large\MakeUppercase{\imprimirtitulo}
 		\vfill
 		
 		\large\imprimirlocal

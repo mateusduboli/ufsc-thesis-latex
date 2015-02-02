@@ -6,11 +6,11 @@
 \backcite {abntex2classe,abntex2cite,abntex2cite-alf}{{29}{(document)}{Doc-Start}}
 \backcite {memoir}{{29}{(document)}{Doc-Start}}
 \backcite {NBR10520:2002}{{31}{1.2}{section.1.2}}
-\backcite {van86}{{32}{1}{table.caption.14}}
-\backcite {ibge1993}{{32}{1.4}{table.caption.14}}
+\backcite {van86}{{32}{1.1}{table.caption.14}}
 \backcite {NBR14724:2011}{{32}{1}{Hfootnote.6}}
+\backcite {ibge1993}{{33}{1.4}{table.caption.14}}
 \backcite {NBR14724:2011}{{34}{1.5.1}{subsection.1.5.1}}
-\backcite {NBR14724:2011}{{34}{1.5.1}{subsection.1.5.1}}
+\backcite {NBR14724:2011}{{35}{1.5.1}{subsection.1.5.1}}
 \backcite {NBR6024:2012}{{35}{1.7}{section.1.7}}
 \backcite {NBR6024:2012}{{36}{{{h)}}}{Item.8}}
 \backcite {memoir}{{37}{1.8}{section.1.8}}
@@ -18,8 +18,8 @@
 \backcite {NBR6024:2012}{{40}{1.13}{section.1.13}}
 \backcite {babel}{{41}{1.14}{section.1.14}}
 \backcite {abntex2classe}{{42}{1.14}{section.1.14}}
-\backcite {abntex2classe}{{42}{1.15}{section.1.15}}
-\backcite {NBR14724:2011}{{42}{1.15}{section.1.15}}
+\backcite {abntex2classe}{{43}{1.15}{section.1.15}}
+\backcite {NBR14724:2011}{{43}{1.15}{section.1.15}}
 \backcite {abntex2cite}{{43}{1.16}{section.1.16}}
 \backcite {abntex2cite-alf}{{43}{1.16}{section.1.16}}
 \backcite {NBR14724:2005}{{53}{4.1}{section*.22}}
