@@ -22,9 +22,15 @@
   a5paper, % Tamanho do papel
   twoside, % Impressão nos dois lados da folha
   english,
+%  sumario=tradicional,
+ %  sumario=abnt-6027-2012,
   chapter=TITLE, % Título de capítulos em caixa alta
   section=TITLE  % Título de seções em caixa alta
 ]{abntex2}
+
+
+\RequirePackage{caption}
+
 
 % Manipulação de Strings
 \RequirePackage{xstring}
@@ -32,9 +38,8 @@
 % Tamanho das fontes
 \RequirePackage{anyfontsize}
 
-% TODO Colocar times caso o usuário queira, fonte matemática zuada
 % Fonte 'Times New Roman'
-%\RequirePackage{mathptmx}
+\RequirePackage{mathptmx}
 
 % Identação do primeiro paragráfo
 \RequirePackage{indentfirst}
@@ -44,9 +49,6 @@
 
 \RequirePackage{ifthen}
 \newcommand{\ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
-
-% Tamanho da fonte padrão do 'ABNTEX'
-\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}}
 
 % Comandos de dados - programa
 \providecommand{\imprimirprograma}{}
@@ -73,12 +75,113 @@
 \checkandfixthelayout%
 
 % Fontes dos títulos e seções 
-\renewcommand{\ABNTEXchapterfont}{\bfseries}
-\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
-\renewcommand{\ABNTEXsectionfont}{\normalfont}
-\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
-\renewcommand{\ABNTEXsubsectionfont}{\bfseries}
-\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+
+
+% Tamanho da fonte padrão do 'ABNTEX'
+\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}}
+
+
+
+\renewcommand{\familydefault}{cmr}
+% The three default family font variables and the \familydefault variable should not be confused with their respective switch:
+
+%\normalfont
+%\rmfamily
+%\sffamily
+%\ttfamily
+
+
+\renewcommand{\ABNTEXpartfont}{\usefont{T1}{cmr}{bx}{n}}
+\renewcommand{\ABNTEXpartfontsize}{\fontsize{10.5pt}{12pt}}
+\renewcommand{\ABNTEXchapterfont}{\usefont{T1}{cmr}{bx}{n}}
+\renewcommand{\ABNTEXchapterfontsize}{\fontsize{10.5pt}{12pt}}
+\renewcommand{\ABNTEXsectionfont}{\usefont{T1}{cmr}{m}{n}}
+\renewcommand{\ABNTEXsectionfontsize}{\fontsize{10.5pt}{12pt}}
+\renewcommand{\ABNTEXsubsectionfont}{\usefont{T1}{cmr}{bx}{n}}
+\renewcommand{\ABNTEXsubsectionfontsize}{\fontsize{10.5pt}{12pt}}
+\renewcommand{\ABNTEXsubsubsectionfont}{\usefont{T1}{cmr}{bx}{n}}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\fontsize{10.5pt}{12pt}}
+
+
+\cftsetindents{part}{0em}{\cftlastnumwidth}
+  \cftsetindents{chapter}{0em}{\cftlastnumwidth}
+  \cftsetindents{section}{0em}{\cftlastnumwidth}
+  \cftsetindents{subsection}{0em}{\cftlastnumwidth}
+  \cftsetindents{subsubsection}{0em}{\cftlastnumwidth}
+  \cftsetindents{paragraph}{0em}{\cftlastnumwidth}
+  \cftsetindents{subparagraph}{0em}{\cftlastnumwidth}
+  %
+  \renewcommand{\tocprintchapter}{%
+    \addtocontents{toc}{\cftsetindents{chapter}{0em}{\cftlastnumwidth}}}
+  %
+  \renewcommand{\tocinnonumchapter}{%
+    \addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}%
+    \cftinserthook{toc}{A}}
+  %
+  \renewcommand{\tocprintchapternonum}{%
+    \addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}}
+  %
+  \renewcommand{\tocpartapendices}{%
+    \addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
+    \cftinserthook{toc}{A}}
+  %
+  \renewcommand{\tocpartanexos}{%
+    \addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
+    \cftinserthook{toc}{A}}
+  %
+  \setlength{\cftbeforechapterskip}{1em}
+  %
+  % Fontes das entradas do sumario
+  %
+
+  \renewcommand{\cftpartfont}{\ABNTEXpartfont}
+  %
+  \renewcommand{\cftchapterfont}{\ABNTEXchapterfont}
+  \renewcommand{\cftchapterpagefont}{\cftchapterfont}
+  %
+  \renewcommand{\cftsectionfont}{\ABNTEXsectionfont}
+  \renewcommand{\cftsectionpagefont}{\cftsectionfont}
+  %
+  \renewcommand{\cftsubsectionfont}{\ABNTEXsubsectionfont}
+  \renewcommand{\cftsubsectionpagefont}{\cftsubsectionfont}
+  %
+  \renewcommand{\cftsubsubsectionfont}{\ABNTEXsubsubsectionfont}
+  \renewcommand{\cftsubsubsectionpagefont}{\cftsubsubsectionfont}
+  %
+  \renewcommand{\cftparagraphfont}{\normalsize}
+  \renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
+
+ 
+
+\DeclareCaptionFont{small}{\fontsize{9.5pt}{10.5pt}}
+
+\captionsetup[table]{
+ %  name=Tabela,
+ %  listformat=empty,
+ %  justification=justified,
+ %  labelsep=colon,
+%   position=above,
+%   skip=\onelineskip,
+ %  width=\linewidth,
+   labelfont={normalsize},
+   textfont={small},
+   font={normalsize}
+}
+
+\captionsetup[figure]{
+    %  name=Tabela,
+	%  listformat=empty,
+	%  justification=justified,
+	%  labelsep=colon,
+	%   position=above,
+	%   skip=\onelineskip,
+	%  width=\linewidth,
+	labelfont={normalsize},
+	textfont={small},
+	font={normalsize}
+}
+
+
 
 
 
@@ -96,19 +199,39 @@
   \StrBefore{#1}{{}}
 }
 
-
 % Comandos auxiliares
  \newcommand{\showfont}{%
    encoding: \f@encoding{},
    family: \f@family{},
    series: \f@series{},
    shape: \f@shape{},
-   size: \f@size{}
+   size: \f@size{},
+baseline: \f@baselineskip{}
+%tfsize: \tf@size{},
+%sfsize: \sf@size{},
+%sssize: \ssf@size{}
+ }
+
+% Comandos auxiliares
+ \newcommand{\justshowfont}{%
+    \f@encoding{},
+    \f@family{},
+    \f@series{},
+    \f@shape{},
+    \f@size{},
+ \f@baselineskip{}
+%tfsize: \tf@size{},
+%sfsize: \sf@size{},
+%sssize: \ssf@size{}
  }
 
 
-	
+% ---
+% Numeracao continua das figuras
 
+%Numeração dos floats por capítulo
+\counterwithin{figure}{chapter} 
+\counterwithin{table}{chapter}
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -200,5 +323,7 @@
 	\end{center}
 }
 \makeatother
+
+
 
 

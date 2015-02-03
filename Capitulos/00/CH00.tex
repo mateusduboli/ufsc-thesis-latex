@@ -1,11 +1,122 @@
 
+
 % ----------------------------------------------------------
 % Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
 % ----------------------------------------------------------
 
-\chapter*[Introdução]{Introdução}
+\chapter[Introdução]{Introdução \showfont}
 \addcontentsline{toc}{chapter}{Introdução}
 % ----------------------------------------------------------
+\showfont
+\section[Some encoding tests]{\showfont}
+\subsection{\showfont}
+\subsubsection{\showfont}
+
+\textsf{textsf: \showfont} 
+
+\textrm{textrm: \showfont}
+
+\textnormal{textnormal: \showfont}
+
+\textbf{textbf: \showfont} 
+
+\textit{textit: \showfont}
+
+footnote\footnote{\showfont}
+
+% \emph{emphasize: \showfont} 
+
+``Modelo Canônico \showfont''
+
+
+mathnormal -  default: $\mathnormal{abcXYZ}$
+
+mathrm - roman: $\mathrm{abcXYZ}$
+
+mathbf - bold roman: $\mathbf{abcXYZ}$
+
+mathsf - sans serif: $\mathsf{abcXYZ}$
+
+mathit - text italic: $\mathit{abcXYZ}$
+
+mathtt -  typewriter: $\mathtt{abcXYZ}$
+
+mathcal - calligraphic: $\mathcal{abcXYZ}$
+
+
+
+
+
+\begin{figure}[htb]
+	\label{fig_circulo}
+	\caption{ A delimitação do espaço - \showfont}
+	\begin{center}
+		\setlength{\unitlength}{5cm}
+		\begin{picture}(1,1)
+		\put(0,0){\line(0,1){1}}
+		\put(0,0){\line(1,0){1}}
+		\put(0,0){\line(1,1){1}}
+		\put(0,0){\line(1,2){.5}}
+		\put(0,0){\line(1,3){.3333}}
+		\put(0,0){\line(1,4){.25}}
+		\put(0,0){\line(1,5){.2}}
+		\put(0,0){\line(1,6){.1667}}
+		\put(0,0){\line(2,1){1}}
+		\put(0,0){\line(2,3){.6667}}
+		\put(0,0){\line(2,5){.4}}
+		\put(0,0){\line(3,1){1}}
+		\put(0,0){\line(3,2){1}}
+		\put(0,0){\line(3,4){.75}}
+		\put(0,0){\line(3,5){.6}}
+		\put(0,0){\line(4,1){1}}
+		\put(0,0){\line(4,3){1}}
+		\put(0,0){\line(4,5){.8}}
+		\put(0,0){\line(5,1){1}}
+		\put(0,0){\line(5,2){1}}
+		\put(0,0){\line(5,3){1}}
+		\put(0,0){\line(5,4){1}}
+		\put(0,0){\line(5,6){.8333}}
+		\put(0,0){\line(6,1){1}}
+		\put(0,0){\line(6,5){1}}
+		\end{picture}
+	\end{center}
+	\legend{Fonte: os autores - \showfont}
+\end{figure}
+
+
+
+A Tabela~\ref{tab:a} mostra mais informações do template BU.
+
+\begin{table}[!htb]
+	\begin{center}
+		\caption{Formatação do texto. \showfont}
+		\label{tab:a}
+		\begin{tabular}{ p{3cm} | p{6cm} }
+			\hline
+			Cor & Branco - \showfont\\ \hline
+			Formato do papel & A5\\ \hline
+			Gramatura & 75\\ \hline
+			Impressão & Frente e verso\\ \hline
+			Margens & Espelhadas: superior 2, Inferior: 1,5, Externa 1,5 e Externa: 2.\\ \hline
+			Cabeçalho & 0,7\\ \hline
+			Rodapé & 0,7\\ \hline
+			Paginação & Externa\\ \hline
+			Alinhamento vertical & Superior\\ \hline
+			Alinhamento do texto & Justificado\\ \hline
+			Fonte sugerida & Times New Roman \\ \hline
+			Tamanho da fonte & 10,5 para o texto incluindo os títulos das seções e subseções. As citações com mais de três linhas as legendas das ilustrações e tabelas, fonte 9,5.\\ \hline
+			Espaçamento entre linhas & Um (1) simples\\ \hline
+			Espaçamento entre parágrafos & Anterior 0,0; Posterior 0,0\\ \hline
+			Numeração da seção & As seções  primárias devem  começar  sempre em páginas ímpares. Deixar um espaço (simples) entre o título da seção e o texto e  entre o texto e o título da subseção. \\  \hline
+		\end{tabular}
+	\end{center}
+	Fonte: Universidade Federal de Santa Catarina (2011) \showfont
+\end{table}
+
+
+
+
+
 
 Este documento e seu código-fonte são exemplos de referência de uso da classe
 \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 

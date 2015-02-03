@@ -26,9 +26,6 @@
  
 \chapter{Resultados de comandos}\label{cap_exemplos}
 
-\chapterprecis{Isto é uma sinopse de capítulo. A ABNT não traz nenhuma
-normatização a respeito desse tipo de resumo, que é mais comum em romances 
-e livros técnicos.}\index{sinopse de capítulo}
 
 % ---
 \section{Codificação dos arquivos: UTF8}
@@ -51,14 +48,16 @@ As citações diretas, no texto, com mais de três linhas, devem ser
 destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto
 utilizado e sem as aspas. No caso de documentos datilografados, deve-se
 observar apenas o recuo \cite[5.3]{NBR10520:2002}.
+
+\showfont
 \end{citacao}
 
 Use o ambiente assim:
 
 \small\begin{verbatim}
 \begin{citacao}
-As citações diretas, no texto, com mais de três linhas [...] deve-se observar
-apenas o recuo \cite[5.3]{NBR10520:2002}.
+As citações diretas, no texto, com mais de três linhas [...]
+deve-se observar apenas o recuo \cite[5.3]{NBR10520:2002}.
 \end{citacao}
 \end{verbatim}
 
@@ -520,41 +519,8 @@ Isto é outra subsubseção.
 
 Isto é uma subseção.
 
-\subsubsection{Divisões do documento: subsubseção}
-
-Isto é mais uma subsubseção da \autoref{sec-exemplo-subsec}.
 
 
-\subsubsubsection{Esta é uma subseção de quinto
-nível}\label{sec-exemplo-subsubsubsection}
-
-Esta é uma seção de quinto nível. Ela é produzida com o seguinte comando:
-
-\begin{verbatim}
-\subsubsubsection{Esta é uma subseção de quinto
-nível}\label{sec-exemplo-subsubsubsection}
-\end{verbatim}
-
-\subsubsubsection{Esta é outra subseção de quinto nível}\label{sec-exemplo-subsubsubsection-outro}
-
-Esta é outra seção de quinto nível.
-
-
-\paragraph{Este é um parágrafo numerado}\label{sec-exemplo-paragrafo}
-
-Este é um exemplo de parágrafo nomeado. Ele é produzida com o comando de
-parágrafo:
-
-\small\begin{verbatim}
-\paragraph{Este é um parágrafo nomeado}\label{sec-exemplo-paragrafo}
-\end{verbatim}
-
-
-A numeração entre parágrafos numeradaos e subsubsubseções são contínuas.
-
-\paragraph{Esta é outro parágrafo numerado}\label{sec-exemplo-paragrafo-outro}
-
-Este é outro parágrafo nomeado.
 
 % ---
 \section{Este é um exemplo de nome de seção longo. Ele deve estar
