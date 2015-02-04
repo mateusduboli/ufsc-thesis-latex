@@ -5,12 +5,14 @@
 % ----------------------------------------------------------
 
 \chapter[Introdução]{Introdução \showfont}
-\addcontentsline{toc}{chapter}{Introdução}
+%\addcontentsline{toc}{chapter}{Introdução}
 % ----------------------------------------------------------
 \showfont
 \section[Some encoding tests]{\showfont}
 \subsection{\showfont}
 \subsubsection{\showfont}
+\subsubsubsection{\showfont}
+
 
 \textsf{textsf: \showfont} 
 
@@ -28,6 +30,17 @@ footnote\footnote{\showfont}
 
 ``Modelo Canônico \showfont''
 
+\begin{itemize}
+\item \textrm{Roman family - \showfont }
+\item \textsf{Sans serif family - \showfont}
+\item \texttt{Typewriter/teletype family - \showfont}
+\item \textit{italics text - \showfont}
+\item \textsl{slanted text- \showfont}
+\item \textsc{small caps text- \showfont}	
+\end{itemize}
+
+
+
 
 mathnormal -  default: $\mathnormal{abcXYZ}$
 
@@ -41,47 +54,59 @@ mathit - text italic: $\mathit{abcXYZ}$
 
 mathtt -  typewriter: $\mathtt{abcXYZ}$
 
-mathcal - calligraphic: $\mathcal{abcXYZ}$
+mathcal - calligraphic: $\mathcal{XYZ}$
 
 
+%\pagevalues
 
-
-
-\begin{figure}[htb]
-	\label{fig_circulo}
-	\caption{ A delimitação do espaço - \showfont}
-	\begin{center}
-		\setlength{\unitlength}{5cm}
-		\begin{picture}(1,1)
-		\put(0,0){\line(0,1){1}}
-		\put(0,0){\line(1,0){1}}
-		\put(0,0){\line(1,1){1}}
-		\put(0,0){\line(1,2){.5}}
-		\put(0,0){\line(1,3){.3333}}
-		\put(0,0){\line(1,4){.25}}
-		\put(0,0){\line(1,5){.2}}
-		\put(0,0){\line(1,6){.1667}}
-		\put(0,0){\line(2,1){1}}
-		\put(0,0){\line(2,3){.6667}}
-		\put(0,0){\line(2,5){.4}}
-		\put(0,0){\line(3,1){1}}
-		\put(0,0){\line(3,2){1}}
-		\put(0,0){\line(3,4){.75}}
-		\put(0,0){\line(3,5){.6}}
-		\put(0,0){\line(4,1){1}}
-		\put(0,0){\line(4,3){1}}
-		\put(0,0){\line(4,5){.8}}
-		\put(0,0){\line(5,1){1}}
-		\put(0,0){\line(5,2){1}}
-		\put(0,0){\line(5,3){1}}
-		\put(0,0){\line(5,4){1}}
-		\put(0,0){\line(5,6){.8333}}
-		\put(0,0){\line(6,1){1}}
-		\put(0,0){\line(6,5){1}}
-		\end{picture}
-	\end{center}
-	\legend{Fonte: os autores - \showfont}
+\begin{figure}
+	\caption{Page layout for this document -  \showfont} \label{fig:ptrs}
+	%\drawpage
+     \setlayoutscale{0.4}
+%	\currentpage
+	\drawparameterstrue
+	\drawpage
+%	\pagedesign
+%	\pagevalues
 \end{figure}
+
+
+
+
+\begin{figure}
+	\caption{Page layout values for this document} \label{fig:ptrsval}
+
+	\pagevalues
+\end{figure}
+
+
+
+\begin{figure}
+	\currentfootnote
+	\drawparameterstrue
+%	\setlayoutscale{0.4}
+	\drawfootnote
+	\footnotevalues
+	\caption{The current footnote layout}\label{fig:ftry}
+\end{figure}	
+	
+
+\begin{figure}
+	\drawparagraph
+	\paragraphvalues
+	\caption{Paragraph parameters}\label{fig:fpara}
+\end{figure}
+
+
+\begin{figure}
+	\setlayoutscale{0.6}
+    \drawparameterstrue
+	\drawtoc
+	\tocvalues
+	\caption{Table of Contents entry parameters}\label{fig:tocp}
+\end{figure}
+
+
 
 
 

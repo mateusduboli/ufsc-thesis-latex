@@ -1,10 +1,3 @@
-% vim:et:sw=2
-%% ufsc-thesis.cls, v0.2 mateusduboli
-%%
-%% v0.1 Documento Inicial. - mateusduboli
-%% v0.2 Formatação dos títulos dos capítulos e seções. - mateuduboli
-%% v0.3 Adicionado comando para ficha catalográfica. - mateusduboli
-%% v0.4 Corrigido o erro de uso de \data. - dudektria
 
 % Define versão necessária do LaTeX
 \NeedsTeXFormat{LaTeX2e}
@@ -30,6 +23,9 @@
 
 
 \RequirePackage{caption}
+%\RequirePackage{etoolbox}
+\RequirePackage{layouts}
+
 
 
 % Manipulação de Strings
@@ -43,6 +39,9 @@
 
 % Identação do primeiro paragráfo
 \RequirePackage{indentfirst}
+
+\RequirePackage{hyperref}
+
 
 % Número da última página
 \RequirePackage{lastpage}
@@ -81,29 +80,55 @@
 \renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}}
 
 
-
+% http://tug.org/fonts/
 \renewcommand{\familydefault}{cmr}
 % The three default family font variables and the \familydefault variable should not be confused with their respective switch:
+%   http://www.forkosh.com/pstex/latexcommands.htm
+% variable	value	activated by
 
-%\normalfont
-%\rmfamily
-%\sffamily
-%\ttfamily
+%\encodingdefault	OT1	\normalfont, \textnormal{}
+%\familydefault	\rmdefault	\normalfont, \textnormal{}
+%\rmdefault	cmr	\rmfamily, \textrm{}
+%\ttdefault	cmtt	\ttfamily, \texttt{}
+%\sfdefault	cmss	\sffamily, \textsf{}
+%\seriesdefault	m	\normalfont, \textnormal{}
+%\mddefault	m	\mdseries, \textmd{}
+%\bfdefault	bx	\bfseries, \textbf{}
+%\shapedefault	n	\normalfont, \textnormal{}
+%\updefault	n	\upshape, \textup{}
+%\itdefault	it	\itshape, \textit{}
+%\scdefault	sc	\scshape, \textsc{}
+%\sldefault	sl	\slshape, \textsl{} 
 
 
-\renewcommand{\ABNTEXpartfont}{\usefont{T1}{cmr}{bx}{n}}
-\renewcommand{\ABNTEXpartfontsize}{\fontsize{10.5pt}{12pt}}
+\renewcommand{\rmdefault}{cmr} % Selects a roman (i.e., serifed) font family
+% \renewcommand{\sfdefault}{cmss} % Selects a sans serif font family
+% \renewcommand{\ttdefault}{cmtt} % Selects a monospaced (“typewriter”) font family
+
+
+\renewcommand{\ABNTEXpartfont}{\usefont{T1}{cmr}{bx}{n}} % Apendices, anexos...
+\renewcommand{\ABNTEXpartfontsize}{\fontsize{15pt}{18pt}}
 \renewcommand{\ABNTEXchapterfont}{\usefont{T1}{cmr}{bx}{n}}
 \renewcommand{\ABNTEXchapterfontsize}{\fontsize{10.5pt}{12pt}}
 \renewcommand{\ABNTEXsectionfont}{\usefont{T1}{cmr}{m}{n}}
 \renewcommand{\ABNTEXsectionfontsize}{\fontsize{10.5pt}{12pt}}
-\renewcommand{\ABNTEXsubsectionfont}{\usefont{T1}{cmr}{bx}{n}}
+\renewcommand{\ABNTEXsubsectionfont}{\usefont{T1}{cmr}{b}{n}}
 \renewcommand{\ABNTEXsubsectionfontsize}{\fontsize{10.5pt}{12pt}}
-\renewcommand{\ABNTEXsubsubsectionfont}{\usefont{T1}{cmr}{bx}{n}}
+\renewcommand{\ABNTEXsubsubsectionfont}{\usefont{T1}{cmr}{m}{n}}
 \renewcommand{\ABNTEXsubsubsectionfontsize}{\fontsize{10.5pt}{12pt}}
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\usefont{T1}{cmr}{m}{it}}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\fontsize{10.5pt}{12pt}}
 
 
-\cftsetindents{part}{0em}{\cftlastnumwidth}
+
+ \renewcommand{\chapnumfont}{\chaptitlefont}
+  \renewcommand{\parttitlefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+  \renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+  \renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+
+
+
+  \cftsetindents{part}{0em}{\cftlastnumwidth}
   \cftsetindents{chapter}{0em}{\cftlastnumwidth}
   \cftsetindents{section}{0em}{\cftlastnumwidth}
   \cftsetindents{subsection}{0em}{\cftlastnumwidth}
@@ -133,10 +158,19 @@
   %
   % Fontes das entradas do sumario
   %
+  
+ 
+  \renewcommand*{\l@chapter}[2]{%
+  	\l@chapapp{\uppercase{#1}}{#2}{\cftchaptername}}
+ 
+\renewcommand*{\l@section}[2]{%
+  	\l@chapapp{\ABNTEXsectionfont\uppercase{#1}}{#2}{\cftsectionname}} 
+  
 
   \renewcommand{\cftpartfont}{\ABNTEXpartfont}
+  \renewcommand{\cftpartpagefont}{\cftpartfont}
   %
-  \renewcommand{\cftchapterfont}{\ABNTEXchapterfont}
+  %\renewcommand{\cftchapterfont}{\ABNTEXchapterfont}
   \renewcommand{\cftchapterpagefont}{\cftchapterfont}
   %
   \renewcommand{\cftsectionfont}{\ABNTEXsectionfont}
@@ -147,11 +181,13 @@
   %
   \renewcommand{\cftsubsubsectionfont}{\ABNTEXsubsubsectionfont}
   \renewcommand{\cftsubsubsectionpagefont}{\cftsubsubsectionfont}
+
   %
-  \renewcommand{\cftparagraphfont}{\normalsize}
+  \renewcommand{\cftparagraphfont}{\ABNTEXsubsubsubsectionfont}
   \renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
 
- 
+
+
 
 \DeclareCaptionFont{small}{\fontsize{9.5pt}{10.5pt}}
 
@@ -232,6 +268,11 @@ baseline: \f@baselineskip{}
 %Numeração dos floats por capítulo
 \counterwithin{figure}{chapter} 
 \counterwithin{table}{chapter}
+
+
+
+
+
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------

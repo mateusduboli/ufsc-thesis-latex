@@ -31,6 +31,9 @@
 \section{Codificação dos arquivos: UTF8}
 % ---
 
+\showfont
+
+
 A codificação de todos os arquivos do \abnTeX\ é \texttt{UTF8}. É necessário que
 você utilize a mesma codificação nos documentos que escrever, inclusive nos
 arquivos de base bibliográficas |.bib|.
@@ -52,14 +55,17 @@ observar apenas o recuo \cite[5.3]{NBR10520:2002}.
 \showfont
 \end{citacao}
 
+\showfont
 Use o ambiente assim:
 
-\small\begin{verbatim}
+\begin{verbatim}
 \begin{citacao}
 As citações diretas, no texto, com mais de três linhas [...]
 deve-se observar apenas o recuo \cite[5.3]{NBR10520:2002}.
 \end{citacao}
 \end{verbatim}
+
+\showfont
 
 O ambiente \texttt{citacao} pode receber como parâmetro opcional um nome de
 idioma previamente carregado nas opções da classe (\autoref{sec-hifenizacao}). Nesse
@@ -389,7 +395,7 @@ primeiro parágrafo de cada início de divisão do documento
 também seja indentado, como é o caso deste documento. Para isso, apenas inclua o
 pacote \textsf{indentfirst} no preâmbulo do documento:
 
-\small\begin{verbatim}
+\begin{verbatim}
    \usepackage{indentfirst}      % Indenta o primeiro parágrafo de cada seção.
 \end{verbatim}
 
@@ -446,6 +452,8 @@ Para incluir documentos sem quebra de páginas, utilize:
 \section{Compilar o documento \LaTeX}
 % ---
 
+\showfont 
+
 Geralmente os editores \LaTeX, como o
 TeXlipse\footnote{\url{http://texlipse.sourceforge.net/}}, o
 Texmaker\footnote{\url{http://www.xm1math.net/texmaker/}}, entre outros,
@@ -456,14 +464,20 @@ No entanto, você pode compilar os documentos \LaTeX usando os seguintes
 comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
 \emph{Terminal} do Mac ou do Linux:
 
-\begin{verbatim}
+\begin{lstlisting}
    pdflatex ARQUIVO_PRINCIPAL.tex
    bibtex ARQUIVO_PRINCIPAL.aux
    makeindex ARQUIVO_PRINCIPAL.idx 
-   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
+   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o
+     ARQUIVO_PRINCIPAL.nls
    pdflatex ARQUIVO_PRINCIPAL.tex
    pdflatex ARQUIVO_PRINCIPAL.tex
-\end{verbatim}
+\end{lstlisting}
+
+\begin{lstlisting}
+a very long and totruous path which you can check to see if it breaks and where at the end of the line
+\end{lstlisting}
+
 
 % ---
 \section{Remissões internas}
@@ -481,7 +495,7 @@ seções, subseções e subsubseções.
 
 O código usado para produzir o texto desta seção é:
 
-\small\begin{verbatim}
+\begin{verbatim}
 Ao nomear a \autoref{tab-nivinv} e a \autoref{fig_circulo}, apresentamos um
 exemplo de remissão interna, que também pode ser feita quando indicamos o
 \autoref{cap_exemplos}, que tem o nome \emph{\nameref{cap_exemplos}}. O número
@@ -503,8 +517,11 @@ Esta seção testa o uso de divisões de documentos. Esta é a
 \subsection{Divisões do documento: subseção}\label{sec-divisoes-subsection}
 
 Isto é uma subseção. Veja a \autoref{sec-divisoes-subsubsection}, que é uma
-\texttt{subsubsection} do \LaTeX, mas é impressa chamada de ``subseção'' porque
+\texttt{subsubsection \showfont} do \LaTeX, mas é impressa chamada de ``subseção'' porque
 no Português não temos a palavra ``subsubseção''.
+
+\showfont
+
 
 \subsubsection{Divisões do documento: subsubseção}
 \label{sec-divisoes-subsubsection}
@@ -523,7 +540,7 @@ Isto é uma subseção.
 
 
 % ---
-\section{Este é um exemplo de nome de seção longo. Ele deve estar
+\section[Exemplo muito longo]{Este é um exemplo de nome de seção longo. Ele deve estar
 alinhado à esquerda e a segunda e demais linhas devem iniciar logo abaixo da
 primeira palavra da primeira linha}
 % ---
