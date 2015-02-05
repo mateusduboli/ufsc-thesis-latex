@@ -24,7 +24,123 @@
 % comandos do abnTeX2 e de LaTeX.
 % ---
  
-\chapter{Resultados de comandos}\label{cap_exemplos}
+
+
+
+\chapter{Axiomas, Teoremas, Postulados, corolários, lemas}
+\label{cap_exemplos}
+
+\section{Axiomas ou postulados}
+
+Na lógica tradicional, um axioma ou postulado é uma sentença ou proposição que não é provada ou demonstrada e é considerada como óbvia ou como um consenso inicial necessário para a construção ou aceitação de uma teoria. Por essa razão, é aceito como verdade e serve como ponto inicial para dedução e inferências de outras verdades (dependentes de teoria).
+
+
+Na matemática, um axioma é uma hipótese inicial de qual outros enunciados são logicamente derivados. Pode ser uma sentença, uma proposição, um enunciado ou uma regra que permite a construção de um sistema formal. Diferentemente de teoremas, axiomas não podem ser derivados por princípios de dedução e nem são demonstráveis por derivações formais, simplesmente porque eles são hipóteses iniciais. Isto é, não há mais nada a partir do que eles seguem logicamente (em caso contrário eles seriam chamados teoremas). Em muitos contextos, "axioma", "postulado" e "hipótese" são usados como sinônimos.
+
+
+\begin{axioma}[Axioma de Igualdade]
+Supondo $\mathfrak{L}$, uma linguagem de primeira ordem. para cada variável $x$, a fórmula $x = x$ é universalmente válida.
+\end{axioma}
+
+
+\begin{postulado}[Postulado de Igualdade]
+	Supondo $\mathfrak{L}$, uma linguagem de primeira ordem. para cada variável $x$, a fórmula $x = x$ é universalmente válida.
+\end{postulado}
+
+
+\section{Teorema}
+
+
+Na matemática, um teorema é uma afirmação que pode ser provada como verdadeira através de outras afirmações já demonstradas, como outros teoremas, juntamente com afirmações anteriormente aceitas, como axiomas. Prova é o processo de mostrar que um teorema está correto. O termo teorema foi introduzido por Euclides, em Elementos, para significar "afirmação que pode ser provada". Em grego, originalmente significava "espetáculo" ou "festa". Atualmente, é mais comum deixar o termo "teorema" apenas para certas afirmações que podem ser provadas e de grande "importância matemática", o que torna a definição um tanto subjetiva.
+
+\begin{teorema}[Teorema de Pitágoras]
+	Em qualquer triângulo retângulo, o quadrado do comprimento da hipotenusa é igual à soma dos quadrados dos comprimentos dos catetos. 
+\end{teorema}
+
+
+\subsection{Terminologia}
+
+
+
+Usualmente deixa-se o termo ``teorema'' apenas para as afirmações que podem ser provadas de grande importância. Assim, são dados outros nomes para os outros tipos dessas afirmações:
+
+\begin{description}
+	\item[Proposição:] Uma Proposição é uma sentença não associada a algum outro teorema, de simples prova e de importância matemática menor.
+	\item[Lema:] Um Lema é um "pré-teorema", um teorema que serve para ajudar na prova de outro teorema maior. A distinção entre teoremas e lemas é um tanto quanto arbitrária, uma vez que grandes resultados são usados para provar outros. Por exemplo, o Lema de Gauss e o Lema de Zorn são muito interessantes de per se, e muitos autores os denominam de Lemas, mesmo que não os usem para provar alguma outra coisa.
+	\item[Corolário:] Um Corolário é uma consequência direta de outro teorema ou de uma definição, muitas vezes tendo suas demonstrações omitidas, por serem simples.
+\end{description}
+
+
+\begin{corolario}
+	Em qualquer triângulo retângulo, a hipotenusa é maior que qualquer um dos catetos, mas menor que a soma deles.
+\end{corolario}
+
+Alguns outros termos também são usados, por mais que raros e com definição menos rigorosa, basicamente sendo usadas quando não se quer usar a a palavra "teorema":
+
+Regra.
+Lei, que também pode se referir a axiomas, regras de dedução e a distribuições de Probabilidade.
+Princípio.
+Algoritmo (como em Algoritmo da Divisão), muito raro e diferente do conceito com o mesmo nome que é um dos estudos centrais da Ciência da Computação.
+Paradoxo, usado quando a afirmação vai aparentemente de encontro com alguma outra verdade ou com alguma noção intuitiva. Entretanto, tal termo também pode ser usado para afirmações falsas que aparentem ser verdadeiras em um primeiro momento.
+
+Alguns teoremas continuam a ser chamados de Conjecturas logo após serem provados (por exemplo, a Conjectura de Poincaré). O termo conjectura é usado para afirmações que não se sabe se são verdadeiras, e que acredita-se que são verdadeiras, mas nunca ninguém conseguiu prová-las nem negá-las (às vezes conjecturas são chamadas de hipóteses (como em Hipótese de Riemann), obviamente, num sentido diferente do aqui já descrito).
+
+
+\subsection{Conjectura ou hipótese}
+
+Uma conjectura é uma ideia, fórmula ou frase, a qual não foi provada ser verdadeira, baseada em suposições ou ideias com fundamento não verificado. As conjecturas utilizadas como prova de resultados matemáticos recebem o nome de hipóteses.
+
+
+
+\begin{conjectura}[Conjectura dos primos gêmeos]	
+Existem infinitos números primos gêmeos	.
+\end{conjectura}
+
+Um par de primos é chamado de primos gêmeos se eles são dois números primos $p$, $q$ tais que $q = p + 2$.
+
+
+
+\subsection{Lema}
+
+	Na Matemática, um lema é um teorema que é usado como um passo intermediário para atingir um resultado maior, provado em outro teorema. Normalmente o lema tem pouca serventia além de servir ao propósito do teorema que o utiliza, mas isto não é uma regra, e a classificação entre lemas e teoremas é arbitrária\footnote{Wikipédia}.
+	
+	
+\begin{lema}	
+	Given two line segments whose lengths are $a$ and $b$ respectively there is a 
+	real number $r$ such that $b=ra$.
+\end{lema}
+
+
+
+Unnumbered theorem-like environments are also possible.
+
+\begin{observacao}
+	This statement is true, I guess.
+\end{observacao}
+
+And the next is a somewhat informal definition
+
+
+\begin{definicao}[Fibration]
+	A fibration is a mapping between two topological spaces that has the homotopy lifting property for every space $X$.
+\end{definicao}
+
+\begin{exemplo}[Fibration]
+	A fibration is a mapping between two topological spaces that has the homotopy lifting property for every space $X$.
+\end{exemplo}
+
+\begin{condicao}[Fibration]
+	A fibration is a mapping between two topological spaces that has the homotopy lifting property for every space $X$.
+\end{condicao}
+Theorem styles
+
+\begin{description}
+	\item[definition] boldface title, romand body. Commonly used in definitions, conditions, problems and examples.
+\item[plain] boldface title, italicized body. Commonly used in theorems, lemmas, corollaries, propositions and conjectures.
+\item[remark] italicized title, romman body. Commonly used in remarks, notes, annotations, claims, cases, acknowledgments and conclusions. 
+\end{description}
+
+
 
 
 % ---

@@ -68,10 +68,43 @@
 \newcommand{\centro}[1]{\renewcommand{\imprimircentro}{#1}}
 
 
+\RequirePackage{amsthm}
+% ---
+\newtheorem{axioma}{Axioma}[chapter]
+\newtheorem{postulado}{Postulado}[chapter]
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{conjectura}{Conjectura}[chapter]
+\newtheorem{corolario}{Coral\'ario}[teorema]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicao}{Proposi\c{c}\~ao}[teorema]
+
+
+\theoremstyle{definition} % Commonly used in definitions, conditions, problems and examples.
+\newtheorem{definicao}{Defini\c{c}\~ao}[section]
+\newtheorem{exemplo}{Exemplo}[section]
+\newtheorem{condicao}{Condi\c{c}\~ao}[section]
+
+
+\theoremstyle{remark}
+\newtheorem*{observacao}{Observa\c{c}\~ao}
+
+
+
+
+
 % Margens
 \setlrmarginsandblock{2.5cm}{1.5cm}{*}
 \setulmarginsandblock{2cm}{1.5cm}{*}
 \checkandfixthelayout%
+
+
+% \def\<type>autorefname{<new name>}
+\renewcommand{\tableautorefname}{Tabela}
+\renewcommand{\figureautorefname}{Figura}
+\renewcommand{\chapterautorefname}{Cap\'itulo}
+ 
+
+
 
 % Fontes dos títulos e seções 
 
@@ -161,9 +194,9 @@
   
  
   \renewcommand*{\l@chapter}[2]{%
-  	\l@chapapp{\uppercase{#1}}{#2}{\cftchaptername}}
+  \l@chapapp{\uppercase{#1}}{#2}{\cftchaptername}}
  
-\renewcommand*{\l@section}[2]{%
+	\renewcommand*{\l@section}[2]{%
   	\l@chapapp{\ABNTEXsectionfont\uppercase{#1}}{#2}{\cftsectionname}} 
   
 
@@ -185,7 +218,6 @@
   %
   \renewcommand{\cftparagraphfont}{\ABNTEXsubsubsubsectionfont}
   \renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
-
 
 
 
