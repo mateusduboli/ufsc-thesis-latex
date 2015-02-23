@@ -102,7 +102,7 @@
 \renewcommand{\tableautorefname}{Tabela}
 \renewcommand{\figureautorefname}{Figura}
 \renewcommand{\chapterautorefname}{Cap\'itulo}
- 
+ \renewcommand{\equationautorefname}{Equa\c{c}\~ao}
 
 
 
@@ -114,7 +114,7 @@
 
 
 % http://tug.org/fonts/
-\renewcommand{\familydefault}{cmr}
+\renewcommand{\familydefault}{cmr} % Fonte padrão utilizada no texto
 % The three default family font variables and the \familydefault variable should not be confused with their respective switch:
 %   http://www.forkosh.com/pstex/latexcommands.htm
 % variable	value	activated by
