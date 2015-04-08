@@ -192,21 +192,39 @@
 % Estilo de capítulos
 %
 %\chapterstyle{default}
-
-% \chapterstyle{lyhne} 
+% \chapterstyle{pedersen} 
+%\chapterstyle{lyhne} 
 %\chapterstyle{madsen} 
+% \chapterstyle{veelo} 
 
 %\chapterstyle{thatcher}
 %\chapterstyle{verville}
-%\chapterstyle{demo2}
-\chapterstyle{ger}
-
-
+\makeatletter
+\newcommand\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\setlength\midchapskip{10pt}
+\makechapterstyle{VZ14}{
+	\renewcommand\chapternamenum{}
+	\renewcommand\printchaptername{}
+	\renewcommand\chapnamefont{\Large\scshape}
+	\renewcommand\printchapternum{%
+		\chapnamefont\null\thickhrulefill\quad
+		\@chapapp\space\thechapter\quad\thickhrulefill}
+	\renewcommand\printchapternonum{%
+		\par\thickhrulefill\par\vskip\midchapskip
+		\hrule\vskip\midchapskip
+	}
+	\renewcommand\chaptitlefont{\Huge\scshape\centering}
+	\renewcommand\afterchapternum{%
+		\par\nobreak\vskip\midchapskip\hrule\vskip\midchapskip}
+	\renewcommand\afterchaptertitle{%
+		\par\vskip\midchapskip\hrule\nobreak\vskip\afterchapskip}
+}
+\makeatother
+\chapterstyle{VZ14}
 %
 % Veja outros estilos em:
 % http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
 % ---
-
 
 % --- 
 % Espaçamentos entre linhas e parágrafos 
