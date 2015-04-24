@@ -29,7 +29,16 @@
 % ------------------------------------------------------------------------
 
 %\documentclass[notimes,english]{ufsc-inep-thesis}
-\documentclass[english]{ufsc-inep-thesis}
+\documentclass[
+a5paper, % Tamanho do papel
+twoside, % Impressão nos dois lados da folha
+english,
+brazil,
+%  sumario=tradicional,
+%  sumario=abnt-6027-2012,
+chapter=TITLE, % Título de capítulos em caixa alta
+section=TITLE  % Título de seções em caixa alta
+]{ufsc-inep-thesis}
 
 %\usepackage{memhfixc}
 
@@ -67,6 +76,8 @@
 
 \usepackage{datetime}
 
+\usepackage{rotating} % gives you the possibility to rotate any object of an arbitrary angle. 
+\usepackage{pdflscape} % Rotação de páginas no documento pdf.
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -192,21 +203,42 @@
 % Estilo de capítulos
 %
 %\chapterstyle{default}
-
-% \chapterstyle{lyhne} 
+% \chapterstyle{pedersen} 
+%\chapterstyle{lyhne} 
 %\chapterstyle{madsen} 
+% \chapterstyle{veelo} 
 
 %\chapterstyle{thatcher}
 %\chapterstyle{verville}
-%\chapterstyle{demo2}
-\chapterstyle{ger}
 
+% % Custom settings
+\makeatletter
+\newcommand\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\setlength\midchapskip{10pt}
+\makechapterstyle{VZ14}{
+	\renewcommand\chapternamenum{}
+	\renewcommand\printchaptername{}
+	\renewcommand\chapnamefont{\Huge\scshape}
+	\renewcommand\printchapternum{%
+		\chapnamefont\null\thickhrulefill\quad
+		\@chapapp\space\thechapter\quad\thickhrulefill}
+	\renewcommand\printchapternonum{%
+		\par\thickhrulefill\par\vskip\midchapskip
+		\hrule\vskip\midchapskip
+	}
+	\renewcommand\chaptitlefont{\huge\scshape\centering}
+	\renewcommand\afterchapternum{%
+		\par\nobreak\vskip\midchapskip\hrule\vskip\midchapskip}
+	\renewcommand\afterchaptertitle{%
+		\par\vskip\midchapskip\hrule\nobreak\vskip\afterchapskip}
+}
+\makeatother
 
+\chapterstyle{VZ14}
 %
 % Veja outros estilos em:
 % http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
 % ---
-
 
 % --- 
 % Espaçamentos entre linhas e parágrafos 

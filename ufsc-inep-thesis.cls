@@ -5,21 +5,13 @@
 % Prove acesso a classe 'ufsc-thesis'
 \ProvidesClass{ufsc-inep-thesis}[2014/12/01 v01 ufsc-inep-thesis]
 
+%
+% Repassa todos os parametros a classe abntex2, 
 \DeclareOption*{%
- \PassOptionsToClass{\CurrentOption}{abntex2}%
+  \PassOptionsToClass{\CurrentOption}{abntex2}%
 }
 \ProcessOptions\relax
-
-% Carrega como base a classe 'abntex2'
-\LoadClass[%
-  a5paper, % Tamanho do papel
-  twoside, % Impressão nos dois lados da folha
-  english,
-%  sumario=tradicional,
- %  sumario=abnt-6027-2012,
-  chapter=TITLE, % Título de capítulos em caixa alta
-  section=TITLE  % Título de seções em caixa alta
-]{abntex2}
+\LoadClass{abntex2}
 
 
 \RequirePackage{caption}
@@ -82,6 +74,7 @@
 \theoremstyle{definition} % Commonly used in definitions, conditions, problems and examples.
 \newtheorem{definicao}{Defini\c{c}\~ao}[section]
 \newtheorem{exemplo}{Exemplo}[section]
+\newtheorem{exercicio}{Exerc\'icio}[section]
 \newtheorem{condicao}{Condi\c{c}\~ao}[section]
 
 
