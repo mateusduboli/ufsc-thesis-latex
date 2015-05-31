@@ -18,7 +18,6 @@
 
 % Carrega como base a classe 'abntex2'
 \LoadClass[%
-  a5paper, % Tamanho do papel
   twoside, % Impressão nos dois lados da folha
   chapter=TITLE, % Título de capítulos em caixa alta
   section=TITLE  % Título de seções em caixa alta
@@ -44,7 +43,7 @@
 \newcommand{\ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
 
 % Tamanho da fonte padrão do 'ABNTEX'
-\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}}
+%\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}}
 
 % Comandos de dados - programa
 \providecommand{\imprimirprograma}{}
@@ -113,6 +112,41 @@
     \end{minipage}
   }
   \end{fichacatalografica}
+}
+
+% Folha de rosto segundo modelo da Biblioteca Universitária da UFSC
+\renewcommand{\folhaderostocontent}{
+  \begin{center}
+    % Nome do autor em caixa baixa sem negrito
+    {\ABNTEXchapterfont\textmd\imprimirautor}
+    \vspace*{\fill}
+    % Título do trabalho em caixa alta e negrito
+    \begin{center}
+      \MakeTextUppercase{\ABNTEXchapterfont\bfseries\large\imprimirtitulo}
+    \end{center}
+    \vspace*{1cm}
+    % Preâmbulo seguido de nomes do orientador e coorientador com recuo
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+      \hspace{.45\textwidth}
+      \begin{minipage}{.5\textwidth}
+        \SingleSpacing
+        \imprimirpreambulo
+
+        % Nomes do orientador e coorientador
+        {\imprimirorientadorRotulo~\imprimirorientador\par}
+        \abntex@ifnotempty{\imprimircoorientador}{%
+           {\imprimircoorientadorRotulo~\imprimircoorientador}%
+        }%
+      \end{minipage}%
+      \vspace*{\fill}
+    }%
+    \vspace*{\fill}
+
+    % Local e data em caixa baixa sem negrito
+    {\imprimirlocal}
+    \par{\imprimirdata}
+    \vspace*{1cm}
+  \end{center}
 }
 
 % Comandos auxiliares
