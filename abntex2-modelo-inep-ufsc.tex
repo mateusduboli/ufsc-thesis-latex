@@ -28,7 +28,6 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
-%\documentclass[notimes,english]{ufsc-inep-thesis}
 \documentclass[
 a5paper, % Tamanho do papel
 twoside, % Impressão nos dois lados da folha
@@ -144,8 +143,6 @@ section=TITLE  % Título de seções em caixa alta
 	\fi}%
 
 
-
-
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
@@ -216,6 +213,7 @@ section=TITLE  % Título de seções em caixa alta
 \newcommand\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
 \setlength\midchapskip{10pt}
 \makechapterstyle{VZ14}{
+%	\thispagestyle{empty}
 	\renewcommand\chapternamenum{}
 	\renewcommand\printchaptername{}
 	\renewcommand\chapnamefont{\Huge\scshape}
@@ -232,9 +230,12 @@ section=TITLE  % Título de seções em caixa alta
 	\renewcommand\afterchaptertitle{%
 		\par\vskip\midchapskip\hrule\nobreak\vskip\afterchapskip}
 }
+
 \makeatother
 
 \chapterstyle{VZ14}
+
+
 %
 % Veja outros estilos em:
 % http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
@@ -403,19 +404,19 @@ section=TITLE  % Título de seções em caixa alta
 		\textit{``Bravura é vencer o medo encarando a verdade enquanto que estupidez é coibir a percepção ignorando os fatos. Ambas são igualmente importantes para se conquistar a auto--confiança.''}\\
 		Adriano Ruseler
 	\end{flushright}
-		\begin{flushright}
-			\textit{``Pesquisa cientifica é a arte isolar o ego e as crenças da interpretação dos fatos.''}\\
-			Adriano Ruseler
-		\end{flushright}
-		\begin{flushright}
-			\textit{``A verdadeira motivação de um pesquisador está em desenvolver suas próprias idéias seguindo a sua intuição.''}\\
-			Adriano Ruseler
-		\end{flushright}	
-		
-			\begin{flushright}
-				\textit{``O verdadeiro valor de uma tese não está na sua utilidade, mas sim na sua capacidade de trazer esperança a um jovem pesquisador.''}\\
-				Adriano Ruseler
-			\end{flushright}	
+	\begin{flushright}
+		\textit{``Pesquisa cientifica é a arte isolar o ego e as crenças da interpretação dos fatos.''}\\
+		Adriano Ruseler
+	\end{flushright}
+	\begin{flushright}
+		\textit{``A verdadeira motivação de um pesquisador está em desenvolver suas próprias idéias seguindo a sua intuição.''}\\
+		Adriano Ruseler
+	\end{flushright}	
+
+	\begin{flushright}
+		\textit{``O verdadeiro valor de uma tese não está na sua utilidade, mas sim na sua capacidade de trazer esperança a um jovem pesquisador.''}\\
+		Adriano Ruseler
+	\end{flushright}	
 			
 		
 				
@@ -471,6 +472,8 @@ section=TITLE  % Título de seções em caixa alta
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
 \textual
+
+\aliaspagestyle{chapter}{empty} % Remove a numeração das páginas no início dos capítulos.
 
 % ----------------------------------------------------------
 % Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)

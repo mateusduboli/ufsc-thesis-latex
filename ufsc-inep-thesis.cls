@@ -82,9 +82,6 @@
 \newtheorem*{observacao}{Observa\c{c}\~ao}
 
 
-
-
-
 % Margens
 \setlrmarginsandblock{2.5cm}{1.5cm}{*}
 \setulmarginsandblock{2cm}{1.5cm}{*}
