@@ -616,6 +616,63 @@ Para isso, também estão disponíveis os ambientes:
 Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
 
 % ---
+\section{Inclusão de código fonte}\label{sec-codeinsert}
+% ---
+
+\begin{lstlisting}[caption={Leitura dos dados simulados e conversão para estados topológicos.},label={lst:leituradadossim}]
+% Pré definições iniciais
+nsub=3;  % Numero de Submódulos
+nbits=2*nsub; % Numero de bits necessários para representar os estados
+nlevels=2*nsub+1; % Numero total de níveis
+
+% Leitura dos pontos gerados por simulação
+time=data(1,:)'; % extrai vetor de tempo
+PWM=logical(data(2:end,:))'; % Conversão dos pulsos PWM para estados lógicos
+
+% Cria vetor de string binário com os estados correspondentes
+binstates=num2str([PWM(:,1) PWM(:,3) PWM(:,5) PWM(:,7) PWM(:,9) PWM(:,11)]);
+state=fi(bin2dec(binstates),0,nbits,0); % Objeto numérico de ponto-fixo
+
+\end{lstlisting}
+
+
+
+\begin{lstlisting}[language=Python, caption=Python example]
+import numpy as np
+
+def incmatrix(genl1,genl2):
+	m = len(genl1)
+	n = len(genl2)
+	M = None #to become the incidence matrix
+	VT = np.zeros((n*m,1), int)  #dummy variable
+	
+	#compute the bitwise xor matrix
+	M1 = bitxormatrix(genl1)
+	M2 = np.triu(bitxormatrix(genl2),1) 
+	
+	for i in range(m-1):
+		for j in range(i+1, m):
+			[r,c] = np.where(M2 == M1[i,j])
+			for k in range(len(r)):
+				VT[(i)*n + r[k]] = 1;
+				VT[(i)*n + c[k]] = 1;
+				VT[(j)*n + r[k]] = 1;
+				VT[(j)*n + c[k]] = 1;
+				
+				if M is None:
+					M = np.copy(VT)
+				else:
+				M = np.concatenate((M, VT), 1)
+				
+				VT = np.zeros((n*m,1), int)
+	
+	return M
+\end{lstlisting}
+
+
+
+
+% ---
 \section{Inclusão de outros arquivos}\label{sec-include}
 % ---
 
@@ -651,7 +708,8 @@ No entanto, você pode compilar os documentos \LaTeX usando os seguintes
 comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
 \emph{Terminal} do Mac ou do Linux:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=bash,caption={você pode compilar os documentos \LaTeX usando os seguintes
+comandos.},label={lst:compilarLatex}]
    pdflatex ARQUIVO_PRINCIPAL.tex
    bibtex ARQUIVO_PRINCIPAL.aux
    makeindex ARQUIVO_PRINCIPAL.idx 
@@ -682,7 +740,7 @@ seções, subseções e subsubseções.
 
 O código usado para produzir o texto desta seção é:
 
-\begin{verbatim}
+\begin{lstlisting}[language=TeX, caption=TeX example]
 Ao nomear a \autoref{tab-nivinv} e a \autoref{fig_circulo}, apresentamos um
 exemplo de remissão interna, que também pode ser feita quando indicamos o
 \autoref{cap_exemplos}, que tem o nome \emph{\nameref{cap_exemplos}}. O número
@@ -692,7 +750,7 @@ obtida também assim:
 \pageref{cap_exemplos}.}.
 Veja a \autoref{sec-divisoes} para outros exemplos de remissões internas entre
 seções, subseções e subsubseções.
-\end{verbatim}
+\end{lstlisting}
 
 % ---
 \section{Divisões do documento: seção}\label{sec-divisoes}
