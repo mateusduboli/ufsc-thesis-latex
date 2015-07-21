@@ -59,7 +59,6 @@ section=TITLE  % Título de seções em caixa alta
 \usepackage{amsmath}		
 \usepackage{amssymb}
 \usepackage{mathrsfs}
-\usepackage{color}
 \usepackage{pdflscape}
 \usepackage{epstopdf}
 \usepackage{multirow}
@@ -94,11 +93,14 @@ section=TITLE  % Título de seções em caixa alta
 % CONFIGURAÇÕES DE PACOTES
 % --- 
 
+\sisetup{detect-all}
+\sisetup{round-mode=places,round-precision=2}
+\DeclareSIUnit \VA {VA} %apparent power
+
 % Definição de cores
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
-
 
 \lstset{ %
 	aboveskip=3mm,
@@ -150,8 +152,11 @@ section=TITLE  % Título de seções em caixa alta
 	{€}{{\EUR}}1 {£}{{\pounds}}1 {ã}{{\~a}}1 {õ}{{\~o}}1 {Ã}{{\~A}}1 {Õ}{{\~O}}1	
 }
 
-\renewcommand{\lstlistingname}{Código--fonte }% Listing -> Algorithm
-\renewcommand{\lstlistlistingname}{Lista de códigos--fonte}% List of Listings -> List of Algorithms
+\renewcommand{\lstlistingname}{Código--fonte }% Listing -> Codigo fonte
+\renewcommand{\lstlistlistingname}{Lista de códigos--fonte}% List of Listings -> Lista de códigos-fonte
+\newlistof{lstlistoflistings}{lol}{\lstlistlistingname}
+
+
 
 % ---
 % Configurações do pacote backref
@@ -478,6 +483,15 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 
 % ---
+% inserir códigos fonte
+% ---
+\pdfbookmark[0]{\lstlistingname}{lol}
+\lstlistoflistings*
+\cleardoublepage
+% ---
+
+
+% ---
 % inserir lista de abreviaturas e siglas
 % ---
 \input{PreTexto/siglas.tex}
@@ -487,19 +501,6 @@ section=TITLE  % Título de seções em caixa alta
 % inserir lista de símbolos
 % ---
 \input{PreTexto/simbolos.tex}
-% ---
-
-
-
-
-
-
-% ---
-% inserir códigos fonte
-% ---
-\pdfbookmark[0]{\lstlistingname}{lot}
-\lstlistoflistings*
-\cleardoublepage
 % ---
 
 
