@@ -352,6 +352,41 @@ acadêmicos.
 \end{table}
 
 
+
+
+\begin{table}[!h]
+	\caption{Exemplo de tabela utilizando o pacote \emph{siunitx} e \emph{resizebox}.}
+	\label{tab:SimulationResults}
+	\centering
+	\resizebox{\linewidth}{!}{%
+		\begin{tabular}{cc|cc|cc} \toprule 
+			\multicolumn{2}{l}{\textbf{Fase A} } & \multicolumn{2}{l}{\textbf{Fase B}} 
+			& \multicolumn{2}{l}{\textbf{Fase C}} \\ \hline
+			Parâmetro       & Valor       & Parâmetro        & Valor        & Parâmetro         & Valor            \\\hline
+			$I_{La1}$&$\SI{2.9082866e+000}{\A}$&  $I_{Lb1}$&$\SI{3.3878432e+000}{\A}$& $I_{Lc1}$&$\SI{3.0354175e+000}{\A}$ \\
+			$I_{La2}$&$\SI{2.9083278e+000}{\A}$&  $I_{Lb2}$&$\SI{3.3935604e+000}{\A}$& $I_{Lc2}$&$\SI{3.0238770e+000}{\A}$ \\
+			$I_{La3}$&$\SI{2.9057255e+000}{\A}$&  $I_{Lb3}$&$\SI{3.3936165e+000}{\A}$& $I_{Lc3}$&$\SI{3.0252536e+000}{\A}$ \\
+			$P_{a1}$& $\SI{625.50259e+00}{\W}$&  $P_{b1}$& $\SI{724.85424e+00}{\W}$& $P_{c1}$& $\SI{662.06883e+00}{\W}$ \\
+			$P_{a2}$& $\SI{625.31121e+00}{\W}$&  $P_{b2}$& $\SI{725.62100e+00}{\W}$& $P_{c2}$& $\SI{660.36375e+00}{\W}$ \\
+			$P_{a3}$& $\SI{625.96179e+00 }{\W}$&  $P_{b3}$& $\SI{725.28968e+00}{\W}$& $P_{c3}$& $\SI{660.14426e+00}{\W}$ \\
+			$Q_{a1}$& $\SI{36.605745e+00 }{\VA}$&  $Q_{b1}$& $\SI{45.613691e+00}{\VA}$& $Q_{c1}$& $\SI{54.531747e+00}{\VA}$ \\
+			$Q_{a2}$& $\SI{19.160357e+00}{\VA}$&  $Q_{b2}$& $\SI{36.608133e+00}{\VA}$& $Q_{c2}$& $\SI{19.939460e+00}{\VA}$ \\
+			$Q_{a3}$& $\SI{18.867027e+00}{\VA}$&  $Q_{b3}$& $\SI{47.791169e+00}{\VA}$& $Q_{c3}$& $\SI{13.797842e+00}{\VA}$ \\
+			$V_{Ca1}$&$\SI{400.04695e+00}{\V}$&  $V_{Cb1}$&$\SI{400.00862e+00}{\V}$& $V_{Cc1}$&$\SI{400.11656e+00}{\V}$ \\
+			$V_{Ca2}$&$\SI{399.93041e+00}{\V}$&  $V_{Cb2}$&$\SI{400.05835e+00}{\V}$& $V_{Cc2}$&$\SI{399.97514e+00}{\V}$ \\
+			$V_{Ca3}$&$\SI{400.02312e+00}{\V}$&  $V_{Cb3}$&$\SI{399.93403e+00}{\V}$& $V_{Cc3}$&$\SI{399.90881e+00}{\V}$ \\
+			$I_{Ca1}$&$\SI{1.2605228e+000}{\A}$&  $I_{Cb1}$&$\SI{1.4684945e+000}{\A}$& $I_{Cc1}$&$\SI{1.3054048e+000}{\A}$ \\
+			$I_{Ca2}$&$\SI{1.2661075e+000}{\A}$&  $I_{Cb2}$&$\SI{1.4720236e+000}{\A}$& $I_{Cc2}$&$\SI{1.3089556e+000}{\A}$ \\
+			$I_{Ca3}$&$\SI{1.2598194e+000}{\A}$&  $I_{Cb3}$&$\SI{1.4708279e+000}{\A}$& $I_{Cc3}$&$\SI{1.3017673e+000}{\A}$ \\
+			\bottomrule
+		\end{tabular}}
+\end{table}	
+
+
+
+
+
+\clearpage
 % ---
 \section{Figuras}
 % ---
@@ -477,7 +512,9 @@ expressões matemáticas numeradas:
   \forall x \in X, \quad \exists \: y \leq \epsilon
 \end{equation}
 
-Escreva expressões matemáticas entre \$ e \$, como em $\lim_{x \to \infty}
+Escreva expressões matemáticas entre \$ e \$, como em
+
+ $\lim_{x \to \infty}
 \exp(-x) = 0 $, para que fiquem na mesma linha.
 
 Também é possível usar colchetes para indicar o início de uma expressão
