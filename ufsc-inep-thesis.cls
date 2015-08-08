@@ -3,22 +3,62 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % Prove acesso a classe 'ufsc-thesis'
-\ProvidesClass{ufsc-inep-thesis}[2014/12/01 v01 ufsc-inep-thesis]
+\ProvidesClass{ufsc-inep-thesis}[2015/08/08 v02 ufsc-inep-thesis]
+\RequirePackage{ifthen}
+
+
+%
+% Opções de diagramação de sumários
+% sumario=tradicional    : Sumário tradicional do LaTeX/Memoir
+% sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012
+% sumario=UFSC : Sumário customizado
+
+%\newboolean{ABNTEXsumario-tradicional}     %true=titles of chapter/appendix in uppercase
+%\newboolean{ABNTEXsumario-abnt-6027-2012} 
+\newboolean{ABNTEXsumario-UFSC} 
+
+%\setboolean{ABNTEXsumario-tradicional}{false}
+%\setboolean{ABNTEXsumario-abnt-6027-2012}{true}
+\setboolean{ABNTEXsumario-UFSC}{false}
+
+\DeclareOption{sumario=tradicional}{%
+%	\setboolean{ABNTEXsumario-tradicional}{true}%
+%	\setboolean{ABNTEXsumario-abnt-6027-2012}{false}
+	\setboolean{ABNTEXsumario-UFSC}{false}}
+
+\DeclareOption{sumario=abnt-6027-2012}{%
+%	\setboolean{ABNTEXsumario-abnt-6027-2012}{true}
+%	\setboolean{ABNTEXsumario-tradicional}{false}
+	\setboolean{ABNTEXsumario-UFSC}{false}}
+
+\DeclareOption{sumario=UFSC}{%
+%	\setboolean{ABNTEXsumario-abnt-6027-2012}{false}
+%	\setboolean{ABNTEXsumario-tradicional}{false}
+	\setboolean{ABNTEXsumario-UFSC}{true}}
 
 %
 % Repassa todos os parametros a classe abntex2, 
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{abntex2}%
 }
+
 \ProcessOptions\relax
 \LoadClass{abntex2}
+
+% sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012, que
+%    soh pode ser usado com memoir v3.6k ou superior
+%    \settocpreprocessor \changes{v3.6k}{2012/09/18}{Added}
+\ifdefined\settocpreprocessor
+\else
+  \setboolean{ABNTEXsumario-tradicional}{true}
+  \setboolean{ABNTEXsumario-abnt-6027-2012}{false}
+  \setboolean{ABNTEXsumario-UFSC}{false}
+\fi
 
 
 \RequirePackage{caption}
 %\RequirePackage{etoolbox}
 \RequirePackage{layouts}
-
-
 
 % Manipulação de Strings
 \RequirePackage{xstring}
@@ -40,6 +80,7 @@
 
 \RequirePackage{ifthen}
 \newcommand{\ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
+
 
 % Comandos de dados - programa
 \providecommand{\imprimirprograma}{}
@@ -96,6 +137,8 @@
 
 
 
+
+
 % Fontes dos títulos e seções 
 
 
@@ -143,72 +186,108 @@
 \renewcommand{\ABNTEXsubsubsubsectionfontsize}{\fontsize{10.5pt}{12pt}}
 
 
-
- \renewcommand{\chapnumfont}{\chaptitlefont}
-  \renewcommand{\parttitlefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
-  \renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
-  \renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
-
-
-
-  \cftsetindents{part}{0em}{\cftlastnumwidth}
-  \cftsetindents{chapter}{0em}{\cftlastnumwidth}
-  \cftsetindents{section}{0em}{\cftlastnumwidth}
-  \cftsetindents{subsection}{0em}{\cftlastnumwidth}
-  \cftsetindents{subsubsection}{0em}{\cftlastnumwidth}
-  \cftsetindents{paragraph}{0em}{\cftlastnumwidth}
-  \cftsetindents{subparagraph}{0em}{\cftlastnumwidth}
-  %
-  \renewcommand{\tocprintchapter}{%
-    \addtocontents{toc}{\cftsetindents{chapter}{0em}{\cftlastnumwidth}}}
-  %
-  \renewcommand{\tocinnonumchapter}{%
-    \addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}%
-    \cftinserthook{toc}{A}}
-  %
-  \renewcommand{\tocprintchapternonum}{%
-    \addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}}
-  %
-  \renewcommand{\tocpartapendices}{%
-    \addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
-    \cftinserthook{toc}{A}}
-  %
-  \renewcommand{\tocpartanexos}{%
-    \addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
-    \cftinserthook{toc}{A}}
-  %
-  \setlength{\cftbeforechapterskip}{1em}
-  %
-  % Fontes das entradas do sumario
-  %
-  
- 
-  \renewcommand*{\l@chapter}[2]{%
-  \l@chapapp{\uppercase{#1}}{#2}{\cftchaptername}}
- 
+% No caso de Sumario (TOC) UFSC
+%
+\ifthenelse{\boolean{ABNTEXsumario-UFSC}}{%
+	
+	
+	\cftsetindents{part}{0em}{\cftlastnumwidth}
+	\cftsetindents{chapter}{0em}{\cftlastnumwidth}
+	\cftsetindents{section}{0em}{\cftlastnumwidth}
+	\cftsetindents{subsection}{0em}{\cftlastnumwidth}
+	\cftsetindents{subsubsection}{0em}{\cftlastnumwidth}
+	\cftsetindents{paragraph}{0em}{\cftlastnumwidth}
+	\cftsetindents{subparagraph}{0em}{\cftlastnumwidth}
+	%
+	\renewcommand{\tocprintchapter}{%
+		\addtocontents{toc}{\cftsetindents{chapter}{0em}{\cftlastnumwidth}}}
+	%
+	\renewcommand{\tocinnonumchapter}{%
+		\addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}%
+		\cftinserthook{toc}{A}}
+	%
+	\renewcommand{\tocprintchapternonum}{%
+		\addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}}
+	%
+	\renewcommand{\tocpartapendices}{%
+		\addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
+		\cftinserthook{toc}{A}}
+	%
+	\renewcommand{\tocpartanexos}{%
+		\addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
+		\cftinserthook{toc}{A}}
+	%
+	\setlength{\cftbeforechapterskip}{1em}
+	
+	%
+	% Fontes das entradas do sumario
+	%
+	\renewcommand*{\l@chapter}[2]{%
+		\l@chapapp{\uppercase{#1}}{#2}{\cftchaptername}}
+	
 	\renewcommand*{\l@section}[2]{%
-  	\l@chapapp{\ABNTEXsectionfont\uppercase{#1}}{#2}{\cftsectionname}} 
-  
+		\l@chapapp{\ABNTEXsectionfont\uppercase{#1}}{#2}{\cftsectionname}} 
+	
+	
+	\renewcommand{\cftpartfont}{\ABNTEXpartfont}
+	\renewcommand{\cftpartpagefont}{\cftpartfont}
+	%
+	%\renewcommand{\cftchapterfont}{\ABNTEXchapterfont}
+	\renewcommand{\cftchapterpagefont}{\cftchapterfont}
+	%
+	\renewcommand{\cftsectionfont}{\ABNTEXsectionfont}
+	\renewcommand{\cftsectionpagefont}{\cftsectionfont}
+	%
+	\renewcommand{\cftsubsectionfont}{\ABNTEXsubsectionfont}
+	\renewcommand{\cftsubsectionpagefont}{\cftsubsectionfont}
+	%
+	\renewcommand{\cftsubsubsectionfont}{\ABNTEXsubsubsectionfont}
+	\renewcommand{\cftsubsubsectionpagefont}{\cftsubsubsectionfont}
+	
+	%
+	\renewcommand{\cftparagraphfont}{\ABNTEXsubsubsubsectionfont}
+	\renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
+	
+	%
+	% Ajusta entrada Referencias
+	%
+	\renewcommand{\bibsection}{%
+		\chapter*{\bibname}
+		\bibmark
+		\ifnobibintoc\else
+		\phantomsection
+		\addcontentsline{toc}{chapter}{\uppercase{\bibname}}
+		\fi
+		\prebibhook
+	}  
+}{}
 
-  \renewcommand{\cftpartfont}{\ABNTEXpartfont}
-  \renewcommand{\cftpartpagefont}{\cftpartfont}
-  %
-  %\renewcommand{\cftchapterfont}{\ABNTEXchapterfont}
-  \renewcommand{\cftchapterpagefont}{\cftchapterfont}
-  %
-  \renewcommand{\cftsectionfont}{\ABNTEXsectionfont}
-  \renewcommand{\cftsectionpagefont}{\cftsectionfont}
-  %
-  \renewcommand{\cftsubsectionfont}{\ABNTEXsubsectionfont}
-  \renewcommand{\cftsubsectionpagefont}{\cftsubsectionfont}
-  %
-  \renewcommand{\cftsubsubsectionfont}{\ABNTEXsubsubsectionfont}
-  \renewcommand{\cftsubsubsectionpagefont}{\cftsubsubsectionfont}
 
-  %
-  \renewcommand{\cftparagraphfont}{\ABNTEXsubsubsubsectionfont}
-  \renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
 
+
+
+% Comando que simula a finalizacao de uma parte no bookmark e
+% adiciona espaco de \part no sumario
+\renewcommand{\phantompart}{%
+  \bookmarksetup{startatroot}%
+  \phantomsection%
+  \ifthenelse{\boolean{ABNTEXsumario-UFSC}}{%
+    \addtocontents{toc}{\vspace{\cftbeforechapterskip}}}{%
+    \addtocontents{toc}{\vspace{\cftbeforepartskip}}}%
+}
+% -----
+
+
+
+
+
+
+
+
+	\renewcommand{\chapnumfont}{\chaptitlefont}
+	\renewcommand{\parttitlefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+	\renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+	\renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
 
 
 \DeclareCaptionFont{small}{\fontsize{9.5pt}{10.5pt}}
@@ -239,11 +318,6 @@
 	font={normalsize}
 }
 
-
-
-
-
-
 % Espaçamento depois do título
 \setlength{\afterchapskip}{0.38cm}
 % Espaçamento depois dos paragráfos
@@ -253,9 +327,10 @@
 
 % Comando para inverter sobrenome e nome
 \newcommand{\ufscthesis@inverter}[1]{%
-  \StrBehind{#1}{{}},
-  \StrBefore{#1}{{}}
+	\StrBehind{#1}{{}},
+	\StrBefore{#1}{{}}
 }
+
 
 % Comandos auxiliares
  \newcommand{\showfont}{%
