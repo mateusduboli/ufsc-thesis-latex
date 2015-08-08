@@ -78,9 +78,111 @@
 % Número da última página
 \RequirePackage{lastpage}
 
-\RequirePackage{ifthen}
-\newcommand{\ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
+\RequirePackage{lmodern}			% Usa a fonte Latin Modern			
+\RequirePackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\RequirePackage{color}				% Controle das cores
+\RequirePackage{graphicx}			% Inclusão de gráficos
+\RequirePackage{microtype} 			% para melhorias de justificação
 
+\RequirePackage{pdfpages}
+\RequirePackage{fancyvrb}
+\RequirePackage{rotating}
+\RequirePackage{amsmath}		
+\RequirePackage{amssymb}
+\RequirePackage{mathrsfs}
+\RequirePackage{pdflscape}
+\RequirePackage{epstopdf}
+\RequirePackage{multirow}
+\RequirePackage{listings}
+\RequirePackage{url} % Para incluir links
+\RequirePackage{nomencl} % Pacote necessário para a lista de siglas.
+\RequirePackage{mathcomp}
+\RequirePackage{booktabs} % Para Tabelas
+\RequirePackage{subfig}  % permite ter subfiguras
+\RequirePackage{float}
+\RequirePackage{siunitx} % A comprehensive (SI) units package
+\RequirePackage{datetime}
+\RequirePackage{rotating} % gives you the possibility to rotate any object of an arbitrary angle. 
+\RequirePackage{pdflscape} % Rotação de páginas no documento pdf.
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\RequirePackage{lipsum}				% para geração de dummy text
+% ---
+
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+
+\sisetup{detect-all}
+\sisetup{scientific-notation = fixed, fixed-exponent = 0, round-mode = places,round-precision = 2,output-decimal-marker = {,} }
+\DeclareSIUnit \VA {VA} %apparent power
+
+% Definição de cores
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+	aboveskip=3mm,
+	belowskip=3mm,
+	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+	basicstyle={\small\ttfamily},        % the size of the fonts that are used for the code
+	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=t,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	columns=flexible,
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	frame=tb,                        % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=Matlab,                 % the language of the code
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=3,                       % sets default tabsize to 3 spaces
+	texcl=true,						 % Permite o uso de acentuação no código
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+%By default, listings does not support multi-byte encoding for source code. The extendedchar option only works for 8-bits encodings such as latin1.
+%
+%To handle UTF-8, you should tell listings how to interpret the special characters by defining them like so
+\lstset{literate=	
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1	 
+	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+	{€}{{\EUR}}1 {£}{{\pounds}}1 {ã}{{\~a}}1 {õ}{{\~o}}1 {Ã}{{\~A}}1 {Õ}{{\~O}}1	
+}
+
+
+% --- 
+% 
+% --- 
+
+
+\newcommand{\ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
 
 % Comandos de dados - programa
 \providecommand{\imprimirprograma}{}
@@ -262,10 +364,6 @@
 	}  
 }{}
 
-
-
-
-
 % Comando que simula a finalizacao de uma parte no bookmark e
 % adiciona espaco de \part no sumario
 \renewcommand{\phantompart}{%
@@ -276,12 +374,6 @@
     \addtocontents{toc}{\vspace{\cftbeforepartskip}}}%
 }
 % -----
-
-
-
-
-
-
 
 
 	\renewcommand{\chapnumfont}{\chaptitlefont}
@@ -367,8 +459,36 @@ baseline: \f@baselineskip{}
 \counterwithin{table}{chapter}
 
 
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Estilo de capítulos
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
 
+% % Custom settings
+\makeatletter
+\newcommand\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\setlength\midchapskip{10pt}
+\makechapterstyle{VZ14}{
+%	\thispagestyle{empty}
+	\renewcommand\chapternamenum{}
+	\renewcommand\printchaptername{}
+	\renewcommand\chapnamefont{\Huge\scshape}
+	\renewcommand\printchapternum{%
+		\chapnamefont\null\thickhrulefill\quad
+		\@chapapp\space\thechapter\quad\thickhrulefill}
+	\renewcommand\printchapternonum{%
+		\par\thickhrulefill\par\vskip\midchapskip
+		\hrule\vskip\midchapskip
+	}
+	\renewcommand\chaptitlefont{\huge\scshape\centering}
+	\renewcommand\afterchapternum{%
+		\par\nobreak\vskip\midchapskip\hrule\vskip\midchapskip}
+	\renewcommand\afterchaptertitle{%
+		\par\vskip\midchapskip\hrule\nobreak\vskip\afterchapskip}
+}
 
+\makeatother
 
 
 % ------------------------------------------------------------------------
