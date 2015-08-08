@@ -493,6 +493,56 @@ baseline: \f@baselineskip{}
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
+% Configura layout
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% -----
+% Declaracoes de cabecalhos 
+% -----
+% Cabecalho padrao
+\makepagestyle{abntheadings}
+\makeevenhead{abntheadings}{\ABNTEXfontereduzida\thepage}{}{\ABNTEXfontereduzida\textit\leftmark}
+\makeoddhead{abntheadings}{\ABNTEXfontereduzida\textit\rightmark}{}{\ABNTEXfontereduzida\thepage}
+\makeheadrule{abntheadings}{\textwidth}{\normalrulethickness}
+
+% Cabecalho do inicio do capitulo
+\makepagestyle{abntchapfirst}
+\makeoddhead{abntchapfirst}{}{}{\ABNTEXfontereduzida\thepage}
+% ---
+
+% ------------------------------------------------------------------------
+%%criar um novo estilo incluindo logos da UFSC e do INEP
+% ------------------------------------------------------------------------
+\makepagestyle{abntheadingsLogo} %  
+\makeevenhead{abntheadingsLogo}{\ABNTEXfontereduzida\thepage}{\ABNTEXfontereduzida\textit\leftmark}{\includegraphics[width=20pt]{Logo/inep.pdf}}
+\makeoddhead{abntheadingsLogo}{\includegraphics[width=15pt]{Logo/ufsc.pdf}}{\ABNTEXfontereduzida\textit\rightmark}{\ABNTEXfontereduzida\thepage}
+\makeheadrule{abntheadingsLogo}{\textwidth}{\normalrulethickness}
+
+\makeevenfoot{abntheadingsLogo}{}{}{\ABNTEXfontereduzida\textsc \imprimirautor}
+\makeoddfoot{abntheadingsLogo}{\ABNTEXfontereduzida\textsc \imprimirautor}{}{}
+
+
+
+% ---
+% Configura layout para elementos textuais
+\renewcommand{\textual}{%
+  \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+    \pagestyle{plain}%
+  }{%else  
+ %   \pagestyle{abntheadings}%
+    \pagestyle{abntheadingsLogo}%
+   % \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
+    \aliaspagestyle{chapter}{empty} % Remove a numeração das páginas no início dos capítulos.
+
+  }  
+  \nouppercaseheads%
+  \bookmarksetup{startatroot}% 
+}
+
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
 % IMPRESSOES PADROES DE CAPA E FOLHA DE ROSTO
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
