@@ -34,7 +34,7 @@ twoside, % Impressão nos dois lados da folha
 english,
 brazil,
 % sumario=tradicional,
-%sumario=abnt-6027-2012,
+%sumario=abnt-6027-2012, %  soh pode ser usado com memoir v3.6k ou superior
 sumario=UFSC,
 chapter=TITLE, % Título de capítulos em caixa alta
 section=TITLE  % Título de seções em caixa alta
@@ -135,7 +135,7 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 % Estilo de capítulos
 %
-%\chapterstyle{default}
+\chapterstyle{default}
 % \chapterstyle{pedersen} 
 %\chapterstyle{lyhne} 
 %\chapterstyle{madsen} 
@@ -144,7 +144,7 @@ section=TITLE  % Título de seções em caixa alta
 %\chapterstyle{thatcher}
 %\chapterstyle{verville}
 
-\chapterstyle{VZ14} % Ver classe para maiores detalhes
+%\chapterstyle{VZ14} % Ver classe para maiores detalhes
 
 
 %
@@ -330,8 +330,8 @@ section=TITLE  % Título de seções em caixa alta
 	\end{flushright}	
 			
 	\begin{flushright}
-		\textit{``A real beleza está em sua simetria.''}\\
-		Adriano Ruseler
+		\textit{``Catholic, which I was until I reached the age of reason.''}\\
+		George Carlin
 	\end{flushright}		
 				
 \end{epigrafe}
@@ -395,8 +395,10 @@ section=TITLE  % Título de seções em caixa alta
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
-\textual % Configura estilo das páginas
 
+ \textual % Configura estilo das páginas.
+
+ % \textualINEPUFSC  % Configura estilo das páginas com logos
 
 % ----------------------------------------------------------
 % Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)

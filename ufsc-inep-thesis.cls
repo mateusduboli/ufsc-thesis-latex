@@ -47,7 +47,7 @@
 
 % sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012, que
 %    soh pode ser usado com memoir v3.6k ou superior
-%    \settocpreprocessor \changes{v3.6k}{2012/09/18}{Added}
+ %   \settocpreprocessor \changes{v3.6k}{2012/09/18}{Added}
 \ifdefined\settocpreprocessor
 \else
   \setboolean{ABNTEXsumario-tradicional}{true}
@@ -490,6 +490,8 @@ baseline: \f@baselineskip{}
 
 \makeatother
 
+% Veja outros estilos em:
+% http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -512,7 +514,7 @@ baseline: \f@baselineskip{}
 % ---
 
 % ------------------------------------------------------------------------
-%%criar um novo estilo incluindo logos da UFSC e do INEP
+%% criar um novo estilo incluindo logos da UFSC e do INEP
 % ------------------------------------------------------------------------
 \makepagestyle{abntheadingsLogo} %  
 \makeevenhead{abntheadingsLogo}{\ABNTEXfontereduzida\thepage}{\ABNTEXfontereduzida\textit\leftmark}{\includegraphics[width=20pt]{Logo/inep.pdf}}
@@ -522,19 +524,32 @@ baseline: \f@baselineskip{}
 \makeevenfoot{abntheadingsLogo}{}{}{\ABNTEXfontereduzida\textsc \imprimirautor}
 \makeoddfoot{abntheadingsLogo}{\ABNTEXfontereduzida\textsc \imprimirautor}{}{}
 
-
-
 % ---
 % Configura layout para elementos textuais
 \renewcommand{\textual}{%
   \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
     \pagestyle{plain}%
   }{%else  
- %   \pagestyle{abntheadings}%
+   \pagestyle{abntheadings}% Estilo original do Abntex2
+   % \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
+    \aliaspagestyle{chapter}{empty} % Remove a numeração das páginas no início dos capítulos.
+  }  
+  \nouppercaseheads%
+  \bookmarksetup{startatroot}% 
+}
+
+
+
+% ---
+% Configura layout para elementos textuais
+\newcommand{\textualINEPUFSC}{%
+  \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+    \pagestyle{plain}%
+  }{%else  
+ %   \pagestyle{abntheadings}% Estilo original do Abntex2
     \pagestyle{abntheadingsLogo}%
    % \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
     \aliaspagestyle{chapter}{empty} % Remove a numeração das páginas no início dos capítulos.
-
   }  
   \nouppercaseheads%
   \bookmarksetup{startatroot}% 
