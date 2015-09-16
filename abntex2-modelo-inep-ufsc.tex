@@ -210,7 +210,7 @@ section=TITLE  % Título de seções em caixa alta
 %     \includepdf{PreTexto/ficha_catalografica.pdf}     
 % \end{fichacatalografica}
 
-\input{PreTexto/fichacatalografica.tex}
+\include{PreTexto/fichacatalografica.tex}
 % ---
 % Inserir errata
 % ---
@@ -281,7 +281,7 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 % Agradecimentos
 % ---
-\input{PreTexto/agradecimentos.tex}
+\include{PreTexto/agradecimentos.tex}
 % ---
 
 % ---
@@ -343,7 +343,7 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 
-\input{PreTexto/resumos.tex}
+\include{PreTexto/resumos.tex}
 
 
 % ---
@@ -374,13 +374,13 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 % inserir lista de abreviaturas e siglas
 % ---
-\input{PreTexto/siglas.tex}
+\include{PreTexto/siglas.tex}
 % ---
 
 % ---
 % inserir lista de símbolos
 % ---
-\input{PreTexto/simbolos.tex}
+\include{PreTexto/simbolos.tex}
 % ---
 
 
@@ -404,7 +404,7 @@ section=TITLE  % Título de seções em caixa alta
 % ----------------------------------------------------------
 % Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
 % ----------------------------------------------------------
-\input{Capitulos/00/CH00.tex}
+\include{Capitulos/00/CH00.tex}
 
 % ----------------------------------------------------------
 % PARTE
@@ -415,7 +415,7 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 % Capitulo com exemplos de comandos inseridos de arquivo externo 
 % ---
-\input{Capitulos/01/CH01.tex}
+\include{Capitulos/01/CH01.tex}
 % ---
 
 % ----------------------------------------------------------
@@ -427,7 +427,7 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 % Capitulo de revisão de literatura
 % ---
-\input{Capitulos/02/CH02.tex}
+\include{Capitulos/02/CH02.tex}
 % ---
 
 % ----------------------------------------------------------
@@ -440,14 +440,14 @@ section=TITLE  % Título de seções em caixa alta
 % primeiro capitulo de Resultados
 % ---
 
-\input{Capitulos/03/CH03.tex}
+\include{Capitulos/03/CH03.tex}
 
 
 
 % ---
 % segundo capitulo de Resultados
 % ---
-\input{Capitulos/04/CH04.tex}
+\include{Capitulos/04/CH04.tex}
 
 
 % ----------------------------------------------------------
@@ -460,7 +460,7 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 % Conclusão (outro exemplo de capítulo sem numeração e presente no sumário)
 % ---
-\input{Capitulos/Concl/Concl.tex}
+\include{Capitulos/Concl/Concl.tex}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
@@ -493,9 +493,9 @@ section=TITLE  % Título de seções em caixa alta
 % Imprime uma página indicando o início dos apêndices
 \partapendices
 
-\input{Apendices/A/APA.tex}
-\input{Apendices/B/APB.tex}
-\input{Apendices/C/APC.tex}
+\include{Apendices/A/APA.tex}
+\include{Apendices/B/APB.tex}
+\include{Apendices/C/APC.tex}
 
 \end{apendicesenv}
 % ---
@@ -513,9 +513,9 @@ section=TITLE  % Título de seções em caixa alta
 % Imprime uma página indicando o início dos anexos
 \partanexos
 
-\input{Anexos/A/ANA.tex}
-\input{Anexos/B/ANB.tex}
-\input{Anexos/C/ANC.tex}
+\include{Anexos/A/ANA.tex}
+\include{Anexos/B/ANB.tex}
+\include{Anexos/C/ANC.tex}
 
 \end{anexosenv}
 
