@@ -7,7 +7,16 @@
 \chapter[Introdução]{Introdução \showfont}
 %\addcontentsline{toc}{chapter}{Introdução}
 % ----------------------------------------------------------
-\showfont
+\begin{flushright}
+	\textit{``The curious paradox is that when I accept myself just as I am, then I can change.''}\\
+	Carl Rogers
+\end{flushright}
+
+
+%\showfont
+\newpage
+
+
 \section[Some encoding tests]{\showfont}
 \subsection{\showfont}
 \subsubsection{\showfont}
@@ -31,12 +40,12 @@ footnote\footnote{\showfont}
 ``Modelo Canônico \showfont''
 
 \begin{itemize}
-\item \textrm{Roman family - \showfont }
-\item \textsf{Sans serif family - \showfont}
-\item \texttt{Typewriter/teletype family - \showfont}
-\item \textit{italics text - \showfont}
-\item \textsl{slanted text- \showfont}
-\item \textsc{small caps text- \showfont}	
+	\item \textrm{Roman family - \showfont }
+	\item \textsf{Sans serif family - \showfont}
+	\item \texttt{Typewriter/teletype family - \showfont}
+	\item \textit{italics text - \showfont}
+	\item \textsl{slanted text- \showfont}
+	\item \textsc{small caps text- \showfont}	
 \end{itemize}
 
 
@@ -62,18 +71,18 @@ mathcal - calligraphic: $\mathcal{XYZ}$
 \begin{figure}
 	\caption{Page layout for this document -  \showfont} \label{fig:ptrs}
 	%\drawpage
-     \setlayoutscale{0.4}
-%	\currentpage
+	\setlayoutscale{0.4}
+	%	\currentpage
 	\drawparameterstrue
 	\drawpage
-%	\pagedesign
-%	\pagevalues
+	%	\pagedesign
+	%	\pagevalues
 \end{figure}
 
 
 \begin{figure}
 	\caption{Page layout values for this document} \label{fig:ptrsval}
-
+	
 	\pagevalues
 \end{figure}
 
@@ -82,7 +91,7 @@ mathcal - calligraphic: $\mathcal{XYZ}$
 \begin{figure}
 	\currentfootnote
 	\drawparameterstrue
-%	\setlayoutscale{0.4}
+	%	\setlayoutscale{0.4}
 	\drawfootnote
 	\footnotevalues
 	\caption{The current footnote layout}\label{fig:ftry}
@@ -98,7 +107,7 @@ mathcal - calligraphic: $\mathcal{XYZ}$
 
 \begin{figure}
 	\setlayoutscale{0.6}
-    \drawparameterstrue
+	\drawparameterstrue
 	\drawtoc
 	\tocvalues
 	\caption{Table of Contents entry parameters}\label{fig:tocp}
@@ -116,21 +125,21 @@ A Tabela~\ref{tab:a} mostra mais informações do template BU.
 		\label{tab:a}
 		\begin{tabular}{ p{3cm} | p{6cm} }
 			\hline
-			Cor & Branco - \showfont\\ \hline
-			Formato do papel & A5\\ \hline
-			Gramatura & 75\\ \hline
-			Impressão & Frente e verso\\ \hline
-			Margens & Espelhadas: superior 2, Inferior: 1,5, Externa 1,5 e Externa: 2.\\ \hline
-			Cabeçalho & 0,7\\ \hline
-			Rodapé & 0,7\\ \hline
-			Paginação & Externa\\ \hline
-			Alinhamento vertical & Superior\\ \hline
-			Alinhamento do texto & Justificado\\ \hline
-			Fonte sugerida & Times New Roman \\ \hline
-			Tamanho da fonte & 10,5 para o texto incluindo os títulos das seções e subseções. As citações com mais de três linhas as legendas das ilustrações e tabelas, fonte 9,5.\\ \hline
-			Espaçamento entre linhas & Um (1) simples\\ \hline
-			Espaçamento entre parágrafos & Anterior 0,0; Posterior 0,0\\ \hline
-			Numeração da seção & As seções  primárias devem  começar  sempre em páginas ímpares. Deixar um espaço (simples) entre o título da seção e o texto e  entre o texto e o título da subseção. \\  \hline
+			Cor                            & Branco - \showfont                                                                                                                                                                 \\ \hline
+			Formato do papel               & A5                                                                                                                                                                                 \\ \hline
+			Gramatura                      & 75                                                                                                                                                                                 \\ \hline
+			Impressão                     & Frente e verso                                                                                                                                                                     \\ \hline
+			Margens                        & Espelhadas: superior 2, Inferior: 1,5, Externa 1,5 e Externa: 2.                                                                                                                   \\ \hline
+			Cabeçalho                     & 0,7                                                                                                                                                                                \\ \hline
+			Rodapé                        & 0,7                                                                                                                                                                                \\ \hline
+			Paginação                    & Externa                                                                                                                                                                            \\ \hline
+			Alinhamento vertical           & Superior                                                                                                                                                                           \\ \hline
+			Alinhamento do texto           & Justificado                                                                                                                                                                        \\ \hline
+			Fonte sugerida                 & Times New Roman                                                                                                                                                                    \\ \hline
+			Tamanho da fonte               & 10,5 para o texto incluindo os títulos das seções e subseções. As citações com mais de três linhas as legendas das ilustrações e tabelas, fonte 9,5.                     \\ \hline
+			Espaçamento entre linhas      & Um (1) simples                                                                                                                                                                     \\ \hline
+			Espaçamento entre parágrafos & Anterior 0,0; Posterior 0,0                                                                                                                                                        \\ \hline
+			Numeração da seção         & As seções  primárias devem  começar  sempre em páginas ímpares. Deixar um espaço (simples) entre o título da seção e o texto e  entre o texto e o título da subseção. \\  \hline
 		\end{tabular}
 	\end{center}
 	Fonte: Universidade Federal de Santa Catarina (2011) \showfont
@@ -138,24 +147,24 @@ A Tabela~\ref{tab:a} mostra mais informações do template BU.
 
 
 \begin{figure}
-\centering
-\includegraphics[width=\linewidth]{Capitulos/00/Figs/ex01}
-\caption{Exemplo de figura}
-\label{fig:ex01}
+	\centering
+	\includegraphics[width=\linewidth]{Capitulos/00/Figs/ex01}
+	\caption{Exemplo de figura}
+	\label{fig:ex01}
 \end{figure}
 
 \begin{figure}
-\centering
-\includegraphics[width=0.9\linewidth]{Capitulos/00/Figs/tek0009}
-\caption{Exemplo de aquisição}
-\label{fig:tek0009}
+	\centering
+	\includegraphics[width=0.9\linewidth]{Capitulos/00/Figs/tek0009}
+	\caption{Exemplo de aquisição}
+	\label{fig:tek0009}
 \end{figure}
 
 Este documento e seu código-fonte são exemplos de referência de uso da classe
 \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
 exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
 gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
-	- Trabalhos acadêmicos - Apresentação}.
+- Trabalhos acadêmicos - Apresentação}.
 
 A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
 modelo específico de nenhuma universidade ou instituição, mas que implementa tão

@@ -22,24 +22,24 @@
 \setboolean{ABNTEXsumario-UFSC}{false}
 
 \DeclareOption{sumario=tradicional}{%
-%	\setboolean{ABNTEXsumario-tradicional}{true}%
-%	\setboolean{ABNTEXsumario-abnt-6027-2012}{false}
+	%	\setboolean{ABNTEXsumario-tradicional}{true}%
+	%	\setboolean{ABNTEXsumario-abnt-6027-2012}{false}
 	\setboolean{ABNTEXsumario-UFSC}{false}}
 
 \DeclareOption{sumario=abnt-6027-2012}{%
-%	\setboolean{ABNTEXsumario-abnt-6027-2012}{true}
-%	\setboolean{ABNTEXsumario-tradicional}{false}
+	%	\setboolean{ABNTEXsumario-abnt-6027-2012}{true}
+	%	\setboolean{ABNTEXsumario-tradicional}{false}
 	\setboolean{ABNTEXsumario-UFSC}{false}}
 
 \DeclareOption{sumario=UFSC}{%
-%	\setboolean{ABNTEXsumario-abnt-6027-2012}{false}
-%	\setboolean{ABNTEXsumario-tradicional}{false}
+	%	\setboolean{ABNTEXsumario-abnt-6027-2012}{false}
+	%	\setboolean{ABNTEXsumario-tradicional}{false}
 	\setboolean{ABNTEXsumario-UFSC}{true}}
 
 %
 % Repassa todos os parametros a classe abntex2, 
 \DeclareOption*{%
-  \PassOptionsToClass{\CurrentOption}{abntex2}%
+	\PassOptionsToClass{\CurrentOption}{abntex2}%
 }
 
 \ProcessOptions\relax
@@ -47,12 +47,12 @@
 
 % sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012, que
 %    soh pode ser usado com memoir v3.6k ou superior
- %   \settocpreprocessor \changes{v3.6k}{2012/09/18}{Added}
+%   \settocpreprocessor \changes{v3.6k}{2012/09/18}{Added}
 \ifdefined\settocpreprocessor
 \else
-  \setboolean{ABNTEXsumario-tradicional}{true}
-  \setboolean{ABNTEXsumario-abnt-6027-2012}{false}
-  \setboolean{ABNTEXsumario-UFSC}{false}
+\setboolean{ABNTEXsumario-tradicional}{true}
+\setboolean{ABNTEXsumario-abnt-6027-2012}{false}
+\setboolean{ABNTEXsumario-UFSC}{false}
 \fi
 
 
@@ -194,11 +194,11 @@
 \newcounter{ufscthesis@assuntos}
 \providecommand{\listaassuntos}{}
 \providecommand{\imprimirassuntos}{%
-  \setcounter{ufscthesis@assuntos}{1}
-  \@for\assunto:={\listaassuntos}\do{%
-    \arabic{ufscthesis@assuntos}.\assunto. %
-    \addtocounter{ufscthesis@assuntos}{1}
-  }
+	\setcounter{ufscthesis@assuntos}{1}
+	\@for\assunto:={\listaassuntos}\do{%
+		\arabic{ufscthesis@assuntos}.\assunto. %
+		\addtocounter{ufscthesis@assuntos}{1}
+	}
 }
 \newcommand{\assuntos}[1]{\renewcommand{\listaassuntos}{#1}}
 
@@ -238,7 +238,7 @@
 \renewcommand{\tableautorefname}{Tabela}
 \renewcommand{\figureautorefname}{Figura}
 \renewcommand{\chapterautorefname}{Cap\'itulo}
- \renewcommand{\equationautorefname}{Equa\c{c}\~ao}
+\renewcommand{\equationautorefname}{Equa\c{c}\~ao}
 
 
 
@@ -248,7 +248,7 @@
 
 
 % Tamanho da fonte padrão do 'ABNTEX'
-\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}}
+\renewcommand{\normalsize}{\fontsize{10.5pt}{11pt}}
 
 
 % http://tug.org/fonts/
@@ -294,8 +294,8 @@
 % No caso de Sumario (TOC) UFSC
 %
 \ifthenelse{\boolean{ABNTEXsumario-UFSC}}{%
-	
-	
+		
+		
 	\cftsetindents{part}{0em}{\cftlastnumwidth}
 	\cftsetindents{chapter}{0em}{\cftlastnumwidth}
 	\cftsetindents{section}{0em}{\cftlastnumwidth}
@@ -323,17 +323,17 @@
 		\cftinserthook{toc}{A}}
 	%
 	\setlength{\cftbeforechapterskip}{1em}
-	
+		
 	%
 	% Fontes das entradas do sumario
 	%
 	\renewcommand*{\l@chapter}[2]{%
 		\l@chapapp{\uppercase{#1}}{#2}{\cftchaptername}}
-	
+		
 	\renewcommand*{\l@section}[2]{%
 		\l@chapapp{\ABNTEXsectionfont\uppercase{#1}}{#2}{\cftsectionname}} 
-	
-	
+		
+		
 	\renewcommand{\cftpartfont}{\ABNTEXpartfont}
 	\renewcommand{\cftpartpagefont}{\cftpartfont}
 	%
@@ -348,11 +348,11 @@
 	%
 	\renewcommand{\cftsubsubsectionfont}{\ABNTEXsubsubsectionfont}
 	\renewcommand{\cftsubsubsectionpagefont}{\cftsubsubsectionfont}
-	
+		
 	%
 	\renewcommand{\cftparagraphfont}{\ABNTEXsubsubsubsectionfont}
 	\renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
-	
+		
 	%
 	% Ajusta entrada Referencias
 	%
@@ -370,38 +370,38 @@
 % Comando que simula a finalizacao de uma parte no bookmark e
 % adiciona espaco de \part no sumario
 \renewcommand{\phantompart}{%
-  \bookmarksetup{startatroot}%
-  \phantomsection%
-  \ifthenelse{\boolean{ABNTEXsumario-UFSC}}{%
-    \addtocontents{toc}{\vspace{\cftbeforechapterskip}}}{%
-    \addtocontents{toc}{\vspace{\cftbeforepartskip}}}%
+	\bookmarksetup{startatroot}%
+	\phantomsection%
+	\ifthenelse{\boolean{ABNTEXsumario-UFSC}}{%
+		\addtocontents{toc}{\vspace{\cftbeforechapterskip}}}{%
+		\addtocontents{toc}{\vspace{\cftbeforepartskip}}}%
 }
 % -----
+	
 
-
-	\renewcommand{\chapnumfont}{\chaptitlefont}
-	\renewcommand{\parttitlefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
-	\renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
-	\renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+\renewcommand{\chapnumfont}{\chaptitlefont}
+\renewcommand{\parttitlefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+\renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+\renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
 
 
 \DeclareCaptionFont{small}{\fontsize{9.5pt}{10.5pt}}
 
 \captionsetup[table]{
- %  name=Tabela,
- %  listformat=empty,
- %  justification=justified,
- %  labelsep=colon,
-%   position=above,
-%   skip=\onelineskip,
- %  width=\linewidth,
-   labelfont={normalsize},
-   textfont={small},
-   font={normalsize}
+	%  name=Tabela,
+	%  listformat=empty,
+	%  justification=justified,
+	%  labelsep=colon,
+	%   position=above,
+	%   skip=\onelineskip,
+	%  width=\linewidth,
+	labelfont={normalsize},
+	textfont={small},
+	font={normalsize}
 }
 
 \captionsetup[figure]{
-    %  name=Tabela,
+	%  name=Tabela,
 	%  listformat=empty,
 	%  justification=justified,
 	%  labelsep=colon,
@@ -428,30 +428,30 @@
 
 
 % Comandos auxiliares
- \newcommand{\showfont}{%
-   encoding: \f@encoding{},
-   family: \f@family{},
-   series: \f@series{},
-   shape: \f@shape{},
-   size: \f@size{},
-baseline: \f@baselineskip{}
-%tfsize: \tf@size{},
-%sfsize: \sf@size{},
-%sssize: \ssf@size{}
- }
+\newcommand{\showfont}{%
+	(encoding: \f@encoding{},
+	family: \f@family{},
+	series: \f@series{},
+	shape: \f@shape{},
+	size: \f@size{},
+	baseline: \f@baselineskip{})
+	%tfsize: \tf@size{},
+	%sfsize: \sf@size{},
+	%sssize: \ssf@size{}
+}
 
 % Comandos auxiliares
- \newcommand{\justshowfont}{%
-    \f@encoding{},
-    \f@family{},
-    \f@series{},
-    \f@shape{},
-    \f@size{},
- \f@baselineskip{}
-%tfsize: \tf@size{},
-%sfsize: \sf@size{},
-%sssize: \ssf@size{}
- }
+\newcommand{\justshowfont}{%
+	(\f@encoding{},
+	\f@family{},
+	\f@series{},
+	\f@shape{},
+	\f@size{},
+	\f@baselineskip{})
+	%tfsize: \tf@size{},
+	%sfsize: \sf@size{},
+	%sssize: \ssf@size{}
+}
 
 
 % ---
@@ -469,7 +469,7 @@ baseline: \f@baselineskip{}
 \newcommand{\secref}[1]{Seção~\ref{#1}}  % Cross-reference of equations
 \newcommand{\defref}[1]{Definição~\ref{#1}} % 
 
-
+	
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % Estilo de capítulos
@@ -481,7 +481,7 @@ baseline: \f@baselineskip{}
 \newcommand\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
 \setlength\midchapskip{10pt}
 \makechapterstyle{VZ14}{
-%	\thispagestyle{empty}
+	%	\thispagestyle{empty}
 	\renewcommand\chapternamenum{}
 	\renewcommand\printchaptername{}
 	\renewcommand\chapnamefont{\Huge\scshape}
@@ -498,7 +498,7 @@ baseline: \f@baselineskip{}
 	\renewcommand\afterchaptertitle{%
 		\par\vskip\midchapskip\hrule\nobreak\vskip\afterchapskip}
 }
-
+	
 \makeatother
 
 % Veja outros estilos em:
@@ -538,63 +538,63 @@ baseline: \f@baselineskip{}
 % ---
 % Configura layout para elementos textuais
 \renewcommand{\textual}{%
-  \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
-    \pagestyle{plain}%
-  }{%else  
-   \pagestyle{abntheadings}% Estilo original do Abntex2
-   % \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
-    \aliaspagestyle{chapter}{empty} % Remove a numeração das páginas no início dos capítulos.
-  }  
-  \nouppercaseheads%
-  \bookmarksetup{startatroot}% 
+	\ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+		\pagestyle{plain}%
+		}{%else  
+		\pagestyle{abntheadings}% Estilo original do Abntex2
+		% \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
+		\aliaspagestyle{chapter}{empty} % Remove a numeração das páginas no início dos capítulos.
+	}  
+	\nouppercaseheads%
+	\bookmarksetup{startatroot}% 
 }
-
-
-
+	
+	
+	
 % ---
 % Configura layout para elementos textuais
 \newcommand{\textualINEPUFSC}{%
-  \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
-    \pagestyle{plain}%
-  }{%else  
- %   \pagestyle{abntheadings}% Estilo original do Abntex2
-    \pagestyle{abntheadingsLogo}%
-   % \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
-    \aliaspagestyle{chapter}{empty} % Remove a numeração das páginas no início dos capítulos.
-  }  
-  \nouppercaseheads%
-  \bookmarksetup{startatroot}% 
+	\ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+		\pagestyle{plain}%
+		}{%else  
+		%   \pagestyle{abntheadings}% Estilo original do Abntex2
+		\pagestyle{abntheadingsLogo}%
+		% \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
+		\aliaspagestyle{chapter}{empty} % Remove a numeração das páginas no início dos capítulos.
+	}  
+	\nouppercaseheads%
+	\bookmarksetup{startatroot}% 
 }
-
-
+	
+	
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % IMPRESSOES PADROES DE CAPA E FOLHA DE ROSTO
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-
-
-
+		
+		
+		
 % ---
 % Impressão da Capa
 \renewcommand{\imprimircapa}{%
 	\begin{capa}%
 		\center
-		
+				
 		\ABNTEXchapterfont\bfseries\large{UNIVERSIDADE FEDERAL DE SANTA CATARINA\\PROGRAMA DE P\'OS--GRADUA\c C\~AO EM ENGENHARIA EL\'ETRICA}
-		
+				
 		\vfill
-		
+				
 		\ABNTEXchapterfont\large\imprimirautor
-		
+				
 		\vfill
 		\ABNTEXchapterfont\bfseries\Large\MakeUppercase{\imprimirtitulo}
 		\vfill
-		
+				
 		\large\imprimirlocal
-		
+				
 		\large\imprimirdata
-		
+				
 		\vspace*{1cm}
 	\end{capa}
 }
@@ -617,47 +617,43 @@ baseline: \f@baselineskip{}
 \makeatletter
 \renewcommand{\folhaderostocontent}{
 	\begin{center}
-		
+				
 		%\vspace*{1cm}
 		{\ABNTEXchapterfont\large\imprimirautor}
-		
+				
 		\vspace*{\fill}\vspace*{\fill}
 		\begin{center}
 			\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
 		\end{center}
 		\vspace*{\fill}
-		
+				
 		\abntex@ifnotempty{\imprimirpreambulo}{%
 			\hspace{.45\textwidth}
 			\begin{minipage}{5,5cm}				
 				\SingleSpacing
-			\fontsize{9.5}{10.5} \selectfont	\imprimirpreambulo\\
-										
-			\fontsize{9.5}{10.5} \selectfont{\textbf{\imprimirorientadorRotulo}~\imprimirorientador\par}
+				\fontsize{9.5}{10.5} \selectfont	\imprimirpreambulo\\
+														
+				\fontsize{9.5}{10.5} \selectfont{\textbf{\imprimirorientadorRotulo}~\imprimirorientador\par}
 				\abntex@ifnotempty{\imprimircoorientador}{%
 					{\textbf{\imprimircoorientadorRotulo}~\imprimircoorientador}%
 				}%				
 			\end{minipage}%
 			\vspace*{\fill}
 		}%
-		
-%		{\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
-		
-%		{\large\imprimirorientadorRotulo~\imprimirorientador\par}
-%		\abntex@ifnotempty{\imprimircoorientador}{%
-%			{\large\imprimircoorientadorRotulo~\imprimircoorientador}%
-%		}%
+				
+		%		{\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+				
+		%		{\large\imprimirorientadorRotulo~\imprimirorientador\par}
+		%		\abntex@ifnotempty{\imprimircoorientador}{%
+		%			{\large\imprimircoorientadorRotulo~\imprimircoorientador}%
+		%		}%
 		\vspace*{\fill}
-		
+				
 		{\large\imprimirlocal}
 		\par
 		{\large\imprimirdata}
 		\vspace*{1cm}
-		
+				
 	\end{center}
 }
 \makeatother
-
-
-
-

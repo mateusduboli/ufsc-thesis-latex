@@ -1,0 +1,95 @@
+
+%
+\documentclass{standalone}
+% \usepackage{tikz} 
+
+% load the necessary packages
+
+%X= largura da lombada em mm
+%N = é o número de páginas
+%150 = é o valor da espessura do papel off set de 75g/m2
+%capaLombada = 0,0075*Npages
+%capaLargura= 39,2+capaLombada
+
+
+\newcommand{\capaAltura}{210mm}
+\newcommand{\capaLombada}{18mm}
+%\newcommand{\capaLargura}{41cm} % 39,2+capaLombada
+
+\newcommand{\capaLargura}{148mm} % 39,2+capaLombada
+
+\usepackage[paperheight=\capaAltura,paperwidth=\capaLargura,margin=0mm]{geometry}
+
+\usepackage{grffile}
+\usepackage{amsmath}
+\usepackage{anyfontsize}
+%\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{fix-cm}
+%\usepackage{color}
+% Load file with tikz configurations
+%\input{tikzconfig.tex}
+%\usepackage[svgnames]{xcolor}
+
+\usepackage{pst-text}
+\usepackage{color}
+\usepackage{pst-grad}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{datetime}
+\usepackage{epstopdf}
+\usepackage{layouts}
+
+\usetikzlibrary{calc,shadows}
+\usetikzlibrary{backgrounds}
+% alterando o aspecto da cor azul
+\definecolor{red}{RGB}{255,0,0} % TCC
+\definecolor{yellow}{RGB}{254,227,0} % Monografia
+\definecolor{green}{RGB}{0,146,6} % Dissertação
+\definecolor{blue}{RGB}{0,56,147} % Tese
+\definecolor{gray}{RGB}{114,112,111} % PosDoutorado
+\definecolor{black}{RGB}{0,0,0} % Just define black colors bars
+
+
+	% Informação sobre o nível do trabalho: Tese, Dissertação, 	TCC, Monografia, Relatório, 	etc.
+	\DeclareFixedFont{\ArialDezesete}{T1}{ptm}{m}{n}{17pt} % TEX extended text - ptm - Adobe Times
+	\DeclareFixedFont{\ArialCatorze}{T1}{ptm}{m}{n}{14pt} % TEX extended text - ptm - Adobe Times	
+	\DeclareFixedFont{\ArialTreze}{T1}{ptm}{m}{n}{13pt} % TEX extended text - ptm - Adobe Times	
+	\DeclareFixedFont{\ArialNove}{T1}{ptm}{m}{n}{9pt} % TEX extended text - ptm - Adobe Times	
+
+	\DeclareFixedFont{\PTsmall}{T1}{ppl}{b}{it}{0.4in}
+	\DeclareFixedFont{\PTsmallest}{T1}{ppl}{b}{it}{0.3in}
+	\DeclareFixedFont{\PTtext}{T1}{ppl}{b}{it}{11pt}
+	\DeclareFixedFont{\Logo}{T1}{pbk}{m}{n}{0.3in}
+	
+\begin{document}
+%\thispagestyle{empty}
+	
+\begin{tikzpicture}[show background rectangle, background rectangle/.style={fill=blue},
+color=white,help lines/.style={color=lightgray,line width=0.2pt}, remember picture, overlay,line width=0mm]
+
+%\fill[blue] (current page.south west) rectangle (current page.north east);
+
+%\fill[black] (current page.south west) rectangle (current page.north east);
+
+%\node at ($(current page.north east)+(-0.2,-6)$) {\fontsize{25}{30}\selectfont \textbf{Awk One-Liners Explained}};
+%\node at ($(current page.north east)+(-0.5,-8)$) {\fontsize{20}{24}\selectfont \textsc{Peteris Krumins}};
+\node at ($(current page.north east)+(-0.8,-10)$) {\fontsize{45}{18}\selectfont Samizdat, 2012};
+
+%\fill[blue] (0,0) rectangle (\paperheight);
+
+%\node[above right] at ($(current page.south west)+(0.7,0.5)$) {\includegraphics[height=1.5cm]{brasaoUFSC.eps}};
+
+%\pagevalues
+
+
+
+\end{tikzpicture}	
+
+	
+	
+	
+%	\input{SenosFaseFaseFase.tikz}
+\end{document} % End of file
+
+
