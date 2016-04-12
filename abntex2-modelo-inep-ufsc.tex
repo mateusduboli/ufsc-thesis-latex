@@ -52,7 +52,9 @@ section=TITLE  % Título de seções em caixa alta
 % Pacotes de citações
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+%\usepackage[alf]{abntex2cite}	% Citação alfabética por autor-data [alf]
+\usepackage[num]{abntex2cite} % Citação numérica [num]
+\citebrackets[]
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
@@ -487,7 +489,10 @@ section=TITLE  % Título de seções em caixa alta
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
+%\bibliographystyle{abnt-alf} % Citação alfabética por autor-data [alf]
+\bibliographystyle{abnt-num}  % Citação numérica [num]
 \bibliography{abntex2-modelo-references}
+
 
 % ----------------------------------------------------------
 % Glossário

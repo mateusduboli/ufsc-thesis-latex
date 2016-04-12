@@ -548,8 +548,8 @@
 	\nouppercaseheads%
 	\bookmarksetup{startatroot}% 
 }
-	
-	
+
+
 	
 % ---
 % Configura layout para elementos textuais
