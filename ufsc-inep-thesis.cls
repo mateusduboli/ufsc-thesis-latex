@@ -6,7 +6,6 @@
 \ProvidesClass{ufsc-inep-thesis}[2015/08/08 v02 ufsc-inep-thesis]
 \RequirePackage{ifthen}
 
-
 %
 % Opções de diagramação de sumários
 % sumario=tradicional    : Sumário tradicional do LaTeX/Memoir
@@ -114,12 +113,11 @@
 
 \RequirePackage{tablefootnote}
 \RequirePackage{longtable}
+\RequirePackage{tocloft}
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
-
-
 \sisetup{detect-all}
 \sisetup{scientific-notation = fixed, fixed-exponent = 0, round-mode = places,round-precision = 2,output-decimal-marker = {,} }
 \DeclareSIUnit \VA {VA} %apparent power
@@ -178,7 +176,6 @@
 	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
 	{€}{{\EUR}}1 {£}{{\pounds}}1 {ã}{{\~a}}1 {õ}{{\~o}}1 {Ã}{{\~A}}1 {Õ}{{\~O}}1	
 }
-
 
 % --- 
 % 
