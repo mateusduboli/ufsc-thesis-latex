@@ -45,10 +45,6 @@ section=TITLE  % Título de seções em caixa alta
 % Pacotes básicos 
 % ---
 
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-% ---
-
-
 % ---
 % Pacotes de citações
 % ---
@@ -64,22 +60,7 @@ section=TITLE  % Título de seções em caixa alta
 \renewcommand{\lstlistingname}{Código--fonte }% Listing -> Codigo fonte
 \renewcommand{\lstlistlistingname}{Lista de códigos--fonte}% List of Listings -> Lista de códigos-fonte
 
-% http://tex.stackexchange.com/questions/228936/setting-entries-of-list-of-listings-in-latex-package-listings
-\newlength\mylen
 
-\begingroup
-\makeatletter
-\let\newcounter\@gobble\let\setcounter\@gobbletwo
-\globaldefs\@ne \let\c@loldepth\@ne
-\newlistof{listings}{lol}{\lstlistlistingname}
-\newlistentry{lstlisting}{lol}{0}
-\makeatother
-\endgroup
-
-\renewcommand\cftlstlistingpresnum{\lstlistingname~}
-\settowidth\mylen{\cftlstlistingpresnum\cftlstlistingaftersnum}
-\addtolength\cftlstlistingnumwidth{\mylen} %
-\renewcommand\cftlstlistingaftersnum{\hfill\textendash\hfill}
 
 
 % ---
@@ -128,6 +109,19 @@ section=TITLE  % Título de seções em caixa alta
 
 % ---
 % Configurações de aparência do PDF final
+% ---
+% Configurações de aparência do PDF final
+
+
+%\definecolor{figcolor}{rgb}{1,0.4,0}  % orange
+%\definecolor{tabcolor}{rgb}{1,0.4,0}  % orange
+%\definecolor{eqncolor}{rgb}{1,0.4,0}  % orange
+%\definecolor{linkcolor}{rgb}{1,0.4,0}  % orange
+%\definecolor{citecolor}{rgb}{1,0.4,0}  % orange
+%\definecolor{seccolor}{rgb}{0,0,1}  % blue
+%\definecolor{abscolor}{rgb}{0,0,1}  % blue
+%\definecolor{titlecolor}{rgb}{0,0,1}  % blue
+%\definecolor{biocolor}{rgb}{0,0,1}  % blue
 
 % alterando o aspecto da cor azul
 \definecolor{blue}{RGB}{41,5,195}
@@ -135,20 +129,21 @@ section=TITLE  % Título de seções em caixa alta
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title}, 
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{UFSC}{abntex2}{tese}{INEP}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=black,          	% color of internal links
-    	citecolor=black,        		% color of links to bibliography
-    	filecolor=black,      		% color of file links
-		urlcolor=black,
-		bookmarksdepth=4
+	%pagebackref=true,
+	pdftitle={\@title}, 
+	pdfauthor={Autores},
+	pdfsubject={Resumo do artigo},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={abnt}{latex}{UFSC}{abntex2}{tese}{INEP}, 
+	colorlinks=true,       		% false: boxed links; true: colored links
+	linkcolor=linkcolor,          	% color of internal links
+	citecolor=citecolor,        		% color of links to bibliography
+	filecolor=black,      		% color of file links
+	urlcolor=linkcolor,
+	bookmarksdepth=4
 }
 \makeatother
+
 % --- 
 
 
@@ -172,6 +167,27 @@ section=TITLE  % Título de seções em caixa alta
 % Veja outros estilos em:
 % http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
 % ---
+
+
+% http://tex.stackexchange.com/questions/228936/setting-entries-of-list-of-listings-in-latex-package-listings
+\newlength\mylen
+
+\begingroup
+\makeatletter
+\let\newcounter\@gobble\let\setcounter\@gobbletwo
+\globaldefs\@ne \let\c@loldepth\@ne
+\newlistof{listings}{lol}{\lstlistlistingname}
+\newlistof{lstlistoflistings}{lol}{\lstlistlistingname}
+\newlistentry{lstlisting}{lol}{0}
+\makeatother
+\endgroup
+
+\renewcommand\cftlstlistingpresnum{\lstlistingname~}
+\settowidth\mylen{\cftlstlistingpresnum\cftlstlistingaftersnum}
+\addtolength\cftlstlistingnumwidth{\mylen} %
+\renewcommand\cftlstlistingaftersnum{\hfill\textendash\hfill}
+
+
 
 % --- 
 % Espaçamentos entre linhas e parágrafos 
@@ -401,7 +417,7 @@ section=TITLE  % Título de seções em caixa alta
 % inserir códigos fonte
 % ---
 \pdfbookmark[0]{\lstlistingname}{lol}
-\lstlistoflistings*
+\lstlistoflistings* 
 \cleardoublepage
 % ---
 
@@ -506,8 +522,7 @@ section=TITLE  % Título de seções em caixa alta
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
-%\bibliographystyle{abnt-alf} % Citação alfabética por autor-data [alf]
-\bibliographystyle{abnt-num}  % Citação numérica [num]
+
 \bibliography{abntex2-modelo-references}
 
 

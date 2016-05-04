@@ -79,7 +79,7 @@
 
 \RequirePackage{lmodern}			% Usa a fonte Latin Modern			
 \RequirePackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\RequirePackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \RequirePackage{color}				% Controle das cores
 \RequirePackage{graphicx}			% Inclusão de gráficos
 \RequirePackage{microtype} 			% para melhorias de justificação
@@ -126,6 +126,16 @@
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\definecolor{figcolor}{rgb}{0,0,0}  % black
+\definecolor{tabcolor}{rgb}{0,0,0}  % black
+\definecolor{eqncolor}{rgb}{0,0,0}  % black
+\definecolor{seccolor}{rgb}{0,0,0}  % black
+\definecolor{abscolor}{rgb}{0,0,0}  % black
+\definecolor{linkcolor}{rgb}{0,0,0}  % black
+\definecolor{citecolor}{rgb}{0,0,0}  % black
+\definecolor{titlecolor}{rgb}{0,0,0}  % black
+\definecolor{biocolor}{rgb}{0,0,0}  % black
 
 \lstset{ %
 	aboveskip=3mm,
@@ -467,6 +477,12 @@
 \newcommand{\defref}[1]{Definição~\ref{#1}} % 
 
 	
+
+
+
+
+
+
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % Estilo de capítulos
@@ -654,3 +670,5 @@
 	\end{center}
 }
 \makeatother
+
+
