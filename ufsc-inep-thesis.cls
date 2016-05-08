@@ -249,10 +249,7 @@
 
 
 
-
-
 % Fontes dos títulos e seções 
-
 
 % Tamanho da fonte padrão do 'ABNTEX'
 \renewcommand{\normalsize}{\fontsize{10.5pt}{11pt}}
@@ -297,6 +294,25 @@
 \renewcommand{\ABNTEXsubsubsubsectionfont}{\usefont{T1}{cmr}{m}{it}}
 \renewcommand{\ABNTEXsubsubsubsectionfontsize}{\fontsize{10.5pt}{12pt}}
 
+% Comando que simula a finalizacao de uma parte no bookmark e
+% adiciona espaco de \part no sumario
+\renewcommand{\phantompart}{%
+	\bookmarksetup{startatroot}%
+	\phantomsection%
+	\ifthenelse{\boolean{ABNTEXsumario-UFSC}}{%
+		\addtocontents{toc}{\vspace{\cftbeforechapterskip}}}{%
+		\addtocontents{toc}{\vspace{\cftbeforepartskip}}}%
+}
+% -----
+	
+
+\renewcommand{\chapnumfont}{\chaptitlefont}
+\renewcommand{\parttitlefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+\renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+\renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+
+
+\DeclareCaptionFont{small}{\fontsize{9.5pt}{10.5pt}}
 
 % No caso de Sumario (TOC) UFSC
 %
@@ -339,8 +355,7 @@
 		
 	\renewcommand*{\l@section}[2]{%
 		\l@chapapp{\ABNTEXsectionfont\uppercase{#1}}{#2}{\cftsectionname}} 
-		
-		
+			
 	\renewcommand{\cftpartfont}{\ABNTEXpartfont}
 	\renewcommand{\cftpartpagefont}{\cftpartfont}
 	%
@@ -374,25 +389,7 @@
 	}  
 }{}
 
-% Comando que simula a finalizacao de uma parte no bookmark e
-% adiciona espaco de \part no sumario
-\renewcommand{\phantompart}{%
-	\bookmarksetup{startatroot}%
-	\phantomsection%
-	\ifthenelse{\boolean{ABNTEXsumario-UFSC}}{%
-		\addtocontents{toc}{\vspace{\cftbeforechapterskip}}}{%
-		\addtocontents{toc}{\vspace{\cftbeforepartskip}}}%
-}
-% -----
-	
 
-\renewcommand{\chapnumfont}{\chaptitlefont}
-\renewcommand{\parttitlefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
-\renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
-\renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
-
-
-\DeclareCaptionFont{small}{\fontsize{9.5pt}{10.5pt}}
 
 \captionsetup[table]{
 	%  name=Tabela,
@@ -516,6 +513,15 @@
 
 % Veja outros estilos em:
 % http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
+
+
+
+\renewenvironment{resumo}[1][\resumoname]{%
+   \PRIVATEbookmarkthis{#1}
+ %  \renewcommand{\abstractnamefont}{\chaptitlefont}
+ %  \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
+  \pretextualchapter{#1}
+  }{\PRIVATEclearpageifneeded}
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
