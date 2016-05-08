@@ -678,3 +678,29 @@
 \makeatother
 
 
+
+\renewcommand{\lstlistingname}{Código--fonte }% Listing -> Codigo fonte
+\renewcommand{\lstlistlistingname}{Lista de códigos--fonte}% List of Listings -> Lista de códigos-fonte
+
+
+% http://tex.stackexchange.com/questions/228936/setting-entries-of-list-of-listings-in-latex-package-listings
+\newlength\mylen
+
+\begingroup
+\makeatletter
+\let\newcounter\@gobble\let\setcounter\@gobbletwo
+\globaldefs\@ne \let\c@loldepth\@ne
+\newlistof{listings}{lol}{\lstlistlistingname}
+\newlistof{lstlistoflistings}{lol}{\lstlistlistingname}
+\newlistentry{lstlisting}{lol}{0}
+\makeatother
+\endgroup
+
+\renewcommand\cftlstlistingpresnum{\lstlistingname~}
+\settowidth\mylen{\cftlstlistingpresnum\cftlstlistingaftersnum}
+\addtolength\cftlstlistingnumwidth{\mylen} %
+\renewcommand\cftlstlistingaftersnum{\hfill\textendash\hfill}
+
+
+
+
