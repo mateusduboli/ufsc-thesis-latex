@@ -1,11 +1,14 @@
 
 
-% ----------------------------------------------------------
-% Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
-% ----------------------------------------------------------
+\cleardoublepage
+\phantomsection %The \phantomsection command is needed to create a link to a place in the document that is not a figure, equation, table, section, subsection, chapter, etc.
+\addcontentsline{toc}{chapter}{\texorpdfstring{\MakeTextUppercase{Capítulo 1}}{Capítulo 1}} 
+
+
 
 \chapter[Introdução]{Introdução \showfont}
 %\addcontentsline{toc}{chapter}{Introdução}
+%\texorpdfstring{\MakeTextUppercase{Capítulo 1}}{Capítulo 1}
 % ----------------------------------------------------------
 \begin{flushright}
 	\textit{``The curious paradox is that when I accept myself just as I am, then I can change.''}\\

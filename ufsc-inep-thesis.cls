@@ -3,7 +3,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % Prove acesso a classe 'ufsc-thesis'
-\ProvidesClass{ufsc-inep-thesis}[2015/08/08 v02 ufsc-inep-thesis]
+\ProvidesClass{ufsc-inep-thesis}[2016/05/18 v03 ufsc-inep-thesis]
 \RequirePackage{ifthen}
 
 %
@@ -585,6 +585,7 @@
 	\bookmarksetup{startatroot}% 
 }
 	
+
 	
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
