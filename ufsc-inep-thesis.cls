@@ -584,7 +584,25 @@
 	\nouppercaseheads%
 	\bookmarksetup{startatroot}% 
 }
-	
+
+
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Comandos e ambientes de editoracao APENDICES e ANEXOS
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+
+% ---
+% Imprime uma pagina de divisao no estilo parte
+\renewcommand{\partpage}{%
+  \cleardoublepage
+ %\phantomsection
+ % \addcontentsline{toc}{part}{\appendixtocname}%
+  \appendixpage*
+}
+
 
 	
 % ------------------------------------------------------------------------
