@@ -1,4 +1,4 @@
-
+# Just run make
 
 make 
 

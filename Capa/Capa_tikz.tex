@@ -65,8 +65,9 @@
 \begin{document}
 %\thispagestyle{empty}
 	
-\begin{tikzpicture}[show background rectangle, background rectangle/.style={fill=blue},
-color=white,help lines/.style={color=lightgray,line width=0.2pt}, remember picture, overlay,line width=0mm]
+\begin{tikzpicture}[remember picture, overlay, font=\sffamily \bfseries \huge, inner sep=0pt, outer sep=0pt, white]
+%[show background rectangle, background rectangle/.style={fill=blue},
+%color=white,help lines/.style={color=lightgray,line width=0.2pt}, remember picture, line width=0mm, scale=1]
 
 %\fill[blue] (current page.south west) rectangle (current page.north east);
 
@@ -74,15 +75,13 @@ color=white,help lines/.style={color=lightgray,line width=0.2pt}, remember pictu
 
 %\node at ($(current page.north east)+(-0.2,-6)$) {\fontsize{25}{30}\selectfont \textbf{Awk One-Liners Explained}};
 %\node at ($(current page.north east)+(-0.5,-8)$) {\fontsize{20}{24}\selectfont \textsc{Peteris Krumins}};
-\node at ($(current page.north east)+(-0.8,-10)$) {\fontsize{45}{18}\selectfont Samizdat, 2012};
+%\node at ($(current page.north east)+(-0.8,-10)$) {\fontsize{45}{18}\selectfont Samizdat, 2012};
 
-%\fill[blue] (0,0) rectangle (\paperheight);
+\fill[blue] (0,0) rectangle (\paperheight);
 
 %\node[above right] at ($(current page.south west)+(0.7,0.5)$) {\includegraphics[height=1.5cm]{brasaoUFSC.eps}};
 
 %\pagevalues
-
-
 
 \end{tikzpicture}	
 

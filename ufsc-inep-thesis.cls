@@ -104,6 +104,7 @@
 \RequirePackage{datetime}
 \RequirePackage{rotating} % gives you the possibility to rotate any object of an arbitrary angle. 
 \RequirePackage{pdflscape} % Rotação de páginas no documento pdf.
+\RequirePackage{mdframed} % Customize the look of the frame
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -137,12 +138,19 @@
 \definecolor{titlecolor}{rgb}{0,0,0}  % black
 \definecolor{biocolor}{rgb}{0,0,0}  % black
 
+%\definecolor{red}{RGB}{255,0,0} % TCC
+%\definecolor{yellow}{RGB}{254,227,0} % Monografia
+%\definecolor{green}{RGB}{0,146,6} % Dissertação
+\definecolor{blue}{RGB}{0,56,147} % Tese
+%\definecolor{gray}{RGB}{114,112,111} % PosDoutorado
+%\definecolor{black}{RGB}{0,0,0} % Just define black colors bars	
+
 \lstset{ %
 	aboveskip=3mm,
 	belowskip=3mm,
 	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-	basicstyle={\small\ttfamily},        % the size of the fonts that are used for the code
-	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+	basicstyle={\small\ttfamily},    % the size of the fonts that are used for the code
+	breakatwhitespace=true,          % sets if automatic breaks should only happen at whitespace
 	breaklines=true,                 % sets automatic line breaking
 	captionpos=t,                    % sets the caption-position to bottom
 	commentstyle=\color{mygreen},    % comment style
@@ -294,6 +302,16 @@
 \renewcommand{\ABNTEXsubsubsubsectionfont}{\usefont{T1}{cmr}{m}{it}}
 \renewcommand{\ABNTEXsubsubsubsectionfontsize}{\fontsize{10.5pt}{12pt}}
 
+
+	% Informação sobre o nível do trabalho: Tese, Dissertação, 	TCC, Monografia, Relatório, 	etc.
+	\DeclareFixedFont{\ArialDezesete}{T1}{ptm}{m}{n}{17pt} % TEX extended text - ptm - Adobe Times
+	\DeclareFixedFont{\ArialCatorze}{T1}{ptm}{m}{n}{14pt} % TEX extended text - ptm - Adobe Times	
+	\DeclareFixedFont{\ArialTreze}{T1}{ptm}{m}{n}{13pt} % TEX extended text - ptm - Adobe Times	
+	\DeclareFixedFont{\ArialNove}{T1}{ptm}{m}{n}{9pt} % TEX extended text - ptm - Adobe Times	
+
+
+
+
 % Comando que simula a finalizacao de uma parte no bookmark e
 % adiciona espaco de \part no sumario
 \renewcommand{\phantompart}{%
@@ -316,8 +334,7 @@
 
 % No caso de Sumario (TOC) UFSC
 %
-\ifthenelse{\boolean{ABNTEXsumario-UFSC}}{%
-		
+\ifthenelse{\boolean{ABNTEXsumario-UFSC}}{%		
 		
 	\cftsetindents{part}{0em}{\cftlastnumwidth}
 	\cftsetindents{chapter}{0em}{\cftlastnumwidth}
@@ -474,12 +491,6 @@
 \newcommand{\defref}[1]{Definição~\ref{#1}} % 
 
 	
-
-
-
-
-
-
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % Estilo de capítulos
@@ -554,6 +565,14 @@
 \makeevenfoot{abntheadingsLogo}{}{}{\ABNTEXfontereduzida\textsc \imprimirautor}
 \makeoddfoot{abntheadingsLogo}{\ABNTEXfontereduzida\textsc \imprimirautor}{}{}
 
+\makepagestyle{capaUFSC} %  
+\makeevenhead{capaUFSC}{}{}{}
+\makeoddhead{capaUFSC}{}{\ABNTEXfontereduzida\textit\rightmark}{\color{white}{\ArialDezesete Tese de Doutorado}}
+\makeheadrule{capaUFSC}{\textwidth}{\normalrulethickness}
+
+\makeevenfoot{capaUFSC}{}{}{\ABNTEXfontereduzida\textsc \imprimirautor}
+\makeoddfoot{capaUFSC}{\includegraphics[width=30pt]{Logo/brasaoUFSC.pdf}}{}{\color{white}{\ArialTreze Universidade Federal de Santa Catarina\\Programa de Pós--Graduação em\\Engenharia Elétrica}}
+
 % ---
 % Configura layout para elementos textuais
 \renewcommand{\textual}{%
@@ -586,7 +605,6 @@
 }
 
 
-
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % Comandos e ambientes de editoracao APENDICES e ANEXOS
@@ -610,8 +628,71 @@
 % IMPRESSOES PADROES DE CAPA E FOLHA DE ROSTO
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
+\mdfdefinestyle{CoverFrame}{% Configura Frame da capa UFSC
+    linecolor=blue,
+    outerlinewidth=2pt,
+    roundcorner=0pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=0pt,
+    innerleftmargin=0pt,
+    backgroundcolor=blue}
+
+% Ambiente para criação da capa UFSC
+\newenvironment{EnvCapaUFSC}{ % Open
+
+\center
+\pagecolor{black} 
+\color{white}
+\pagestyle{capaUFSC}
+% Margens - 
+\setlrmarginsandblock{2cm}{1cm}{*} % Left Right Margins
+\setulmarginsandblock{1.2cm}{3cm}{*} % Upper Lower Margins 
+\checkandfixthelayout
+\begin{mdframed}[style=CoverFrame]
+
+\center
+
+\color{white}
+
+}{ % Closing
+\end{mdframed}
+\clearpage
+\pagecolor{white}
+}
+% ---
+
 		
+% ---
+% Impressão da Capa
+\newcommand{\imprimircapaUFSC}{%
+
+	\begin{EnvCapaUFSC}%    
+  %\colorbox{blue}{
+
+		%\center
+
+				
+\vspace*{1cm}
+		\vfill
+		\ArialTreze \MakeUppercase{\imprimirtitulo}
 		
+\vspace*{1cm}				
+		%\vfill
+				
+		\ArialCatorze\imprimirautor
+				
+\vfill
+				
+		\vspace*{1cm}
+
+
+	\end{EnvCapaUFSC}
+
+}
+% ---
+
+				
 		
 % ---
 % Impressão da Capa
@@ -721,5 +802,18 @@
 \renewcommand\cftlstlistingaftersnum{\hfill\textendash\hfill}
 
 
+
+% -- 
+% Solution from http://tex.stackexchange.com/questions/25105/unable-to-link-to-inserted-pages-with-pdfpages
+
+\newcounter{includepdfpage}
+\newcounter{currentpagecounter}
+\newcommand{\addlabelstoallincludedpages}[1]{
+	\refstepcounter{includepdfpage}
+	\stepcounter{currentpagecounter}
+	\label{#1.\thecurrentpagecounter}}
+\newcommand{\modifiedincludepdf}[4]{
+	\setcounter{currentpagecounter}{0}
+	\includepdf[pages=#1,pagecommand=\addlabelstoallincludedpages{#2},scale=#4]{#3}}
 
 
