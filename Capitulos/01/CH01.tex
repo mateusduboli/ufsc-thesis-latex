@@ -253,12 +253,12 @@ observar apenas o recuo \cite[5.3]{NBR10520:2002}.
 \showfont
 Use o ambiente assim:
 
-\begin{verbatim}
+\begin{lstlisting}[language=tex]
 \begin{citacao}
 As citações diretas, no texto, com mais de três linhas [...]
 deve-se observar apenas o recuo \cite[5.3]{NBR10520:2002}.
 \end{citacao}
-\end{verbatim}
+\end{lstlisting}
 
 \showfont
 
@@ -267,11 +267,11 @@ idioma previamente carregado nas opções da classe (\autoref{sec-hifenizacao}).
 caso, o texto da citação é automaticamente escrito em itálico e a hifenização é
 ajustada para o idioma selecionado na opção do ambiente. Por exemplo:
 
-\begin{verbatim}
+\begin{lstlisting}[language=tex]
 \begin{citacao}[english]
 Text in English language in italic with correct hyphenation.
 \end{citacao}
-\end{verbatim}
+\end{lstlisting}
 
 Tem como resultado:
 
@@ -622,9 +622,9 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
 \index{espaçamento!dos parágrafos}O tamanho do parágrafo, espaço entre a margem
 e o início da frase do parágrafo, é definido por:
 
-\begin{verbatim}
+\begin{lstlisting}[language=tex]
    \setlength{\parindent}{1.3cm}
-\end{verbatim}
+\end{lstlisting}
 
 \index{espaçamento!do primeiro parágrafo}Por padrão, não há espaçamento no
 primeiro parágrafo de cada início de divisão do documento
@@ -632,9 +632,9 @@ primeiro parágrafo de cada início de divisão do documento
 também seja indentado, como é o caso deste documento. Para isso, apenas inclua o
 pacote \textsf{indentfirst} no preâmbulo do documento:
 
-\begin{verbatim}
+\begin{lstlisting}[language=tex]
    \usepackage{indentfirst}      % Indenta o primeiro parágrafo de cada seção.
-\end{verbatim}
+\end{lstlisting}
 
 \index{espaçamento!entre os parágrafos}O espaçamento entre um parágrafo e outro
 pode ser controlado por meio do comando:
@@ -646,22 +646,22 @@ pode ser controlado por meio do comando:
 \index{espaçamento!entre as linhas}O controle do espaçamento entre linhas é
 definido por:
 
-\begin{verbatim}
+\begin{lstlisting}[language=tex]
   \OnehalfSpacing       % espaçamento um e meio (padrão); 
   \DoubleSpacing        % espaçamento duplo
   \SingleSpacing        % espaçamento simples	
-\end{verbatim}
+\end{lstlisting}
 
 Para isso, também estão disponíveis os ambientes:
 
-\begin{verbatim}
+\begin{lstlisting}[language=tex]
   \begin{SingleSpace} ...\end{SingleSpace}
   \begin{Spacing}{hfactori} ... \end{Spacing}
   \begin{OnehalfSpace} ... \end{OnehalfSpace}
   \begin{OnehalfSpace*} ... \end{OnehalfSpace*}
   \begin{DoubleSpace} ... \end{DoubleSpace}
   \begin{DoubleSpace*} ... \end{DoubleSpace*} 
-\end{verbatim}
+\end{lstlisting}
 
 Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
 
@@ -732,15 +732,15 @@ documento. Para incluir diferentes arquivos em um arquivo principal,
 de modo que cada arquivo incluído fique em uma página diferente, utilize o
 comando:
 
-\begin{verbatim}
+\begin{lstlisting}[language=tex]
    \include{documento-a-ser-incluido}      % sem a extensão .tex
-\end{verbatim}
+\end{lstlisting}
 
 Para incluir documentos sem quebra de páginas, utilize:
 
-\begin{verbatim}
+\begin{lstlisting}[language=tex]
    \input{documento-a-ser-incluido}      % sem a extensão .tex
-\end{verbatim}
+\end{lstlisting}
 
 % ---
 \section{Compilar o documento \LaTeX}
@@ -769,7 +769,7 @@ comandos.},label={lst:compilarLatex}]
    pdflatex ARQUIVO_PRINCIPAL.tex
 \end{lstlisting}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=bash]
 a very long and totruous path which you can check to see if it breaks and where at the end of the line
 \end{lstlisting}
 
@@ -854,15 +854,17 @@ visualização, as opções foram quebras em diferentes linhas):
 
 \begin{verbatim}
 \documentclass[
-	12pt,
-	openright,
-	twoside,
-	a4paper,
-	english,
-	french,
-	spanish,
-	brazil
-	]{abntex2}
+10.5pt, % Tamanho da fonte 
+a5paper, % Tamanho do papel
+twoside, % Impressão nos dois lados da folha
+english,
+brazil,
+%sumario=tradicional,
+%sumario=abnt-6027-2012, % memoir v3.6k ou superior
+sumario=UFSC,
+chapter=TITLE, % Título de capítulos em caixa alta
+section=TITLE  % Título de seções em caixa alta
+]{ufsc-inep-thesis}
 \end{verbatim}
 
 O idioma português-brasileiro (\texttt{brazil}) é incluído automaticamente pela
@@ -877,11 +879,11 @@ citações em português e em francês, você deveria usar o preâmbulo como aba
 	12pt,
 	openright,
 	twoside,
-	a4paper,
+	a5paper,
 	french,
 	brazil,
 	english
-	]{abntex2}
+	]{ufsc-inep-thesis}
 \end{verbatim}
 
 A lista completa de idiomas suportados, bem como outras opções de hifenização,

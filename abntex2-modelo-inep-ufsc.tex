@@ -17,6 +17,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
+
 \documentclass[
 10.5pt, % Tamanho da fonte 
 a5paper, % Tamanho do papel
@@ -42,6 +43,11 @@ section=TITLE  % Título de seções em caixa alta
 %\usepackage[alf]{abntex2cite}	% Citação alfabética por autor-data [alf]
 \usepackage[num]{abntex2cite} % Citação numérica [num]
 \citebrackets[]
+
+
+% Altera de sin e tan para sen e tg nas equações
+\providecommand{\sin}{} \renewcommand{\sin}{\hspace{2pt}\mathrm{sen}}
+\providecommand{\tan}{} \renewcommand{\tan}{\hspace{2pt}\mathrm{tg}}
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES

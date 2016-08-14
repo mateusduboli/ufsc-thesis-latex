@@ -15,7 +15,7 @@ Padrão para o formato de teses na UFSC-NEP, utilizando o pacote abnTeX2 como ba
 [Dados da ficha](http://ficha.bu.ufsc.br/)
 
 #### Site da Biblioteca abnTeX2
-[abnTeX2](https://code.google.com/p/abntex2/)
+[abnTeX2] (http://www.abntex.net.br/)
 
 #### Instalação
 
@@ -23,7 +23,7 @@ Para poder utilizar a classe é necessário instalar o pacote abnTeX2 na sua
 distribuição LaTeX, as configurações específicas para cada sistema, podem ser
 encontradas no link abaixo.
 
-[abnTeX2 Instalação](https://code.google.com/p/abntex2/wiki/Instalacao)
+[abnTeX2 Instalação](https://github.com/abntex/abntex2/wiki/Instalacao)
 
 [abntex2 CTAN](http://www.ctan.org/pkg/abntex2)
 
