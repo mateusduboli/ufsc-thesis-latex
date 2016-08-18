@@ -22,8 +22,9 @@
 10.5pt, % Tamanho da fonte 
 a5paper, % Tamanho do papel
 twoside, % Impressão nos dois lados da folha
+german,
 english,
-brazil,
+brazil, % o último idioma é o principal do documento 
 %sumario=tradicional,
 %sumario=abnt-6027-2012, %  soh pode ser usado com memoir v3.6k ou superior
 sumario=UFSC,
@@ -35,7 +36,8 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 % Pacotes básicos 
 % ---
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+
+
 % ---
 % Pacotes de citações
 % ---
@@ -151,6 +153,9 @@ section=TITLE  % Título de seções em caixa alta
 %\chapterstyle{verville}
 
 \chapterstyle{VZ14} % Ver classe para maiores detalhes
+\setlength\beforechapskip{0pt}
+\setlength\midchapskip{15pt}
+\setlength\afterchapskip{15pt}
 
 
 %
@@ -200,7 +205,7 @@ section=TITLE  % Título de seções em caixa alta
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
-% \pretextual
+\pretextual
 
 %\imprimircapaUFSC % Em construção
 
@@ -389,6 +394,10 @@ section=TITLE  % Título de seções em caixa alta
 
 \textual % Configura estilo das páginas.
 
+\setlength\beforechapskip{50pt}
+\setlength\midchapskip{20pt}
+\setlength\afterchapskip{20pt}
+
 %\textualINEPUFSC  % Configura estilo das páginas com logos
 
 % ----------------------------------------------------------
@@ -457,6 +466,9 @@ section=TITLE  % Título de seções em caixa alta
 % ----------------------------------------------------------
 \postextual
 % ----------------------------------------------------------
+\setlength\beforechapskip{0pt}
+\setlength\midchapskip{15pt}
+\setlength\afterchapskip{15pt}
 
 % ----------------------------------------------------------
 % Referências bibliográficas
@@ -485,6 +497,10 @@ section=TITLE  % Título de seções em caixa alta
 	% Imprime uma página indicando o início dos apêndices
 	\partapendices
 	
+	\setlength\beforechapskip{50pt}
+	\setlength\midchapskip{20pt}
+	\setlength\afterchapskip{20pt}
+	
 	\include{Apendices/A/APA}
 %	\include{Apendices/B/APB}
 %	\include{Apendices/C/APC}
@@ -504,7 +520,11 @@ section=TITLE  % Título de seções em caixa alta
 	
 	% Imprime uma página indicando o início dos anexos
 	\partanexos
-	
+
+	\setlength\beforechapskip{50pt}
+	\setlength\midchapskip{20pt}
+	\setlength\afterchapskip{20pt}
+		
 	\include{Anexos/A/ANA}
 %	\include{Anexos/B/ANB}
 %	\include{Anexos/C/ANC}

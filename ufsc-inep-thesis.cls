@@ -3,7 +3,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % Prove acesso a classe 'ufsc-thesis'
-\ProvidesClass{ufsc-inep-thesis}[2016/05/18 v03 ufsc-inep-thesis]
+\ProvidesClass{ufsc-inep-thesis}[2016/08/17 ufsc-inep-thesis]
 \RequirePackage{ifthen}
 
 %
@@ -500,9 +500,12 @@
 % % Custom settings
 \makeatletter
 \newcommand\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
-\setlength\midchapskip{10pt}
+
 \makechapterstyle{VZ14}{
 	%	\thispagestyle{empty}
+\setlength\beforechapskip{50pt}
+\setlength\midchapskip{20pt}
+\setlength\afterchapskip{20pt}
 	\renewcommand\chapternamenum{}
 	\renewcommand\printchaptername{}
 	\renewcommand\chapnamefont{\Huge\scshape}
@@ -523,7 +526,7 @@
 \makeatother
 
 % Veja outros estilos em:
-% http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
+% http://repositorios.cpai.unb.br/ctan/info/latex-samples/MemoirChapStyles/MemoirChapStyles.pdf
 
 
 
