@@ -1,5 +1,5 @@
-%% abtex2-modelo-trabalho-academico.tex, v-1.9.2 laurocesar
-%% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%% abtex2-modelo-trabalho-academico.tex, v-1.9.6 laurocesar
+%% Copyright 2012-2016 by abnTeX2 group at http://www.abntex.net.br/ 
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -7,6 +7,17 @@
 %% The latest version of this license is in
 %%   http://www.latex-project.org/lppl.txt
 %% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://www.abntex.net.br/
+%%
+%% This work consists of the files abntex2-modelo-trabalho-academico.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -16,7 +27,6 @@
 % Apresentacao
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-
 
 \documentclass[
 10.5pt, % Tamanho da fonte 
@@ -75,11 +85,7 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-
-% ---
-% Informações de dados para CAPA e FOLHA DE ROSTO
-% ---
-\titulo{Modelo Canônico de Tese, Dissertação ou TCC	 do INEP com \abnTeX}
+\titulo{Modelo Canônico de TCC, Monografia,  Dissertação, Tese ou Relatório de Pós--Doutorado da UFSC com \abnTeX}
 \autor{Nome do Autor}
 \local{Florianópolis, Santa Catarina -- Brasil}
 %\local{Florianópolis}
@@ -89,10 +95,11 @@ section=TITLE  % Título de seções em caixa alta
 \instituicao{%
   Universidade Federal de Santa Catarina -- UFSC
   \par
-  Departamento de Engenharia Elétrica -- EEL
+  Departamento de Engenharia Elétrica e Eletrônica -- EEL
   \par
  Programa de Pós--Graduação em Engenharia Elétrica -- PGEEL}
-\tipotrabalho{Tese (Doutorado)}
+
+
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
 \preambulo{Tese submetida ao Programa de Pós--Graduação em Engenharia Elétrica da Universidade Federal de Santa Catarina para a obtenção do Grau de Doutor em Engenharia Elétrica.}
@@ -196,7 +203,6 @@ section=TITLE  % Título de seções em caixa alta
 %\includeonly{Capitulos/04/CH04}
 
 
-
 \begin{document}
 
 % Retira espaço extra obsoleto entre as frases.
@@ -205,9 +211,10 @@ section=TITLE  % Título de seções em caixa alta
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
-\pretextual
 
-%\imprimircapaUFSC % Em construção
+\includepdf{Capa/FrenteCapaUFSC.pdf}%
+
+\pretextual
 
 % ---
 % Capa
@@ -234,10 +241,11 @@ section=TITLE  % Título de seções em caixa alta
 % o conteúdo de implementação deste arquivo pelo comando abaixo:
 %
 % \begin{fichacatalografica}
-%     \includepdf{PreTexto/ficha_catalografica.pdf}     
+%    \includepdf{PreTexto/ficha_catalografica.pdf}     
 % \end{fichacatalografica}
 
 \include{PreTexto/fichacatalografica}
+
 % ---
 % Inserir errata
 % ---
@@ -255,6 +263,11 @@ section=TITLE  % Título de seções em caixa alta
 % \includepdf{folhadeaprovacao_final.pdf}
 %
 \include{PreTexto/folhadeaprovacao}
+
+
+
+
+
 % ---
 
 % ---
@@ -281,12 +294,16 @@ section=TITLE  % Título de seções em caixa alta
 
 \begin{epigrafe}
 	\vspace*{\fill}
+	
+		\begin{flushright}
+			\textit{``Assim como aquele pecado da juventude, este documento te perseguirá pelo resto da vida.''}\\Enio Valmor Kassick
+		\end{flushright}
+		
 	\begin{flushright}
-		\textit{``Only two things are infinite: the universe and human stupidity and I'm not sure about the former''}\\Albert Einstein
+		\textit{``Estupidez trará mais autoconfiança do que o conhecimento e a bravura juntas.''}\\
+		Adriano Ruseler
 	\end{flushright}
-%	\begin{flushright}
-%		\textit{``É fácil ser humilde para quem nunca\\ fez nada do que possa se orgulhar''}\\Jackfilho Lake
-%	\end{flushright}
+
 	\begin{flushright}
 		\textit{``Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.''}\\	Albert Einstein		
 	\end{flushright}
@@ -303,10 +320,7 @@ section=TITLE  % Título de seções em caixa alta
 		\textit{``Extraordinary claims require extraordinary evidence''}\\
 		Carl Sagan
 	\end{flushright}
-	\begin{flushright}
-		\textit{``Bravura é vencer o medo encarando a verdade enquanto que estupidez é coibir a percepção ignorando os fatos. Ambas são igualmente importantes para se conquistar a auto--confiança.''}\\
-		Adriano Ruseler
-	\end{flushright}
+
 %	\begin{flushright}
 %		\textit{``Pesquisa cientifica é a arte isolar o ego e as crenças da interpretação dos fatos.''}\\
 %		Adriano Ruseler
@@ -316,10 +330,7 @@ section=TITLE  % Título de seções em caixa alta
 %		Adriano Ruseler
 %	\end{flushright}	
 	
-%	\begin{flushright}
-%		\textit{``O verdadeiro valor de uma tese não está na sua utilidade, mas sim na sua capacidade de trazer esperança a um jovem pesquisador.''}\\
-%		Adriano Ruseler
-%	\end{flushright}	
+
 				
 	\begin{flushright}
 		\textit{``Catholic, which I was until I reached the age of reason.''}\\

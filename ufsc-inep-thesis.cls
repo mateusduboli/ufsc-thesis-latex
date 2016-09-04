@@ -2,8 +2,8 @@
 % Define versão necessária do LaTeX
 \NeedsTeXFormat{LaTeX2e}
 
-% Prove acesso a classe 'ufsc-thesis'
-\ProvidesClass{ufsc-inep-thesis}[2016/08/17 ufsc-inep-thesis]
+% Prove acesso a classe 'ufsc-inep-thesis'
+\ProvidesClass{ufsc-inep-thesis}[2016/09/04 ufsc-inep-thesis]
 \RequirePackage{ifthen}
 
 %
@@ -138,12 +138,7 @@
 \definecolor{titlecolor}{rgb}{0,0,0}  % black
 \definecolor{biocolor}{rgb}{0,0,0}  % black
 
-%\definecolor{red}{RGB}{255,0,0} % TCC
-%\definecolor{yellow}{RGB}{254,227,0} % Monografia
-%\definecolor{green}{RGB}{0,146,6} % Dissertação
-\definecolor{blue}{RGB}{0,56,147} % Tese
-%\definecolor{gray}{RGB}{114,112,111} % PosDoutorado
-%\definecolor{black}{RGB}{0,0,0} % Just define black colors bars	
+	
 
 \lstset{ %
 	aboveskip=3mm,
@@ -303,15 +298,6 @@
 \renewcommand{\ABNTEXsubsubsubsectionfontsize}{\fontsize{10.5pt}{12pt}}
 
 
-	% Informação sobre o nível do trabalho: Tese, Dissertação, 	TCC, Monografia, Relatório, 	etc.
-	\DeclareFixedFont{\ArialDezesete}{T1}{ptm}{m}{n}{17pt} % TEX extended text - ptm - Adobe Times
-	\DeclareFixedFont{\ArialCatorze}{T1}{ptm}{m}{n}{14pt} % TEX extended text - ptm - Adobe Times	
-	\DeclareFixedFont{\ArialTreze}{T1}{ptm}{m}{n}{13pt} % TEX extended text - ptm - Adobe Times	
-	\DeclareFixedFont{\ArialNove}{T1}{ptm}{m}{n}{9pt} % TEX extended text - ptm - Adobe Times	
-
-
-
-
 % Comando que simula a finalizacao de uma parte no bookmark e
 % adiciona espaco de \part no sumario
 \renewcommand{\phantompart}{%
@@ -405,8 +391,6 @@
 		\prebibhook
 	}  
 }{}
-
-
 
 \captionsetup[table]{
 	%  name=Tabela,
@@ -568,13 +552,6 @@
 \makeevenfoot{abntheadingsLogo}{}{}{\ABNTEXfontereduzida\textsc \imprimirautor}
 \makeoddfoot{abntheadingsLogo}{\ABNTEXfontereduzida\textsc \imprimirautor}{}{}
 
-\makepagestyle{capaUFSC} %  
-\makeevenhead{capaUFSC}{}{}{}
-\makeoddhead{capaUFSC}{}{\ABNTEXfontereduzida\textit\rightmark}{\color{white}{\ArialDezesete Tese de Doutorado}}
-\makeheadrule{capaUFSC}{\textwidth}{\normalrulethickness}
-
-\makeevenfoot{capaUFSC}{}{}{\ABNTEXfontereduzida\textsc \imprimirautor}
-\makeoddfoot{capaUFSC}{\includegraphics[width=30pt]{Logo/brasaoUFSC.pdf}}{}{\color{white}{\ArialTreze Universidade Federal de Santa Catarina\\Programa de Pós--Graduação em\\Engenharia Elétrica}}
 
 % ---
 % Configura layout para elementos textuais
@@ -590,8 +567,6 @@
 	\bookmarksetup{startatroot}% 
 }
 
-
-	
 % ---
 % Configura layout para elementos textuais
 \newcommand{\textualINEPUFSC}{%
@@ -613,8 +588,6 @@
 % Comandos e ambientes de editoracao APENDICES e ANEXOS
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-
-
 % ---
 % Imprime uma pagina de divisao no estilo parte
 \renewcommand{\partpage}{%
@@ -625,77 +598,35 @@
 }
 
 
+% -- 
+% Solution from http://tex.stackexchange.com/questions/25105/unable-to-link-to-inserted-pages-with-pdfpages
+
+\newcounter{includepdfpage}
+\newcounter{currentpagecounter}
+\newcommand{\addlabelstoallincludedpages}[1]{
+	\refstepcounter{includepdfpage}
+	\stepcounter{currentpagecounter}
+	\label{#1.\thecurrentpagecounter}}
+\newcommand{\modifiedincludepdf}[4]{
+	\setcounter{currentpagecounter}{0}
+	\includepdf[pages=#1,pagecommand=\addlabelstoallincludedpages{#2},scale=#4]{#3}}
 	
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-% IMPRESSOES PADROES DE CAPA E FOLHA DE ROSTO
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-\mdfdefinestyle{CoverFrame}{% Configura Frame da capa UFSC
-    linecolor=blue,
-    outerlinewidth=2pt,
-    roundcorner=0pt,
-    innertopmargin=\baselineskip,
-    innerbottommargin=\baselineskip,
-    innerrightmargin=0pt,
-    innerleftmargin=0pt,
-    backgroundcolor=blue}
-
-% Ambiente para criação da capa UFSC
-\newenvironment{EnvCapaUFSC}{ % Open
-
-\center
-\pagecolor{black} 
-\color{white}
-\pagestyle{capaUFSC}
-% Margens - 
-\setlrmarginsandblock{2cm}{1cm}{*} % Left Right Margins
-\setulmarginsandblock{1.2cm}{3cm}{*} % Upper Lower Margins 
-\checkandfixthelayout
-\begin{mdframed}[style=CoverFrame]
-
-\center
-
-\color{white}
-
-}{ % Closing
-\end{mdframed}
-\clearpage
-\pagecolor{white}
-}
-% ---
-
 		
 % ---
 % Impressão da Capa
-\newcommand{\imprimircapaUFSC}{%
-
-	\begin{EnvCapaUFSC}%    
-  %\colorbox{blue}{
-
-		%\center
-
-				
-\vspace*{1cm}
-		\vfill
-		\ArialTreze \MakeUppercase{\imprimirtitulo}
-		
-\vspace*{1cm}				
-		%\vfill
-				
-		\ArialCatorze\imprimirautor
-				
-\vfill
-				
-		\vspace*{1cm}
-
-
-	\end{EnvCapaUFSC}
-
-}
+ \newcommand{\imprimircapaUFSC}{%
+	 \begin{EnvCapaUFSC}%    
+	\vspace*{5cm}		
+		 \parbox{307pt}{\center\ArialTreze \MakeUppercase{\imprimirtitulo}}	
+	 \vfill	
+	 \vspace*{3cm}				
+		\ArialCatorze\imprimirautor			
+	 \vfill
+	 \vspace*{5.8cm} % Precisa ser ajustado dependendo do tamanho do titulo
+	 \end{EnvCapaUFSC}
+ }
 % ---
-
-				
+		
 		
 % ---
 % Impressão da Capa
@@ -723,8 +654,6 @@
 % ---
 
 
-
-
 % ---
 % Folha de rosto
 %   usar \imprimirfolhaderosto* casodeseje imprimir algo no verso da
@@ -738,8 +667,7 @@
 % Conteudo padrao da Folha de Rosto
 \makeatletter
 \renewcommand{\folhaderostocontent}{
-	\begin{center}
-				
+	\begin{center}				
 		%\vspace*{1cm}
 		{\ABNTEXchapterfont\large\imprimirautor}
 				
@@ -781,10 +709,8 @@
 \makeatother
 
 
-
 \renewcommand{\lstlistingname}{Código--fonte }% Listing -> Codigo fonte
 \renewcommand{\lstlistlistingname}{Lista de códigos--fonte}% List of Listings -> Lista de códigos-fonte
-
 
 % http://tex.stackexchange.com/questions/228936/setting-entries-of-list-of-listings-in-latex-package-listings
 \newlength\mylen
@@ -804,19 +730,5 @@
 \addtolength\cftlstlistingnumwidth{\mylen} %
 \renewcommand\cftlstlistingaftersnum{\hfill\textendash\hfill}
 
-
-
-% -- 
-% Solution from http://tex.stackexchange.com/questions/25105/unable-to-link-to-inserted-pages-with-pdfpages
-
-\newcounter{includepdfpage}
-\newcounter{currentpagecounter}
-\newcommand{\addlabelstoallincludedpages}[1]{
-	\refstepcounter{includepdfpage}
-	\stepcounter{currentpagecounter}
-	\label{#1.\thecurrentpagecounter}}
-\newcommand{\modifiedincludepdf}[4]{
-	\setcounter{currentpagecounter}{0}
-	\includepdf[pages=#1,pagecommand=\addlabelstoallincludedpages{#2},scale=#4]{#3}}
 
 
