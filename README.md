@@ -4,7 +4,7 @@ inep-ufsc-thesis-latex
 Padrão para o formato de teses na UFSC-NEP, utilizando o pacote abnTeX2 como base.
 
 #### Normas da UFSC para trabalhos acadêmicos
-[Geral](http://portalbu.ufsc.br/normalizacao-de-trabalhos-2/)
+[Geral](http://portal.bu.ufsc.br/normalizacao/)
 
 [Capa](http://www.bu.ufsc.br/design/Guia_Rapido_Diagramacao_Trabalhos_Academicos.pdf)
 
@@ -51,12 +51,12 @@ seja idêntico ao uso direto da classe abnTeX2.
 
 A documentação dessa classe pode ser encontrada aqui:
 
-[Documentação](http://dl.bintray.com/laurocesar/generic/abntex2-doc-1.9.3.zip)
+[Documentação](https://www.ctan.org/pkg/abntex2)
 
 Também é possível encontrar modelos de documentos que utilizam a classe para
 tomar como base.
 
 [Modelos
-abnTeX2](http://dl.bintray.com/laurocesar/generic/abntex2-modelos-1.9.3.zip)
+abnTeX2](https://www.ctan.org/pkg/abntex2)
 
 
