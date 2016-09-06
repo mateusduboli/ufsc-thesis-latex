@@ -61,6 +61,12 @@ section=TITLE  % Título de seções em caixa alta
 \providecommand{\sin}{} \renewcommand{\sin}{\hspace{2pt}\mathrm{sen}}
 \providecommand{\tan}{} \renewcommand{\tan}{\hspace{2pt}\mathrm{tg}}
 
+
+% default value.
+\providecommand\WriteEpigraphs{true}
+%...
+
+
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
@@ -291,7 +297,7 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 % Epígrafe
 % ---
-
+\ifthenelse{ \equal{\WriteEpigraphs}{true} }{
 \begin{epigrafe}
 	\vspace*{\fill}
 	
@@ -342,6 +348,9 @@ section=TITLE  % Título de seções em caixa alta
 	\end{flushright}	
 					
 \end{epigrafe}
+}{
+% do something different..
+}
 % ---
 
 % ---

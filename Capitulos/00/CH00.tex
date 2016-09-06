@@ -10,10 +10,19 @@
 %\addcontentsline{toc}{chapter}{Introdução}
 %\texorpdfstring{\MakeTextUppercase{Capítulo 1}}{Capítulo 1}
 % ----------------------------------------------------------
+
+
+
+\ifthenelse{ \equal{\WriteEpigraphs}{true} }{
+	% Write epigraphs
 \begin{flushright}
 	\textit{``The curious paradox is that when I accept myself just as I am, then I can change.''}\\
 	Carl Rogers
 \end{flushright}
+}{
+% do something different..
+}
+
 
 
 %\showfont
