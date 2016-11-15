@@ -30,7 +30,7 @@ encontradas no link abaixo.
 Depois no diretório do seu projeto faça um clone dos arquivos do repositório.
 
 ```bash
-git clone https://github.com/AdrianoRuseler/inep-ufsc-thesis-latex
+git clone https://github.com/AdrianoRuseler/abntex2-ufsc
 ```
 
 Em seguida use a classe fornecida pelo pacote, a abntex2-ufsc, como classe do
