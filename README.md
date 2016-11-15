@@ -1,7 +1,7 @@
 abntex2-ufsc
 =================
 
-Padrão para o formato de teses na UFSC-NEP, utilizando o pacote abnTeX2 como base.
+Modelo Canônico de TCC, Monografia,  Dissertação, Tese ou Relatório de Pós--Doutorado da UFSC com abnTeX2
 
 #### Normas da UFSC para trabalhos acadêmicos
 [Geral](http://portal.bu.ufsc.br/normalizacao/)
