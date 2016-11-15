@@ -1,4 +1,4 @@
-inep-ufsc-thesis-latex
+abntex2-ufsc
 =================
 
 Padrão para o formato de teses na UFSC-NEP, utilizando o pacote abnTeX2 como base.
@@ -33,11 +33,11 @@ Depois no diretório do seu projeto faça um clone dos arquivos do repositório.
 git clone https://github.com/AdrianoRuseler/inep-ufsc-thesis-latex
 ```
 
-Em seguida use a classe fornecida pelo pacote, a ufsc-inep-thesis, como classe do
+Em seguida use a classe fornecida pelo pacote, a abntex2-ufsc, como classe do
 documento do seu projeto.
 
 ```latex
-\documentclass{ufsc-inep-thesis}
+\documentclass{abntex2-ufsc}
 ```
 
 Após isso utilize a classe como se fosse a abnTeX2 e redigir seu documento

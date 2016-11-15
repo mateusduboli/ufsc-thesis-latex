@@ -2,8 +2,8 @@
 % Define versão necessária do LaTeX
 \NeedsTeXFormat{LaTeX2e}
 
-% Prove acesso a classe 'ufsc-inep-thesis'
-\ProvidesClass{ufsc-inep-thesis}[2016/09/04 ufsc-inep-thesis]
+% Prove acesso a classe 'abntex2-ufsc'
+\ProvidesClass{abntex2-ufsc}[2016/11/15 abntex2-ufsc]
 \RequirePackage{ifthen}
 
 %
