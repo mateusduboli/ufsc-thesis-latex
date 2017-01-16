@@ -58,9 +58,11 @@ section=TITLE  % Título de seções em caixa alta
 
 
 % Altera de sin e tan para sen e tg nas equações
-\providecommand{\sin}{} \renewcommand{\sin}{\hspace{2pt}\mathrm{sen}}
-\providecommand{\tan}{} \renewcommand{\tan}{\hspace{2pt}\mathrm{tg}}
+\DeclareMathOperator{\sen}{sen}
+\renewcommand{\sin}{\sen} 
 
+\DeclareMathOperator{\tg}{tg}
+\renewcommand{\tan}{\tg} 
 
 % default value.
 \providecommand\WriteEpigraphs{true}
