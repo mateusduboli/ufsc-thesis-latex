@@ -1,0 +1,3 @@
+[submodule "Imagens"]
+	path = Imagens
+	url = https://github.com/evandrocoan/abntex2-ufsc-imagens.git
