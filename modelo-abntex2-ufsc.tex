@@ -1,5 +1,5 @@
 
-%% Copyright 2012-2016 by abnTeX2 group at http://www.abntex.net.br/ 
+%% Copyright 2012-2016 by abnTeX2 group at http://www.abntex.net.br/
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -10,9 +10,9 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
+%% by Lauro César Araujo. Further information are available on
 %% http://www.abntex.net.br/
 %%
 %% This work consists of the files abntex2-modelo-trabalho-academico.tex,
@@ -22,19 +22,19 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
-% mestrado e trabalhos monograficos em geral) em conformidade com 
+% mestrado e trabalhos monograficos em geral) em conformidade com
 % ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
 % Apresentacao
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 \documentclass[
-10.5pt, % Tamanho da fonte 
+10.5pt, % Tamanho da fonte
 a5paper, % Tamanho do papel
 twoside, % Impressão nos dois lados da folha
 german,
 english,
-brazil, % o último idioma é o principal do documento 
+brazil, % o último idioma é o principal do documento
 %sumario=tradicional,
 %sumario=abnt-6027-2012, %  soh pode ser usado com memoir v3.6k ou superior
 sumario=UFSC,
@@ -44,7 +44,7 @@ section=TITLE  % Título de seções em caixa alta
 
 
 % ---
-% Pacotes básicos 
+% Pacotes básicos
 % ---
 
 
@@ -59,19 +59,19 @@ section=TITLE  % Título de seções em caixa alta
 
 % Altera de sin e tan para sen e tg nas equações
 \DeclareMathOperator{\sen}{sen}
-\renewcommand{\sin}{\sen} 
+\renewcommand{\sin}{\sen}
 
 \DeclareMathOperator{\tg}{tg}
-\renewcommand{\tan}{\tg} 
+\renewcommand{\tan}{\tg}
 
 % default value.
 \providecommand\WriteEpigraphs{true}
 %...
 
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES
-% --- 
+% ---
 
 % ---
 % Configurações do pacote backref
@@ -108,8 +108,8 @@ section=TITLE  % Título de seções em caixa alta
  Programa de Pós--Graduação em Engenharia Elétrica -- PGEEL}
 
 
-% O preambulo deve conter o tipo do trabalho, o objetivo, 
-% o nome da instituição e a área de concentração 
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
 \preambulo{Tese submetida ao Programa de Pós--Graduação em Engenharia Elétrica da Universidade Federal de Santa Catarina para a obtenção do Grau de Doutor em Engenharia Elétrica.}
 % ---
 
@@ -137,11 +137,11 @@ section=TITLE  % Título de seções em caixa alta
 \makeatletter
 \hypersetup{
 	%pagebackref=true,
-	pdftitle={\@title}, 
+	pdftitle={\@title},
 	pdfauthor={Autores},
 	pdfsubject={Resumo do artigo},
 	pdfcreator={LaTeX with abnTeX2},
-	pdfkeywords={abnt}{latex}{UFSC}{abntex2}{tese}, 
+	pdfkeywords={abnt}{latex}{UFSC}{abntex2}{tese},
 	colorlinks=true,       		% false: boxed links; true: colored links
 	linkcolor=linkcolor,          	% color of internal links
 	citecolor=citecolor,        		% color of links to bibliography
@@ -151,17 +151,17 @@ section=TITLE  % Título de seções em caixa alta
 }
 \makeatother
 
-% --- 
+% ---
 
 
 % ---
 % Estilo de capítulos
 %
 %\chapterstyle{default}
-% \chapterstyle{pedersen} 
-%\chapterstyle{lyhne} 
-%\chapterstyle{madsen} 
-% \chapterstyle{veelo} 
+% \chapterstyle{pedersen}
+%\chapterstyle{lyhne}
+%\chapterstyle{madsen}
+% \chapterstyle{veelo}
 %\chapterstyle{companion}
 
 %\chapterstyle{thatcher}
@@ -181,9 +181,9 @@ section=TITLE  % Título de seções em caixa alta
 
 
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
 
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.3cm}
@@ -214,13 +214,13 @@ section=TITLE  % Título de seções em caixa alta
 \begin{document}
 
 % Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+\frenchspacing
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
 
-\includepdf{Capa/FrenteCapaUFSC.pdf}%
+\includepdf{Imagens/FrenteCapaUFSC.pdf}%
 
 \pretextual
 
@@ -242,14 +242,14 @@ section=TITLE  % Título de seções em caixa alta
 % ---
 
 % Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
-% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência.
 % Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
 % com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
 % com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
 % o conteúdo de implementação deste arquivo pelo comando abaixo:
 %
 % \begin{fichacatalografica}
-%    \includepdf{PreTexto/ficha_catalografica.pdf}     
+%    \includepdf{PreTexto/ficha_catalografica.pdf}
 % \end{fichacatalografica}
 
 \include{PreTexto/fichacatalografica}
@@ -302,28 +302,28 @@ section=TITLE  % Título de seções em caixa alta
 \ifthenelse{ \equal{\WriteEpigraphs}{true} }{
 \begin{epigrafe}
 	\vspace*{\fill}
-	
+
 		\begin{flushright}
 			\textit{``Assim como aquele pecado da juventude, este documento te perseguirá pelo resto da vida.''}\\Enio Valmor Kassick
 		\end{flushright}
-		
+
 	\begin{flushright}
 		\textit{``Estupidez trará mais autoconfiança do que o conhecimento e a bravura juntas.''}\\
 		Adriano Ruseler
 	\end{flushright}
 
 	\begin{flushright}
-		\textit{``Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.''}\\	Albert Einstein		
+		\textit{``Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.''}\\	Albert Einstein
 	\end{flushright}
 	\begin{flushright}
-		\textit{``The true sign of intelligence is not knowledge but imagination.''}\\	Albert Einstein		
+		\textit{``The true sign of intelligence is not knowledge but imagination.''}\\	Albert Einstein
 	\end{flushright}
 	\begin{flushright}
-		\textit{``Peace cannot be kept by force; it can only be achieved by understanding.''}\\	Albert Einstein		
+		\textit{``Peace cannot be kept by force; it can only be achieved by understanding.''}\\	Albert Einstein
 	\end{flushright}
 	\begin{flushright}
-		\textit{``Whoever is careless with the truth in small matters cannot be trusted with important matters.''}\\	Albert Einstein		
-	\end{flushright}		
+		\textit{``Whoever is careless with the truth in small matters cannot be trusted with important matters.''}\\	Albert Einstein
+	\end{flushright}
 	\begin{flushright}
 		\textit{``Extraordinary claims require extraordinary evidence''}\\
 		Carl Sagan
@@ -336,19 +336,19 @@ section=TITLE  % Título de seções em caixa alta
 %	\begin{flushright}
 %		\textit{``A verdadeira motivação de um pesquisador está em desenvolver suas próprias idéias seguindo a sua intuição.''}\\
 %		Adriano Ruseler
-%	\end{flushright}	
-	
+%	\end{flushright}
 
-				
+
+
 	\begin{flushright}
 		\textit{``Catholic, which I was until I reached the age of reason.''}\\
 		George Carlin
-	\end{flushright}	
+	\end{flushright}
 	\begin{flushright}
 		\textit{``We made too many wrong mistakes.''}\\
 		Yogi Berra
-	\end{flushright}	
-					
+	\end{flushright}
+
 \end{epigrafe}
 }{
 % do something different..
@@ -383,7 +383,7 @@ section=TITLE  % Título de seções em caixa alta
 % inserir códigos fonte
 % ---
 \pdfbookmark[0]{\lstlistingname}{lol}
-\lstlistoflistings* 
+\lstlistoflistings*
 \cleardoublepage
 % ---
 
@@ -434,7 +434,7 @@ section=TITLE  % Título de seções em caixa alta
 % ----------------------------------------------------------
 
 % ---
-% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% Capitulo com exemplos de comandos inseridos de arquivo externo
 % ---
 \include{Capitulos/01/CH01}
 % ---
@@ -518,15 +518,15 @@ section=TITLE  % Título de seções em caixa alta
 
 	% Imprime uma página indicando o início dos apêndices
 	\partapendices
-	
+
 	\setlength\beforechapskip{50pt}
 	\setlength\midchapskip{20pt}
 	\setlength\afterchapskip{20pt}
-	
+
 	\include{Apendices/A/APA}
 %	\include{Apendices/B/APB}
 %	\include{Apendices/C/APC}
-	
+
 \end{apendicesenv}
 % ---
 
@@ -539,18 +539,18 @@ section=TITLE  % Título de seções em caixa alta
 % Inicia os anexos
 % ---
 \begin{anexosenv}
-	
+
 	% Imprime uma página indicando o início dos anexos
 	\partanexos
 
 	\setlength\beforechapskip{50pt}
 	\setlength\midchapskip{20pt}
 	\setlength\afterchapskip{20pt}
-		
+
 	\include{Anexos/A/ANA}
 %	\include{Anexos/B/ANB}
 %	\include{Anexos/C/ANC}
-	
+
 \end{anexosenv}
 
 %---------------------------------------------------------------------
