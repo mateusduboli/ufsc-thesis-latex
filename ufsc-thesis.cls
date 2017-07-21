@@ -45,9 +45,19 @@
 % Tamanho da fonte padrão do 'ABNTEX'
 %\renewcommand{\normalsize}{\fontsize{10.5pt}{12pt}}
 
+
+% Cria o comando \subtitulo. A norma define que o TITULO deve ser em caixa alta
+% negrito, mas o subtitulo deve ser em caixa baixa.
+\providecommand{\imprimirsubtitulo}{}
+\newcommand{\subtitulo}[1]{\renewcommand{\imprimirsubtitulo}{#1}}
+
+
+
 % Comandos de dados - programa
 \providecommand{\imprimirprograma}{}
 \newcommand{\programa}[1]{\renewcommand{\imprimirprograma}{#1}}
+
+
 
 \newcounter{ufscthesis@assuntos}
 \providecommand{\listaassuntos}{}
@@ -99,7 +109,7 @@
     \ttfamily%
     \begin{minipage}[b][][t]{\textwidth}
       \indent\ufscthesis@inverter{\imprimirautor} \newline%
-      \indent~\imprimirtitulo~:~/ \imprimirautor ; orientador, \imprimirorientador%
+      \indent~\imprimirtitulo~\ifnotempty{\imprimirsubtitulo}{:~\imprimirsubtitulo}/ \imprimirautor ; orientador, \imprimirorientador%
       \ifnotempty{\imprimircoorientador}{~; co-orientador, \imprimircoorientador}.~-~\imprimirlocal~\the\year. \newline%
       \indent~\pageref{LastPage} p. \newline \newline%
       \indent- \imprimirinstituicao, \imprimircentro. \imprimirprograma. \newline \newline%
@@ -114,6 +124,37 @@
   \end{fichacatalografica}
 }
 
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% IMPRESSOES PADROES DE CAPA E FOLHA DE ROSTO SEGUNDO UFSC
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Impressão da Capa
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \ABNTEXchapterfont\large\imprimirautor
+
+    \vfill
+    \begin{center}
+    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo%
+    \ifnotempty{\imprimirsubtitulo}{: \\ \ABNTEXchapterfont\bfseries\large\imprimirsubtitulo}
+    \end{center}
+    \vfill
+    
+    \large\imprimirlocal
+
+    \large\imprimirdata
+    
+    \vspace*{1cm}
+  \end{capa}
+}
+% ---
+
+
+
 % Folha de rosto segundo modelo da Biblioteca Universitária da UFSC
 \renewcommand{\folhaderostocontent}{
   \begin{center}
@@ -122,7 +163,8 @@
     \vspace*{\fill}
     % Título do trabalho em caixa alta e negrito
     \begin{center}
-      \MakeTextUppercase{\ABNTEXchapterfont\bfseries\large\imprimirtitulo}
+      \MakeTextUppercase{\ABNTEXchapterfont\bfseries\large\imprimirtitulo}%
+      \ifnotempty{\imprimirsubtitulo}{: \\ \MakeTextUppercase{\ABNTEXchapterfont\bfseries\large\imprimirsubtitulo}}
     \end{center}
     \vspace*{1cm}
     % Preâmbulo seguido de nomes do orientador e coorientador com recuo
@@ -148,6 +190,8 @@
     \vspace*{1cm}
   \end{center}
 }
+
+
 
 % Comandos auxiliares
 % \newcommand{\showfont}{%
