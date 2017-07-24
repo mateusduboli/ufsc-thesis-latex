@@ -105,13 +105,14 @@
   \setcounter{ufscthesis@indiceficha}{1}
   \begin{fichacatalografica}
   \vspace*{\fill}
+  \begin{center} \sffamily Ficha de identifica\c{c}\~ao da obra elaborada pelo autor atrav\'es do Programa de Gera\c{c}\~ao Autom\'atica da Biblioteca Universit\'aria da UFSC \end{center}
   \fbox{%
     \ttfamily%
-    \begin{minipage}[b][][t]{\textwidth}
-      \indent\ufscthesis@inverter{\imprimirautor} \newline%
-      \indent~\imprimirtitulo~\ifnotempty{\imprimirsubtitulo}{:~\imprimirsubtitulo}/ \imprimirautor ; orientador, \imprimirorientador%
+    \begin{minipage}[b][][t]{\textwidth}\setlength{\parindent}{.5cm}
+      \noindent\ufscthesis@inverter{\imprimirautor} \newline%
+      \indent\imprimirtitulo~\ifnotempty{\imprimirsubtitulo}{:~\imprimirsubtitulo} / \imprimirautor ; orientador, \imprimirorientador%
       \ifnotempty{\imprimircoorientador}{~; co-orientador, \imprimircoorientador}.~-~\imprimirlocal~\the\year. \newline%
-      \indent~\pageref{LastPage} p. \newline \newline%
+      \indent\pageref{LastPage} p. \newline \newline%
       \indent- \imprimirinstituicao, \imprimircentro. \imprimirprograma. \newline \newline%
       \indent Inclui Refer\^{e}ncias \newline \newline%
       \indent \imprimirassuntos
