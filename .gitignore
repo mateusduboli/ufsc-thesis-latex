@@ -38,3 +38,33 @@
 /.gitignore
 /example.pdf
 /tmp
+
+
+# =========================
+# Latex files related
+# =========================
+*.aux
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.brf
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.lol
+*.maf
+*.mtc
+*.mtc1
+*.out
+*.synctex.gz

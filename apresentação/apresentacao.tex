@@ -1,0 +1,909 @@
+\documentclass[serif,pdftex]{beamer}
+
+\newcommand{\figscale}{0.5}
+\newcommand{\plotscale}{0.6}
+\usepackage{epstopdf}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage[latin1]{inputenc}	
+\usepackage{fancybox}
+
+\renewcommand{\tiny}{\fontsize{4}{4}\selectfont}
+
+
+\xdefinecolor{fundo1}{rgb}{1,1,.95}
+\xdefinecolor{fundo2}{rgb}{.95,.95,.82}
+\xdefinecolor{fundo}{rgb}{.98,.98,.95}
+\beamertemplateshadingbackground{fundo1}{fundo2}
+\usecolortheme[rgb={0.15,0.15,0.25}]{structure}
+
+
+\setbeamertemplate{navigation symbols}{}
+\usetheme{Bergen}
+\setbeamertemplate{items}[square]
+\setbeamercolor{item projected}{bg=fundo}
+\setbeamercolor{subitem projected}{bg=fundo}
+\setbeamercolor{subsubitem projected}{bg=fundo}
+
+
+\newcommand{\secA}{Introdução às Redes de Distribuição CC}
+\newcommand{\secB}{Problemática}
+\newcommand{\secC}{Redistribuição das Correntes}
+\newcommand{\secD}{Modelagem da Rede CC e Amortecimento Ativo}
+\newcommand{\secE}{Estruturas de Potência}
+\newcommand{\secF}{Estratégia de Controle}
+\newcommand{\secG}{Resultados Experimentais}
+\newcommand{\secH}{Considerações Finais}
+
+
+
+
+\begin{document}
+
+\begin{frame}
+    \vspace{-5mm}
+		\begin{block}
+				{\includegraphics[scale=1]{ufsc_inep}}
+				{}%{\hfill\includegraphics[scale=0.35]{inep}}
+				\vspace{5mm}
+				\begin{center}
+					\Large \color{structure}{\textbf{Redistribuidor de Correntes para Redes de Distribuição em Corrente Contínua Bipolares}}
+				\end{center}
+    \end{block}
+    \vspace{20mm}
+    \begin{block}
+				{\textcolor{fundo}{Mestrando:}}
+				{\color{structure}{Jackson Lago, Eng.}}
+    \end{block}
+    \vspace{-3mm}
+    \begin{block}
+				{\textcolor{fundo}{Orientador:}}
+				{\color{structure}{Marcelo Lobo Heldwein, Dr. Sc.}}
+    \end{block}
+\end{frame}
+
+
+\beamersetuncovermixins{\opaqueness<0-0>{60}}{\opaqueness<1->{60}}
+\begin{frame}{Sumário}
+\begin{enumerate}
+	\item<1-1> \secA
+	\item<2-2> \secB
+	\item<3-3> \secC
+	\item<4-4> \secD
+	\item<5-5> \secE
+	\item<6-6> \secF
+	\item<7-7> \secG
+	\item<8-8> \secH
+\end{enumerate}
+\end{frame}
+
+
+
+
+\section{Introdução às Redes de Distribuição CC}
+	
+\begin{frame}{Introdução às Redes de Distribuição CC}
+\begin{itemize}
+	   \item<1-1> A adoção de sistemas de transmissão e distribuição em CA deve--se ao transformador.
+	   \item<2-2> A crescente necessidade de acomodar geração distribuída nas redes de distribuição resultou no surgimento das microredes.
+	   \item<3-3> Distribuição CC parece vantajosa para um cenário no qual as redes possuem alto grau de inserção de geração e armazenamento distribuídos e com cargas alimentadas predominantemente em corrente contínua.
+	   \item<4-4> Microredes em CC possuem controle simplificado.
+	   \item<5-5> Maior capacidade de transferência de potência.
+	   \item<6-6> Principal desvantagem em CC é a maior dificuldade na interrupção das correntes.
+	\end{itemize}
+
+	
+\end{frame}
+
+\beamersetuncovermixins{\opaqueness<0-0>{30}}{\opaqueness<1->{30}}
+\begin{frame}{Sumário}
+\begin{enumerate}
+	\item<0-0> \secA
+	\item<1-1> \secB
+	\item<0-0> \secC
+	\item<0-0> \secD
+	\item<0-0> \secE
+	\item<0-0> \secF
+	\item<0-0> \secG
+	\item<0-0> \secH
+\end{enumerate}
+\end{frame}	
+
+\section{Problemática}
+\begin{frame}{Problemática}\framesubtitle{Configuração da Rede de Distribuição}
+    \vspace{10mm}
+    \begin{block}
+				{\textcolor{fundo}{\small Configuração da  rede de distribuição [2]}}
+				{}
+    \end{block}
+    \vspace{-25mm}\includegraphics[scale=0.6]{figuras/configuracao_rede}
+    
+    %\vspace{5mm}
+    \begin{block}<2->
+				{\textcolor{fundo}{ \small Conexão das cargas à rede}}
+				{}
+    \end{block}
+    \vspace{-15mm}
+    \begin{block}<2->
+				{}
+				{\includegraphics[scale=0.6]{figuras/cargas}}
+    \end{block}
+    
+		\begin{block}<1->
+		{ \tiny \textcolor{fundo} [2] HELDWEIN, M. L.}
+		{\tiny Microredes em corrente contínua: qualidade de fornecimento e eficiência em futura \\ redes de distribuição. Florianópolis, Brasil, 2010. Monografia entregue ao concurso \\ público 23080.012809/2009-83 da Universidade Federal de Santa Catarina.\\}
+		\end{block}
+\end{frame}
+
+\section{Problemática}
+\begin{frame}{Problemática}\framesubtitle{Retificador de Interface Operando com Cargas Desbalanceadas}
+    \vspace{10mm}
+    \begin{block}
+				{\textcolor{fundo}{\small Retificador 12 pulsos}}
+				{\hspace{55mm}\small $P_{gd} = P_{gp} - P_{gn}$\\ 
+         \hspace{55mm}\small $P_{go} = P_{gp} + P_{gn}$}
+    \end{block}
+    \vspace{-17mm}\includegraphics[scale=\figscale]{figuras/retificador_12p}
+
+    \vspace{8mm}
+    \begin{block}<2->
+    	{\textcolor{fundo}{\small $\alpha = \dfrac{P_{gd}}{P_{go}}$}}
+    	{}
+    \end{block}    
+    
+    \begin{block}<3->
+    	{\textcolor{fundo}{\small $\tilde{I}_{D} = I_{D}\dfrac{V_{pn}}{P_{go}}$}}
+    	{}
+    \end{block} 
+    
+    \vspace{-27mm}
+   
+    \begin{block}<2->
+    	{}
+    	{\hspace{20mm} \includegraphics[scale=\plotscale]{figuras/thdi_12p}
+    	 %\hspace{5mm}\includegraphics[scale=\plotscale]{figuras/IDpar_12p}
+    	}
+    \end{block}
+    \\ \vspace{-3mm} 
+    \begin{block}<3->
+    	{}
+    	{ \hspace{19mm}\includegraphics[scale=\plotscale]{figuras/IDpar_12p}
+    	}
+    \end{block}
+\end{frame}
+
+\section{Problemática}
+\begin{frame}{Problemática}\framesubtitle{Retificador de Interface Operando com Cargas Desbalanceadas}
+    \vspace{15mm}
+    \begin{block}
+				{\textcolor{fundo}{\small Retificador NPC}}
+				{}
+    \end{block}
+    \vspace{-23mm}\includegraphics[scale=\figscale]{figuras/retificador_npc}
+
+    \vspace{7mm}
+    \begin{block}<2->
+    	{\textcolor{fundo}{\small $\alpha = \dfrac{P_{gd}}{P_{go}}$}}
+    	{}
+    \end{block}    
+    
+    \begin{block}<2->
+    	{\textcolor{fundo}{\small $M = \dfrac{2\hat{V}}{V_{pn}}$}}
+    	{}
+    \end{block} 
+    
+    \vspace{-27mm}
+   
+    \begin{block}<2->
+    	{}
+    	{\hspace{-2mm}\includegraphics[scale=.57]{figuras/a_max_slide}
+    	 %\hspace{5mm}\includegraphics[scale=\plotscale]{figuras/IDpar_12p}
+    	}
+    \end{block}
+    \vspace{-36.1mm} 
+    \begin{block}<3->
+    	{}
+    	{\hspace{28mm}\includegraphics[scale=.57]{figuras/IS_npc2}
+    	}
+    \end{block}
+\end{frame}
+
+
+\section{Problemática}
+\begin{frame}{Problemática}\framesubtitle{Retificador de Interface Operando com Cargas Desbalanceadas}
+    \vspace{15mm}
+    \begin{block}
+				{\textcolor{fundo}{\small Retificador 2 níveis}}
+				{}
+    \end{block}
+    \vspace{-19mm}\includegraphics[scale=\figscale]{figuras/rec2n}
+
+    \vspace{10mm}
+    \begin{block}<2->
+    	{\textcolor{fundo}{\small $P_{gd}= P_{gp} - P_{gn}$}}
+    	{}
+    \end{block}    
+    
+    
+    \vspace{-12mm}
+   
+    \begin{block}<2->
+    	{}
+    	{\hspace{22mm}\includegraphics[scale=\plotscale]{figuras/IS_2n}
+    	 %\hspace{5mm}\includegraphics[scale=\plotscale]{figuras/IDpar_12p}
+    	}
+    \end{block}
+\end{frame}
+
+\section{Problemática}
+\begin{frame}{Problemática}\framesubtitle{Perdas nos Alimentadores}
+    \vspace{15mm}
+    \begin{block}
+				{\textcolor{fundo}{\small Modelo da rede em regime permanente}}
+				{\ \\ \small \hspace{36mm} $P_{al}=R\left[ I_{gp}^2 + I_{gn}^2 +  \left(I_{gp}+I_{gn}\right)^2  \right]$}
+    \end{block}
+    \vspace{-17mm}\includegraphics[scale=\figscale]{figuras/perdas_alimentadors_slide}
+
+    \vspace{10mm}
+    \begin{block}<2->
+    	{\textcolor{fundo}{\small $\tilde{P}_{al}= P_{al} \dfrac{V_{pn}^2}{2 R P_{go}^2 }$}}
+    	{}
+    \end{block}    
+    
+    
+    \vspace{-15mm}
+   
+    \begin{block}<2->
+    	{}
+    	{\hspace{22mm}\includegraphics[scale=\plotscale]{figuras/Pal}
+    	 %\hspace{5mm}\includegraphics[scale=\plotscale]{figuras/IDpar_12p}
+    	}
+    \end{block}
+\end{frame}
+
+
+\beamersetuncovermixins{\opaqueness<0-0>{30}}{\opaqueness<1->{30}}
+\begin{frame}{Sumário}
+\begin{enumerate}
+	\item<0-0> \secA
+	\item<0-0> \secB
+	\item<1-1> \secC
+	\item<0-0> \secD
+	\item<0-0> \secE
+	\item<0-0> \secF
+	\item<0-0> \secG
+	\item<0-0> \secH
+\end{enumerate}
+\end{frame}	
+
+
+
+
+
+
+
+
+\section{Redistribuição das Correntes}
+\begin{frame}{Redistribuição das Correntes}\framesubtitle{Rede de Distribuição}
+\vspace{10mm}
+    \begin{block}
+				{\textcolor{fundo}{\small Rede de distribuição}}
+				{}
+    \end{block}
+    \vspace{-25mm}\includegraphics[scale=.65]{figuras/configuracao_rede}
+\end{frame}
+
+\begin{frame}{Redistribuição das Correntes}\framesubtitle{Rede de Distribuição com Redistribuidores de Correntes}
+\vspace{10mm}
+    \begin{block}
+				{\textcolor{fundo}{\small Rede de distribuição}}
+				{}
+    \end{block}
+    \vspace{-25mm}\hspace{0.2mm}\includegraphics[scale=.65]{figuras/configuracao_rede_redistribuidor}
+\end{frame}
+
+\begin{frame}{Redistribuição das Correntes}\framesubtitle{Redistribuidores de Correntes}
+\vspace{10mm}
+    \begin{block}
+				{\textcolor{fundo}{\small Redistribuidor de correntes}}
+				{}
+    \end{block}
+    \vspace{-20mm}\hspace{0.2mm}\includegraphics[scale=.55]{figuras/redistribuidor_principio}
+    \pause\\ \hspace{25mm}\vspace{15mm}
+    $i_{c0}=i_{l0}$
+\end{frame}
+
+\begin{frame}{Redistribuição das Correntes}\framesubtitle{Redistribuidores de Correntes}
+\vspace{10mm}
+    \begin{block}
+				{\textcolor{fundo}{\small Redistribuidor de correntes}}
+				{}
+    \end{block}
+    \vspace{-20mm}\hspace{0.2mm}\includegraphics[scale=.55]{figuras/redistribuidor_principio_2}
+     \\ \hspace{25mm}\vspace{15mm}
+    $i_{c0}=i_{l0}$
+\end{frame}
+
+\begin{frame}{Redistribuição das Correntes}\framesubtitle{Decomposição em componentes de modo comum e diferencial}
+\vspace{10mm}
+    \includegraphics[scale=.65]{figuras/transformacao}
+\end{frame}
+
+\begin{frame}[plain]{Redistribuição das Correntes}\framesubtitle{Potências processadas pelo redistribuidor}
+\vspace{10mm}
+    \hspace{-25mm}\includegraphics[scale=.6]{figuras/redistribuidor_potencia}
+    \\ 
+    \pause\vspace{-32mm}\hspace{33mm}\includegraphics[scale=.6]{figuras/redistribuidor_potencia_vo}
+\end{frame}
+
+
+\begin{frame}{Redistribuição das Correntes}\framesubtitle{Funções Adicionais}
+\includegraphics[scale=.6]{figuras/falta}
+\end{frame}
+
+\begin{frame}{Redistribuição das Correntes}\framesubtitle{Funções Adicionais}
+\vspace{2.5mm}
+    \includegraphics[scale=.6]{figuras/potencia_falta2}
+\end{frame}
+
+\begin{frame}{Redistribuição das Correntes}\framesubtitle{Funções Adicionais}
+\vspace{9mm}
+    \includegraphics[scale=.6]{figuras/potencia_falta}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\beamersetuncovermixins{\opaqueness<0-0>{30}}{\opaqueness<1->{30}}
+\begin{frame}{Sumário}
+\begin{enumerate}
+	\item<0-0> \secA
+	\item<0-0> \secB
+	\item<0-0> \secC
+	\item<1-1> \secD
+	\item<0-0> \secE
+	\item<0-0> \secF
+	\item<0-0> \secG
+	\item<0-0> \secH
+\end{enumerate}
+\end{frame}	
+
+\section{Modelagem da Rede CC e Amortecimento Ativo}
+\begin{frame}{Modelagem da Rede CC}
+\centering \vspace{-21.5mm}\includegraphics[scale=0.65]{figuras/rede_slide}
+
+\ 
+\end{frame}
+
+\begin{frame}{Modelagem da Rede CC}
+\centering\includegraphics[scale=0.65]{figuras/rede_slide_2}
+
+\hspace{12mm}\includegraphics[scale=0.65]{figuras/mod_retificador_2}
+\end{frame}
+
+\begin{frame}{Modelagem da Rede CC}
+\centering\vspace{-0.5mm}\includegraphics[scale=0.65]{figuras/rede_slide_3}
+
+\hspace{12mm}\includegraphics[scale=0.65]{figuras/mod_retificador}
+\end{frame}
+
+
+
+\begin{frame}{Modelagem da Rede CC}
+\centering\includegraphics[scale=0.5]{figuras/mod_rede_slide}\\
+\pause\centering\includegraphics[scale=\plotscale]{figuras/zo_p}
+
+\
+\end{frame}
+
+
+\begin{frame}{Modelagem da Rede CC}
+\centering\includegraphics[scale=0.5]{figuras/mod_rede_slide}\\
+\pause
+\begin{block}
+   {\small\color{fundo} $\left[
+	\begin{array}{cc}
+		x_{cm}\\
+		x_{dm}
+	\end{array}
+	\right]=
+	\left[
+	\begin{array}{cc}
+		1 & 1\\ 
+		1 & -1
+	\end{array}
+	\right]
+	\left[
+	\begin{array}{c}
+		x_p\\ 
+		x_n
+	\end{array}
+	\right] $ }
+   {}
+\end{block}\vspace{-15mm}\centering\includegraphics[scale=0.5]{figuras/mod_rede_dc_slide}
+
+\
+\end{frame}
+
+
+
+
+\begin{frame}{Modelagem da Rede CC}
+\centering\includegraphics[scale=0.5]{figuras/mod_rede_dc_slide}\\
+\pause\vspace{3mm}\centering\includegraphics[scale=\plotscale]{figuras/zo_dc}
+
+\
+\end{frame}
+
+
+
+\begin{frame}{Amortecimento Ativo}
+\centering\includegraphics[scale=0.6]{figuras/amortecimento_ativo}\\
+\pause\vspace{8mm}\centering\includegraphics[scale=\plotscale]{figuras/cddm_lr_slide}
+
+\
+\end{frame}
+
+
+
+\begin{frame}[plain]{Amortecimento Ativo}
+\hspace{-28mm}\includegraphics[scale=.65]{figuras/zocmad}
+\hspace{4mm}\includegraphics[scale=.65]{figuras/zodmad}
+
+\
+\end{frame}
+
+
+
+
+
+\beamersetuncovermixins{\opaqueness<0-0>{30}}{\opaqueness<1->{30}}
+\begin{frame}{Sumário}
+\begin{enumerate}
+	\item<0-0> \secA
+	\item<0-0> \secB
+	\item<0-0> \secC
+	\item<0-0> \secD
+	\item<1-1> \secE
+	\item<0-0> \secF
+	\item<0-0> \secG
+	\item<0-0> \secH
+\end{enumerate}
+\end{frame}	
+
+
+
+
+
+
+
+\section{Estruturas de Potência}
+\begin{frame}{Estruturas de Potência}\framesubtitle{Funções do Redistribuidor}
+	\begin{enumerate}
+			\item<1-1,5> Redistribuição de correntes ($i_{ccm}$ em CC e baixas frequências);
+			\item<2-2> Interface com sistema armazenamento ($i_{cdm}$ em CC e baixas frequências);
+			\item<3-3,5> Amortecimento Ativo ($i_{ccm}$ e $i_{cdm}$ em  altas frequências);
+			\item<4-4> Manter o barramento bipolar na falta de um ou de todos os alimentadores ($i_{ccm}$ e $i_{cdm}$ em CC baixas frequências);
+	\end{enumerate}
+	
+\end{frame}
+
+
+
+\section{Estruturas de Potência}
+\begin{frame}{Estruturas de Potência}
+  \includegraphics[scale=0.6]{figuras/e1_slide}\\
+	\begin{itemize}
+			\item<2-2> Simplicidade e número reduzido de componentes;
+			\item<3-3> Capacidade de implementar apenas a função de redistribuição das correntes;
+			\item<4-4> Capacidade de manter o barramento CC em caso de falta apenas parcialmente (perda de apenas um alimentador);
+			\item<5-5> Correntes de entrada pulsada e necessidade de filtros.
+	\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}{Estruturas de Potência}
+  \includegraphics[scale=0.6]{figuras/e2_slide}\\
+	\begin{itemize}
+			\item<2-2> Possibilita implementação de todas as funções citadas;
+			\item<3-3> Correntes de entrada com baixa ondulação;
+			\item<4-4> Ondulações das correntes são assimétricas;
+			\item<5-5> Estrutura elevadora de tensão.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Estruturas de Potência}
+  \includegraphics[scale=0.6]{figuras/e3_slide}\\
+	\begin{itemize}
+			\item<2-2> Possibilita implementação de todas as funções citadas;
+			\item<3-3> Correntes de entrada com baixa ondulação;
+			\item<4-4> Estrutura elevadora de tensão.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Estruturas de Potência}
+  \includegraphics[scale=0.6]{figuras/e5_slide}\\
+	\begin{itemize}
+			\item<2-2> Possibilita implementação de todas as funções citadas;
+			\item<3-3> Correntes de entrada pulsadas e necessidade de filtros;
+			\item<4-4> Estrutura abaixadora de tensão.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Estruturas de Potência}
+  \includegraphics[scale=0.6]{figuras/e4_slide}\\
+	\begin{itemize}
+			\item<2-2> Possibilita implementação de todas as funções citadas;
+			\item<3-3> Correntes de entrada pulsadas e necessidade de filtros;
+			\item<4-4> Estrutura abaixadora de tensão.
+			\item<5-5> Barramento de saída conectado ao neutro.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Estruturas de Potência}\framesubtitle{Estrutura Escolhida}
+  \includegraphics[scale=0.6]{figuras/e3_slide}\\
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\beamersetuncovermixins{\opaqueness<0-0>{30}}{\opaqueness<1->{30}}
+\begin{frame}{Sumário}
+\begin{enumerate}
+	\item<0-0> \secA
+	\item<0-0> \secB
+	\item<0-0> \secC
+	\item<0-0> \secD
+	\item<0-0> \secE
+	\item<1-1> \secF
+	\item<0-0> \secG
+	\item<0-0> \secH
+\end{enumerate}
+\end{frame}	
+
+\section{Estratégia de Controle}
+
+\begin{frame}[plain	]{Estratégia de Controle}
+\hspace{-20mm}\includegraphics[scale=0.55]{figuras/controle_geral}
+\end{frame}
+
+\begin{frame}[plain	]{Estratégia de Controle}
+\hspace{-20mm}\includegraphics[scale=0.55]{figuras/controle_geral_2}
+\end{frame}
+
+\begin{frame}[plain	]{Estratégia de Controle}
+\hspace{-20mm}\includegraphics[scale=0.55]{figuras/controle_geral_3}
+\end{frame}
+
+\begin{frame}[plain	]{Estratégia de Controle}
+\hspace{-20mm}\includegraphics[scale=0.55]{figuras/controle_geral_4}
+\end{frame}
+
+\begin{frame}[plain	]{Estratégia de Controle}
+\hspace{-20mm}\includegraphics[scale=0.55]{figuras/controle_geral_5}
+\end{frame}
+
+\beamersetuncovermixins{\opaqueness<0-0>{30}}{\opaqueness<1->{30}}
+\begin{frame}{Sumário}
+\begin{enumerate}
+	\item<0-0> \secA
+	\item<0-0> \secB
+	\item<0-0> \secC
+	\item<0-0> \secD
+	\item<0-0> \secE
+	\item<0-0> \secF
+	\item<1-1> \secG
+	\item<0-0> \secH
+\end{enumerate}
+\end{frame}	
+
+\section{Resultados Experimentais}
+\begin{frame}{Resultados Experimentais}\framesubtitle{\emph{Setup} de Testes}	
+    \begin{block}
+        {\small\color{fundo}\begin{align*}
+             &L_g=100 \ \mu \text{H} \\
+             &R_g=70 \ \text{m}\Omega \\
+             &L_c=2 \ \text{mH} \\
+             &C_c=220 \ \mu \text{F} \\
+             &C_o=1,65 \ \text{mF} \\
+             &R_l=32 \ \Omega \\
+             &V_{p0,nom}=320 \ \text{V} \\
+             &V_{0n,nom}=320 \ \text{V} \\
+             &V_{o,nom}=900 \ \text{V} \\
+         \end{align*}}
+         {}
+    \end{block}
+		\vspace{-60mm}\includegraphics[scale=\figscale]{figuras/prototipo_teste_slide}
+\end{frame}
+
+\begin{frame}{Resultados Experimentais}\framesubtitle{Resposta Natural da Rede}
+    \vspace{10mm}
+    \begin{block}
+        {\hspace{-4mm} \includegraphics[scale=0.6]{figuras/teste_2}}{}
+    \end{block}
+    \vspace{-30mm}
+		\hspace{23mm}\includegraphics[scale=0.5]{figuras/iv_Sred_Sad}
+		\pause
+		\vspace{10mm}
+    \begin{block}
+        {\small \color{fundo}{Detalhe da oscilação}}
+        {}
+    \end{block}
+    \vspace{-20mm}
+		\hspace{23mm}\includegraphics[scale=0.5]{figuras/iv_Sred_Sad_zoom}
+\end{frame}
+
+\begin{frame}[plain]{Resultados Experimentais}\framesubtitle{Resposta da Rede com o Redistribuidor}	
+		\vspace{3mm}
+%    \begin{block}
+%        {\hspace{-4mm} \includegraphics{figuras/teste_2}}{}
+%    \end{block}
+%    \vspace{-30mm}
+    \hspace{9mm}\includegraphics[scale=0.6]{figuras/teste_1}\\
+		\hspace{-32mm}\includegraphics[scale=0.5]{figuras/iv_Cred_Sad_zoom_slide}
+		\pause\hspace{3mm}\includegraphics[scale=0.5]{figuras/iv_Cred_Cad_zoom_slide}
+\end{frame}
+
+\beamersetuncovermixins{\opaqueness<0-0>{30}}{\opaqueness<1->{30}}
+\begin{frame}{Sumário}
+\begin{enumerate}
+	\item<0-0> \secA
+	\item<0-0> \secB
+	\item<0-0> \secC
+	\item<0-0> \secD
+	\item<0-0> \secE
+	\item<0-0> \secF
+	\item<0-0> \secG
+	\item<1-1> \secH
+\end{enumerate}
+\end{frame}	
+
+\section{Considerações Finais}
+\begin{frame}{Considerações Finais}
+	\begin{itemize}
+		\item<1-1> O trabalho apresentou um dispositivo capaz de balancear as correntes em um barramento bipolar;
+		\item<2-2> Foi demonstrado como este dispositivo pode agregar funções auxiliares sem comprometer a função principal;
+		\item<3-3> A utilização da decomposição das variáveis do sistema em componentes de modo comum e diferencial se mostrou muito útil tanto na modelagem da rede como na estratégia de controle adotada;
+		\item<4-4> O resultados experimentais validaram os modelos teóricos.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Sugestões para Trabalhos Futuros}
+	\begin{itemize}
+		\item<1-1> Caracterização e modelagem das cargas típicas de uma rede de distribuição em corrente contínua, e como estas afetam a estabilidade da rede;
+		\item<2-2> Modelagem de fontes de geração distribuída conectadas à rede CC;
+		\item<3-3> Expansão do estudo para redes em anel, alimentadas por mais de um retificador;
+		\item<4-4> Estudo de procedimentos e funções para operação em modo ilhado;
+		\item<5-5> Estudo da estabilidade global da rede;
+		\item<6-6> Adaptação da técnica de amortecimento ativo para conversores comutados em baixas frequências.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Obrigado!}
+\end{frame}
+
+
+
+%
+%\usetheme{Bergen}
+%%\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+%\begin{document}
+%\title{Beamer Class Bergen}  
+%\author{Jackson Lago\\Orientador: Marcelo Lobo Heldwein, Dr. Sc.}
+%%\date{\today} 
+%
+%\begin{frame}
+%\titlepage
+%\end{frame}
+%
+%
+%
+%
+%\begin{frame}\frametitle{Sumário}
+%\tableofcontents
+%\end{frame} 
+%
+%
+%\section{Section no.1} 
+%\begin{frame}\frametitle{Title} 
+%Each frame should have a title.
+%\end{frame}
+%\subsection{Subsection no.1.1  }
+%\begin{frame} 
+%Without title somethink is missing. 
+%\end{frame}
+%
+%
+%\section{Section no. 2} 
+%\subsection{Lists I}
+%\begin{frame}\frametitle{unnumbered lists}
+%\temporal<4>{before}{on}{after}
+%\begin{itemize}
+%\item Introduction to  \LaTeX  
+%\item Course 2 
+%\item Termpapers and presentations with \LaTeX 
+%\item Beamer class
+%\end{itemize} 
+%\end{frame}
+%
+%\begin{frame}\frametitle{lists with pause}
+%\begin{itemize}
+%\item Introduction to  \LaTeX \pause 
+%\item Course 2 \pause 
+%\item Termpapers and presentations with \LaTeX \pause 
+%\item Beamer class
+%\end{itemize} 
+%\end{frame}
+%
+%\subsection{Lists II}
+%\begin{frame}\frametitle{numbered lists}
+%\begin{enumerate}
+%\item Introduction to  \LaTeX  
+%\item Course 2 
+%\item Termpapers and presentations with \LaTeX 
+%\item Beamer class
+%\end{enumerate}
+%\end{frame}
+%
+%\begin{frame}\frametitle{numbered lists with pause}
+%\begin{enumerate}
+%\item Introduction to  \LaTeX \pause 
+%\item Course 2 \pause 
+%\item Termpapers and presentations with \LaTeX \pause 
+%\item Beamer class
+%\end{enumerate}
+%\end{frame}
+%
+%\section{Section no.3} 
+%\subsection{Tables}
+%\begin{frame}\frametitle{Tables}
+%\begin{tabular}{|c|c|c|}
+%\hline
+%\textbf{Date} & \textbf{Instructor} & \textbf{Title} \\
+%\hline
+%WS 04/05 & Sascha Frank & First steps with  \LaTeX  \\
+%\hline
+%SS 05 & Sascha Frank & \LaTeX \ Course serial \\
+%\hline
+%\end{tabular}
+%\end{frame}
+%
+%
+%\begin{frame}\frametitle{Tables with pause}
+%\begin{tabular}{c c c}
+%A & B & C \\ 
+%\pause 
+%1 & 2 & 3 \\  
+%\pause 
+%A & B & C \\ 
+%\end{tabular} 
+%\end{frame}
+%
+%
+%\section{Section no. 4}
+%\subsection{blocs}
+%
+%\begin{frame}\frametitle{blocs}
+%
+%\begin{block}{title of the bloc}
+%\includegraphics[scale=\figscale]{fig2} 
+%\end{block}
+%
+%\begin{exampleblock}{title of the bloc}
+%\includegraphics[scale=\figscale]{fig2} 
+%\end{exampleblock}
+%
+%
+%\begin{alertblock}{title of the bloc}
+%bloc text
+%\end{alertblock}
+%\end{frame}
+%
+%\section{Section no. 5}
+%\subsection{split screen}
+%
+%\begin{frame}\frametitle{splitting screen}
+%\begin{columns}
+%\begin{column}{4cm}
+%\begin{itemize}
+%\item Beamer 
+%\item Beamer Class 
+%\item Beamer Class Latex 
+%\end{itemize}
+%\end{column}
+%\begin{column}{5cm}
+%\begin{tabular}{|c|c|}
+%\hline
+%\textbf{Instructor} & \textbf{Title} \\
+%\hline
+%Sascha Frank &  Course 1 \\
+%\hline
+%Sascha Frank &  Course serial  \\
+%\hline
+%\end{tabular}
+%\end{column}
+%\end{columns}
+%\end{frame}
+%
+%\subsection{Pictures} 
+%\begin{frame}\frametitle{pictures in latex beamer class}
+%\begin{figure}
+%\includegraphics[scale=0.5]{PIC1} 
+%\caption{show an example picture}
+%\end{figure}
+%\end{frame}
+%
+%\subsection{joining picture and lists} 
+%
+%\begin{frame}
+%\frametitle{pictures and lists in beamer class}
+%\begin{columns}
+%\begin{column}{4cm}
+%\begin{itemize}
+%\item<1-2> subject 1
+%\item<3-> subject 2
+%\item<5-> subject 3
+%\end{itemize}
+%\vspace{3cm} 
+%\end{column}
+%\begin{column}{5cm}
+%\begin{overprint}
+%\includegraphics<1-3>[scale=\figscale]{fig1}
+%\includegraphics<3>[scale=\figscale]{fig2}
+%\includegraphics<4>[scale=\figscale]{fig2}
+%\end{overprint}
+%\end{column}
+%\end{columns}
+%\end{frame}
+%
+%
+%\subsection{pictures which need more space} 
+%\begin{frame}[plain]
+%\frametitle{plain, or a way to get more space}
+%\begin{figure}
+%\centering
+%\includegraphics[scale=\figscale]{fig2} 
+%\caption{show an example picture}
+%\end{figure}
+%\end{frame}
+
+
+
+\end{document}
