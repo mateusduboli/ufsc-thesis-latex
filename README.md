@@ -3,6 +3,10 @@ ufsc-thesis-latex
 
 Padrão para o formato de teses na UFSC, utilizando o pacote abnTeX2 como base.
 
+## Projeto Arquivado
+
+A UFSC possui um template próprio mantido no github da instituição em https://github.com/UFSC/ufscthesisx.
+
 #### Normas da UFSC para trabalhos acadêmicos
 [Geral](http://portalbu.ufsc.br/normalizacao-de-trabalhos-2/)
 
