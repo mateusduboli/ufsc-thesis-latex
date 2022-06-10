@@ -1,0 +1,13 @@
+
+% ---
+% Conclusão (outro exemplo de capítulo sem numeração e presente no sumário)
+% ---
+\cleardoublepage
+\phantomsection %The \phantomsection command is needed to create a link to a place in the document that is not a figure, equation, table, section, subsection, chapter, etc.
+\addcontentsline{toc}{chapter}{\texorpdfstring{\MakeTextUppercase{Conclusão}}{Conclusão}}
+
+\chapter*[Conclusão]{Conclusão}
+%\addcontentsline{toc}{chapter}{Conclusão}
+% ---
+
+\lipsum[31-33]

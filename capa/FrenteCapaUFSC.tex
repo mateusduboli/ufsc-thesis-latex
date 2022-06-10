@@ -1,0 +1,73 @@
+
+
+\documentclass[
+10.5pt, % Tamanho da fonte 
+a5paper, % Tamanho do papel
+twoside, % Impressão nos dois lados da folha
+german,
+english,
+brazil, % o último idioma é o principal do documento 
+%sumario=tradicional,
+%sumario=abnt-6027-2012, %  soh pode ser usado com memoir v3.6k ou superior
+sumario=UFSC,
+chapter=TITLE, % Título de capítulos em caixa alta
+section=TITLE  % Título de seções em caixa alta
+]{ufsc-capa}
+
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Modelo Canônico de TCC, Monografia,  Dissertação, Tese ou Relatório de Pós--Doutorado da UFSC com \abnTeX}
+\autor{Nome do Autor}
+\local{Florianópolis, Santa Catarina -- Brasil}
+%\local{Florianópolis}
+\data{\today}
+\orientador{Prof. Dr. Nome do Orientador}
+\coorientador{Prof. Dr. Nome do Coorientador}
+\instituicao{%
+	Universidade Federal de Santa Catarina -- UFSC
+	\par
+	Departamento de Engenharia Elétrica e Eletrônica -- EEL
+	\par
+	Programa de Pós--Graduação em Engenharia Elétrica -- PGEEL}
+
+
+
+
+%\tipotrabalho{Trabalho de Conclusão de Curso}
+%\definecolor{corcapatrabalho}{RGB}{255,0,0} % red TCC
+
+%\tipotrabalho{Monografia de pós--graduação}
+%\definecolor{corcapatrabalho}{RGB}{254,227,0} % yellow Monografia
+
+%\tipotrabalho{Dissertação de Mestrado}
+%\definecolor{corcapatrabalho}{RGB}{0,146,6} % green Dissertação
+
+\tipotrabalho{Tese de Doutorado}
+\definecolor{corcapatrabalho}{RGB}{0,56,147} % blue Tese
+
+
+%\tipotrabalho{Relatório de Pós--Doutorado}
+%\definecolor{corcapatrabalho}{RGB}{114,112,111} % gray PosDoutorado
+
+
+
+\begin{document}%
+%	\imprimircapaUFSC % Imprime capa UFSC
+
+
+% Impressão da Capa UFSC
+\begin{EnvCapaUFSC}%    
+	\vspace*{5cm}		
+	\parbox{307pt}{\center\ArialTreze \MakeUppercase{\imprimirtitulo}}	
+	\vfill	
+	\vspace*{3cm}				
+	\ArialCatorze\imprimirautor			
+	\vfill
+	\vspace*{5.8cm} % Precisa ser ajustado dependendo do tamanho do titulo
+\end{EnvCapaUFSC}
+
+
+
+\end{document}	
